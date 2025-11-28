@@ -1,0 +1,16 @@
+django-admin startproject DemoDomainTest
+cd DemoDomainTest
+python manage.py startapp mytechapp
+
+
+
+
+
+
+
+
+
+
+
+
+
