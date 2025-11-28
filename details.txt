@@ -4,13 +4,24 @@ python manage.py startapp mytechapp
 
 
 
+pip install -r requirements.txt
+
+
+gunicorn DemoDomainTestProject.wsgi:application
+
+zip -r templates.zip templates
 
 
 
 
+python manage.py runserver
 
 
 
+python manage.py makemigrations
+
+
+python manage.py migrate
 
 
 
