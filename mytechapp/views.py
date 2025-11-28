@@ -1,4 +1,4 @@
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Hello from DemoDomainTest - mytechapp is working!")
+    return HttpResponse("Hello from DemoDomainTest - mytechapp is working! - HandMadeProjects.in is live")
