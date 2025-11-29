@@ -1,0 +1,201 @@
+devid,name,role,experience,linkedin_url,github_url,photo_base64,metadata,timestamp
+1,Atharva Pawar,Founder & CEO,Founder of HandMadeProjects (3.6 Years : from 2022 to current),https://www.linkedin.com/in/atharva-pawar456,https://github.com/AtharvaPawar456,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/AtharvaPawar.jpg,"<div class="" text-gray-800 font-sans bg-white"">
+  <p class=""mt-2"">Hardware and Software Developer</p>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">Projects</h2>
+  <ol class=""list-decimal pl-4 mt-2 space-y-1 text-gray-800"">
+    <li>DIY PLC</li>
+    <li>Car Robot Cable Fault Detection</li>
+    <li>H-Bridge DC MOTOR CONTROLLER</li>
+    <li>Smart Plant Watering System-ckt</li>
+    <li>Motor Magnetic Synchronization</li>
+    <li>FloodSense: Mumbai Fload Detection System</li>
+    <li>HeartSense</li>
+    <li>Smart Gardening System</li>
+    <li>Smart Apron Project</li>
+    <li>MPPT : Maximum Power Point Tracking</li>
+    <li>WeatherStation</li>
+    <li>Drug Interaction Checker System</li>
+    <li>Grain Levelizer Robot</li>
+    <li>DIY Dosa Maker</li>
+    <li>Automatic 3 Phase Changer</li>
+    <li>DIY_PLC_MotorProtectionSystem</li>
+    <li>ATS : Automatic Transfer Switch</li>
+    <li>Underground_Cable_Fault_Detection</li>
+    <li>Hand Gesture Bike BackLight Control System</li>
+    <li>Induction Motor Protection System</li>
+    <li>DIY BMS : Battery Protection System</li>
+    <li>Dual Axis Solar Panel Tracker System</li>
+    <li>Hybrid Power Generation</li>
+    <li>Hybrid Power Generation Monitoring System</li>
+    <li>Power Factor Improvisor</li>
+    <li>3 Phase : Power Factor Improvisor</li>
+    <li>Inducation Motor Protection System</li>
+  </ol>
+</div>",2025-06-28 09:44:44.705630
+2,Shubham Bochare,Chief Marketing Officer,"Chief Marketing Officer at HandMadeProjects (1 Years : from 2024 to current), Network engineer at VODAFONEIDEA (1 Years : from 2024 to current)",https://www.linkedin.com/in/atharva-pawar456,https://github.com/AtharvaPawar456,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/ShubhamBochare.png,Hardware and Software Developer,2025-06-28 09:48:03.485648
+3,Sahil Baikar,Co-Founder,"Co-Founder at HandMadeProjects (2 Years : from 2023 to current), Master's in Electronics Engineer",https://www.linkedin.com/in/atharva-pawar456,https://github.com/AtharvaPawar456,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/SahilBaikar.png,"<div class=""text-gray-900 font-sans bg-white"">
+  <p class=""mt-2 text-gray-800 text-lg"">
+Electronics and telecommunications engineer passionate about embedded systems, IoT, and digital hardware design. Skilled in hands-on prototyping, VHDL, circuit design, and developing real-world tech solutions.
+
+  </p>
+  <h2 class=""pt-4 font-bold border-b border-gray-300 pb-1"">Experience</h2>
+  <p class=""mt-2 text-gray-800 text-lg"">
+    Python, VHDL, MATLAB, Tailwind CSS, HTML5, CSS3, KiCad, Arduino, IOT, Soldering, Circuit Design, Debugging, Team Work, UI/UX, Leadership, Prototyping, PCB Designing, Industrial Automation using PLC
+  </p>
+
+  <h2 class=""font-bold border-b border-gray-300 pb-1 mt-10"">About Me</h2>
+  <p class=""mt-2 text-gray-800 text-lg"">
+    I am an electronics and telecommunications engineer with a strong passion for embedded systems, IoT, and digital hardware design. My expertise spans across hands-on prototyping, circuit simulation, VHDL development for FPGAs, and IoT-based automation systems. I enjoy transforming innovative ideas into practical and functional electronics projects, focusing on clean design, user-friendly interaction, and hardware-software integration.
+  </p>
+  <p class=""mt-4 text-gray-800 text-lg"">
+    During my academic and personal journey, I’ve led several impactful technical projects—from developing smart soil moisture sensors and rail wagon measurement systems to building reflow soldering stations and custom 3D printers. These projects showcase my capability in solving real-world challenges through engineering, teamwork, and efficient prototyping. I actively use platforms like GitHub to manage and share my work.
+  </p>
+  <p class=""mt-4 text-gray-800 text-lg"">
+    My strong foundation in microcontroller programming, circuit troubleshooting, and embedded design is complemented by my interest in UI/UX, teamwork, and leadership. Whether building industrial automation systems using PLCs or developing IoT-based smart devices, I aim to bring reliable, scalable, and impactful solutions to life.
+  </p>
+</div>",2025-06-28 09:51:19.465773
+4,Aakash Shinde,Software Developer,Python | Django | DevOps | Cloud | AWS | Terraform | GitHub Actions | Lambda | CodePipeline | DynamoDB | S3 | CloudFront | MERN Stack | GenAI | SQLite | MIT App Inventor,https://www.linkedin.com/in/aakash-shinde-sde/,https://github.com/Aakashshinde99,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/AakashShinde.png,"<div class=""text-gray-800 font-sans bg-white"">
+  <p class=""mt-2"">Passionate Django developer with hands-on experience across full-stack development, DevOps, and cloud computing. I specialize in building scalable applications and automating infrastructure using modern tools and technologies.</p>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">1. Panchayat Web Application</h2>
+  <ul class=""list-disc pl-5 mt-2 space-y-1"">
+    <li><span class=""font-bold"">Tools & Technologies:</span> Python, Django, SQLite, MIT App Inventor, Replit</li>
+    <li><span class=""font-bold"">Description:</span> Developed a full-featured web application to digitize and streamline operations for a local Panchayat office.</li>
+    <li><span class=""font-bold"">Citizen Services:</span>
+      <ul class=""list-disc pl-5 space-y-1"">
+        <li>Users can apply for certificates (e.g., birth, caste, domicile) via a web form.</li>
+        <li>Integrated a tax payment module with online transactions and tracking.</li>
+        <li>Complaint registration system for citizens to log issues directly.</li>
+      </ul>
+    </li>
+    <li><span class=""font-bold"">Admin & Staff Modules:</span>
+      <ul class=""list-disc pl-5 space-y-1"">
+        <li>Role-based access for reviewing and managing requests.</li>
+        <li>Admin dashboard to monitor activity and manage users.</li>
+        <li>Generate reports for issued certificates, complaints, and payments.</li>
+      </ul>
+    </li>
+    <li><span class=""font-bold"">Mobile Integration:</span> Android app via MIT App Inventor connected to Django APIs.</li>
+    <li><span class=""font-bold"">Development Platform:</span> Replit for collaborative and online accessibility.</li>
+    <li><span class=""font-bold"">Outcome:</span> Improved efficiency, reduced paperwork, and better citizen engagement.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">2. Automating VPC Creation with Terraform & GitHub Actions</h2>
+  <ul class=""list-disc pl-5 mt-2 space-y-1"">
+    <li>Wrote modular Terraform configs to create AWS infrastructure.</li>
+    <li>Created CI/CD pipeline using GitHub Actions for auto provisioning.</li>
+    <li>Used best practices like feature branching and PR reviews.</li>
+    <li><span class=""font-bold"">Outcome:</span> Fully automated deployment on code push.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">3. AWS Cloud Cost Optimization with Lambda</h2>
+  <ul class=""list-disc pl-5 mt-2 space-y-1"">
+    <li>Detected unused EBS snapshots not linked to running instances.</li>
+    <li>Used AWS Lambda to automatically delete unused snapshots.</li>
+    <li>Scheduled execution without manual intervention.</li>
+    <li><span class=""font-bold"">Result:</span> Reduced AWS storage costs through automation.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">4. Continuous Deployment of a Game via AWS CodePipeline</h2>
+  <ul class=""list-disc pl-5 mt-2 space-y-1"">
+    <li>Memory game built with HTML, CSS, JS and hosted on GitHub.</li>
+    <li>Deployed to S3 with automated updates via AWS CodePipeline.</li>
+    <li><span class=""font-bold"">Result:</span> Live deployment on every code change.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-6"">5. Deploying a Serverless Web Application on AWS</h2>
+  <ul class=""list-disc pl-5 mt-2 space-y-1"">
+    <li>Used S3, API Gateway, Lambda, DynamoDB, and CloudFront.</li>
+    <li>Achieved a scalable, fast, and secure app without servers.</li>
+    <li><span class=""font-bold"">Result:</span> Fully serverless, low-maintenance application.</li>
+  </ul>
+</div>",2025-06-28 09:53:54.303925
+5,Yash Chavan,Software Developer,"Python, Django, Flask, MERN Stack, GenAI, JavaScript, TailwindCSS, HTML5, CSS3, Firebase, Docker, GitHub, PostgreSQL, MySQL, SQLite, NLP, Wordpress",https://www.linkedin.com/in/yashchavan3833,https://github.com/Yashsc462,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/YashChavan.jpg,"<div class=""text-gray-900 font-sans bg-white"">   <p class=""mt-2 text-gray-800""> 
+I am a passionate full-stack developer with a strong background in building scalable, secure, and modular web applications. I specialize in Python (Django), PHP, and core web technologies including HTML, CSS, and JavaScript. I focus on writing clean, maintainable code and developing practical solutions. My experience ranges from building intelligent employee management systems to dynamic e-commerce platforms, always aiming to solve real-world problems through robust and efficient software architecture.
+
+</p>    <p class=""mt-4 text-gray-800"">     As a freelance developer and content creator, I’ve led the design and deployment of multiple full-stack applications, including VBAMS (Vehicle Breakdown Assistance), SecManage (Security Workforce Management), EMS (Employee Lifecycle Management with Celery automation), and THRO (E-commerce Backend System). Each project showcases deep integration of role-based access control, CRUD operations, real-time tracking, PDF reporting, and secure authentication.   </p>    <p class=""mt-4 text-gray-800"">     With a solid grasp of both backend logic and frontend design (HTML5, CSS3, Bootstrap, JS), I ensure my systems are not only functional but also intuitive. My development approach emphasizes modularity, data integrity, and user-centric design, complemented by CI/CD practices via GitHub.   </p>    <p class=""mt-4 text-gray-800"">     
+As a software developer, I’m proficient in relational databases like MySQL, SQLite, and PostgreSQL, along with strong hands-on experience in WordPress development. I regularly deploy applications on platforms such as Vercel, PythonAnywhere, Hostinger, and HostForWeb, and have also worked with Dockerized environments for scalable deployment. Whether building IoT solutions or full-scale web applications, I focus on combining creativity with clean, modular architecture to deliver reliable and impactful tech solutions.
+   </p> </div>",2025-06-28 09:56:44.331120
+6,Joviel Patrick,Spoke Person,Applied AI Specialist | GPT Automation | Data Science MBA | Speaker & Thought Leader,https://www.linkedin.com/in/joviel-patrick-5a4837226,https://www.linkedin.com/in/joviel-patrick-5a4837226,https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/teampics/jovial.jpg,"<div class=""py-8 text-gray-800 font-sans bg-white"">
+
+  <p class=""mt-2"">Data Science and Applied AI specialist with expertise in building secure, on-prem AI deployments, automating developer workflows, and optimizing business processes through intelligent systems. With an MBA in Data Science and a foundation in finance, I bridge the gap between business goals and AI capabilities. I regularly share insights on secure AI adoption, workflow optimization, and real-world automation — inspiring teams to think strategically about AI’s role in their organizations.</p>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Impact Highlights</h2>
+  <ul class=""list-disc pl-4 mt-2 space-y-1"">
+    <li>70% cost reduction through secure on-prem GPT deployment.</li>
+    <li>40% faster code reviews via AI-powered developer efficiency suite.</li>
+    <li>Delivered 100+ automated vulnerability reports without manual inspection.</li>
+    <li>Built resilient financial data pipelines powering executive dashboards.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Areas of Expertise</h2>
+  <ul class=""list-disc pl-4 mt-2 space-y-1"">
+    <li>Applied AI & Automation: GPT Automation, Prompt Design, Workflow Optimization, Secure AI Deployments</li>
+    <li>Data Science & Analytics: Python, SQL, Power BI, Financial Data Pipelines</li>
+    <li>Tools & Infrastructure: Flask, Angular, Docker, Git, On-Prem GPU Infrastructure</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Keynote & Workshop Topics</h2>
+  <ul class=""list-disc pl-4 mt-2 space-y-1"">
+    <li>Secure AI in the Enterprise: Deploying LLMs without risking data leakage.</li>
+    <li>Developer Productivity with AI: From automated code annotation to intelligent scaffolding.</li>
+    <li>Business-Driven AI: Turning AI capabilities into measurable ROI.</li>
+    <li>From Data to Decision: Building pipelines that drive actionable insights.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Case Studies & Talks</h2>
+  <ol class=""list-decimal pl-4 mt-2 space-y-2"">
+    <li>
+      <p class=""font-bold"">Automated Security Scanner</p>
+      <p>Theme: AI for Cybersecurity Automation</p>
+      <ul class=""list-disc pl-4 mt-1"">
+        <li>Built a prompt-driven tool to identify vulnerabilities without human intervention.</li>
+        <li>Delivered over 100 actionable reports, improving security team efficiency.</li>
+      </ul>
+    </li>
+    <li>
+      <p class=""font-bold"">Secure On-Prem AI Deployment</p>
+      <p>Theme: Data Privacy & Cost Optimization</p>
+      <ul class=""list-disc pl-4 mt-1"">
+        <li>Deployed an internally hosted GPT model on dedicated GPU hardware.</li>
+        <li>Achieved 70% cost savings and eliminated third-party data exposure.</li>
+      </ul>
+    </li>
+    <li>
+      <p class=""font-bold"">Developer Efficiency Suite</p>
+      <p>Theme: AI in Software Development</p>
+      <ul class=""list-disc pl-4 mt-1"">
+        <li>Created tools for AI-powered code annotation, test scaffolding, and hygiene checks.</li>
+        <li>Reduced review cycles by 40% in real-world engineering teams.</li>
+      </ul>
+    </li>
+    <li>
+      <p class=""font-bold"">Financial Data Pipeline Automation</p>
+      <p>Theme: Data Engineering for Business Intelligence</p>
+      <ul class=""list-disc pl-4 mt-1"">
+        <li>Developed Python-based data pipelines for financial datasets.</li>
+        <li>Designed Power BI dashboards to support high-impact business decisions.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Professional Experience</h2>
+  <p class=""mt-2 font-bold"">ARCON — Intern Consultant – Data Automation & Developer Tools (June 2024 – Present)</p>
+  <ul class=""list-disc pl-4 mt-1"">
+    <li>Automated vulnerability scanning, delivered 100+ reports.</li>
+    <li>Built and deployed secure internal AI tools on GPU infrastructure.</li>
+    <li>Migrated legacy codebases for better maintainability.</li>
+  </ul>
+  <p class=""mt-4 font-bold"">ARCON — Intern – Data Science & Automation (Aug 2022 – Nov 2022)</p>
+  <ul class=""list-disc pl-4 mt-1"">
+    <li>Designed financial data pipelines and BI dashboards.</li>
+    <li>Automated QA and data cleaning workflows.</li>
+  </ul>
+
+  <h2 class=""text-lg font-bold border-b border-gray-300 pb-1 mt-10"">Education</h2>
+  <ul class=""list-disc pl-4 mt-2"">
+    <li>MBA (Data Science) — AMITY University (2023–2025) | GPA: 7.72/10</li>
+    <li>BBA (Finance) — Tilak Maharashtra Vidyapeeth (2020–2023) | Grade: A</li>
+  </ul>
+</div>",2025-08-11 08:45:53.273493

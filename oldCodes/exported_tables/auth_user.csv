@@ -1,0 +1,6 @@
+id,password,last_login,is_superuser,username,last_name,email,is_staff,is_active,date_joined,first_name
+1,pbkdf2_sha256$320000$4YoiwEjysfCqkRPoEjjWdi$XFw2vySxg0nijdFtMPI0qioAVe9r/EkLSnqCSh+YU2s=,2025-10-10 04:27:38.980226,1,digiHmpAdmin,,talktoatharva14@gmail.com,1,1,2025-06-28 09:13:44.206590,
+2,pbkdf2_sha256$320000$iywaWYHoxQuR2Fhu2GcXWZ$SKoIbWR+JBZV/nqWvRH+AN7A96Mze6RAApoYK3WLefQ=,2025-07-30 08:41:32.472866,0,atharva,,handmadeprojects2022@gmail.com,0,1,2025-06-28 09:28:56,
+3,pbkdf2_sha256$320000$H3hjA2OEJZFWZMWxeDopzZ$Tuj3iDLGxCA1q235lGi52DelUJg184jEDhmT+sZ6xXM=,2025-10-17 06:47:10.053987,0,aakash,,aakashshinde1500@gmail.com,0,1,2025-06-28 11:25:55.207721,
+4,pbkdf2_sha256$320000$NILZEhKznS5b6gztwq7B40$ipQZ/D9JgeTOcvrW/xVSvcdD60Aue0aCTEzwjSlSCmA=,2025-07-06 17:18:10.784220,0,akshay123jaiho,,akshay123jaiho@gmail.com,0,1,2025-07-06 17:18:10.509672,
+5,pbkdf2_sha256$320000$ieBQM2h8dcihAMw2XDsTRD$d12kZfPW5Ad7ABCiJtPj1kIJ1hxsVyk8hQ5bVyG9gko=,2025-08-31 08:29:06.290068,0,Tejashri,,fegadeteju.11@gmail.com,0,1,2025-08-31 08:29:06.003921,

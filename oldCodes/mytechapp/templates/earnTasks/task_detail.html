@@ -1,0 +1,33 @@
+{% extends "systemsetup/base.html" %}
+{% block title %}Task Details{% endblock %}
+
+{% block content %}
+  {% if task %}
+    <div class="bg-white rounded-lg  mb-20">
+      <img src="{{ task.eimglink }}" alt="Task Image" class="w-full h-64 object-cover rounded mb-4">
+      <h2 class="text-2xl font-bold">{{ task.etitle }}</h2>
+      <p class="mt-4 text-xl text-green-600 font-bold">Earn: ₹{{ task.eamount }} (UPI Payment)</p>
+      <p class="text-xl text-indigo-500 mt-1 font-bold">Seats: {{ task.eseatscap }}</p>
+      <!-- <p class="text-xs text-gray-400 mt-1">Posted: {{ task.timestamp|date:"Y-m-d H:i" }}</p> -->
+      <p class="text-gray-700 mt-2">{{ task.edescribe | safe}}</p>
+    </div>
+  {% else %}
+    <p class="text-red-500">Task not found.</p>
+  {% endif %}
+
+  {% if otherTasks %}
+  <h3 class="text-xl font-semibold mb-4">Other Active Tasks</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for otask in otherTasks %}
+      <a href="{% url 'task_detail' %}?taskno={{ otask.etid }}" class="block">
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+          <img src="{{ otask.eimglink }}" alt="Image" class="w-full h-40 object-cover rounded">
+          <h4 class="text-lg font-semibold mt-2">{{ otask.etitle }}</h4>
+          <p class="text-green-600 font-medium mt-1">₹{{ otask.eamount }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{% endblock %}

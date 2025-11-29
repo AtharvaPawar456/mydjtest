@@ -12,6 +12,7 @@ gunicorn DemoDomainTestProject.wsgi:application
 zip -r templates.zip templates
 
 
+zip -r handmadeprojects.zip handmadeprojects
 
 
 python manage.py runserver

@@ -1,0 +1,14 @@
+name,seq
+django_migrations,22
+django_admin_log,94
+django_content_type,17
+auth_permission,68
+auth_group,0
+auth_user,5
+mainapp_userdetails,4
+mainapp_teammember,6
+mainapp_userfavprojects,1
+mainapp_interndetails,2
+mainapp_homeimgs,32
+mainapp_productinfo,56
+mainapp_earntask,1
