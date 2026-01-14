@@ -1,0 +1,84 @@
+{% extends 'systemsetup/base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-10">
+
+    {% if error %}
+    <div class="bg-red-100 border-l-4 border-red-600 text-red-700 p-4 mb-6">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+
+        <!-- Image -->
+        <div class="w-full h-96 bg-gray-100">
+            <img
+                src="{{ aiContent.aiimglink }}"
+                alt="{{ aiContent.aititle }}"
+                class="w-full h-full object-cover"
+            >
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 md:p-8">
+
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                {{ aiContent.aititle|title }}
+            </h1>
+
+            <h2 class="text-lg text-gray-600 mb-4">
+                {{ aiContent.aiheader|title }}
+            </h2>
+
+            <!-- Price -->
+            <div class="flex items-center gap-4 mb-6">
+                <span class="text-2xl font-bold text-green-700">
+                    ₹ {{ aiContent.aisale }}
+                </span>
+                <span class="line-through text-gray-500">
+                    ₹ {{ aiContent.aiprice }}
+                </span>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                    Description
+                </h3>
+                <p class="text-gray-700 leading-relaxed">
+                    {{ aiContent.aidesc }}
+                </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                    Tags
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    {% for tag in aiContent.aitag.split %}
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">
+                        {{ tag }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Timestamp -->
+            <p class="text-sm text-gray-500 mb-6">
+                Added on {{ aiContent.timestamp|date:"d M Y" }}
+            </p>
+
+            <!-- Back -->
+            <div class="text-center">
+                <a href="{% url 'aicontentlist' %}"
+                   class="inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">
+                    ← Back to AI Content
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

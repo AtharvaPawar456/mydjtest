@@ -6,13 +6,14 @@ python manage.py startapp mytechapp
 
 pip install -r requirements.txt
 
-
 gunicorn DemoDomainTestProject.wsgi:application
+
+
 
 zip -r templates.zip templates
 
-
 zip -r handmadeprojects.zip handmadeprojects
+gunicorn handmadeprojects.wsgi:application
 
 
 python manage.py runserver

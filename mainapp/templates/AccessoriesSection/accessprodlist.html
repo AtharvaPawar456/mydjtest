@@ -1,0 +1,41 @@
+{% extends 'systemsetup/base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-4 mb-4">
+    <div class="flex justify-between items-center mb-2 ">
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Accessories Items</h1>
+    </div>
+    
+    {% if accessProd %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        {% for item in accessProd %}
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+            <a href="/accessoriesview/{{item.apid}}" class="block">
+                <img src="{{item.apimglink}}" alt="{{ item.aptitle }}" class="w-full h-48 object-cover">
+            </a>
+            <div class="p-4">
+                <h2 class="text-xl font-semibold text-gray-800 truncate">{{ item.aptitle | title }}</h2>
+                <h2 class="text-md font-semibold text-gray-800 truncate mb-2">{{ item.apheader | title }}</h2>
+                <i class="text-xl text-yellow-900 font-bold bg-yellow-200 px-2 py-0.2 border border-2 border-yellow-600 rounded-md shadow-md ">
+                    Rs. {{item.apsale}} 
+                </i>
+                <div class="mt-4">
+                    <a href="/accessoriesview/{{item.apid}}" class="w-full text-center inline-block px-4 py-2 bg-yellow-800 text-white rounded-md hover:bg-yellow-400 hover:text-gray-800 transition-colors font-bold">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-20 px-6 bg-white rounded-lg shadow-xl">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">No Videos Yet</h2>
+        <p class="text-gray-500">Check back later for new video projects!</p>
+    </div>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

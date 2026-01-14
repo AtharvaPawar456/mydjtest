@@ -1,0 +1,53 @@
+🔹 Pack 1
+aititle   : AI Product Images Pack – Basic
+aiheader  : Get 100 AI-generated product images with consistent lighting and angles
+aidesc   : Perfect for small stores and startups. Each image costs just Rs. 20/- with high clarity and accuracy.
+aiprice  : 2000
+aisale   : 999
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai aiproduct aiimages ecommerce productphotos
+
+🔹 Pack 2
+aititle   : AI Product Images Pack – Standard
+aiheader  : Get 200 AI-generated product images optimized for eCommerce
+aidesc   : Ideal for Amazon, Flipkart, and Shopify listings. Each image costs only Rs. 18/- with sharp details.
+aiprice  : 3600
+aisale   : 2499
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai ecommerce aiimages productlisting amazon
+
+🔹 Pack 3
+aititle   : AI Product Images Pack – Premium
+aiheader  : Get 300 AI-generated premium product images with branding focus
+aidesc   : Best for brands and agencies. Includes lifestyle shots, clean backgrounds, and shadow accuracy.
+aiprice  : 6000
+aisale   : 3999
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai premium aiimages branding productdesign
+
+🔹 Pack 4
+aititle   : AI Social Media Creatives Pack
+aiheader  : Get 150 AI-generated product creatives for social media
+aidesc   : Optimized for Instagram, Facebook, and Ads. Eye-catching visuals at just Rs. 22/- per image.
+aiprice  : 3300
+aisale   : 1999
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai socialmedia aiimages ads creatives
+
+🔹 Pack 5
+aititle   : AI Banner & Poster Pack
+aiheader  : Get 100 AI-generated banners and posters for marketing
+aidesc   : Includes sale banners, promo posters, and product highlights. Each image costs Rs. 25/- only.
+aiprice  : 2500
+aisale   : 1799
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai banners posters marketing aiimages
+
+🔹 Pack 6
+aititle   : AI Ultimate Business Image Pack
+aiheader  : Get 500 AI-generated product and marketing images
+aidesc   : All-in-one pack for businesses. Product shots, ads, banners, and social media creatives included.
+aiprice  : 10000
+aisale   : 5999
+aiimglink: https://raw.githubusercontent.com/AtharvaPawar456/TeamzEffort/refs/heads/main/static/dxnproductsimages/dxn-tooth-paste/file_50.png
+aitag    : ai business aiimages ecommerce marketing

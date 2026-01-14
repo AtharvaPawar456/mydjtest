@@ -1,0 +1,23 @@
+
+
+Done:
+https://www.handmadeprojects.in/ : mainapp\templates\systemsetup\welcome.html
+http://127.0.0.1:8000/engineering-projects/ : mainapp\templates\projectscategory\engineering_projects_category.html
+
+
+Pending:
+
+
+http://127.0.0.1:8000/productlist/?productcat=softwareprojects : 
+
+
+
+
+
+
+
+
+
+
+
+

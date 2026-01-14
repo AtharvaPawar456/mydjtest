@@ -19,9 +19,22 @@ urlpatterns = [
     path('add-video/', views.add_video, name='add_video'),
     path('gallery/', views.gallery, name='gallery'),
 
+
+    # Accessories
+    path('accessories/', views.accessoriesProjects, name='accessories_projects'),
+    path('accessoriesview/<int:apid>/', views.accessoriesView, name='accessories_view'),
+
+    # aicontent
+    path('aicontent/', views.aicontentList, name='aicontentlist'),
+    path('aicontent/<int:aiid>/', views.aicontentView, name='aicontentview'),
+
+
+
     path('register/', views.register, name='register'),
     path('login/', views.loginView, name='login'),
     path('logout/', views.logoutView, name='logout'),
+    
+    
 
     # User --------------------------------------------
     path('userdashboard/', views.userdashboard, name='userdashboard'),

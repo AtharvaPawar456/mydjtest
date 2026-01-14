@@ -60,6 +60,8 @@ class ProductInfo(models.Model):
     mainimgbasetxt = models.TextField(default="*")
     prodtags = models.TextField(default="*")
     
+    prodcost = models.TextField(default="*")
+    
     highlighttitle = models.TextField(default="*")
     prodinfo = models.TextField(default="*")
 
@@ -105,6 +107,51 @@ class ProductYT(models.Model):
 
 
 
+class AccessoriesProd(models.Model):
+    apid = models.AutoField(primary_key=True)
+
+    aptitle     = models.TextField(default="*")
+    apheader    = models.TextField(default="*")
+    apdesc      = models.TextField(default="*")
+    apprice     = models.TextField(default="*")
+    apsale      = models.TextField(default="*")
+    apimglink   = models.TextField(default="*")
+    aptag       = models.TextField(default="*")
+
+    timestamp   = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        """Return a string representation of this object."""
+        return (
+            f"{self.apid} | {self.aptitle} | {self.apprice} | "
+            f"Added:{self.timestamp.strftime('%d-%m-%Y')}"
+        )
+
+
+
+
+
+class AicontentProd(models.Model):
+    aiid = models.AutoField(primary_key=True)
+
+    aititle     = models.TextField(default="*")
+    aiheader    = models.TextField(default="*")
+    aidesc      = models.TextField(default="*")
+    aiprice     = models.TextField(default="*")
+    aisale      = models.TextField(default="*")
+    aiimglink   = models.TextField(default="*")
+    aitag       = models.TextField(default="*")
+
+    timestamp   = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return (f"{self.aiid} | {self.aititle} | {self.aiprice} | Added:{self.timestamp.strftime('%d-%m-%Y')}")
+
+
+
+
+
+
 
 
 class Contactus(models.Model):
@@ -133,20 +180,6 @@ class TeamMember(models.Model):
         return f"{self.devid} | {self.name} | {self.role}"
 
 
-
-class UserFavProjects(models.Model):
-    favid = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_fav')
-    prod = models.ForeignKey('ProductInfo', on_delete=models.CASCADE)
-    metadata = models.TextField(default="*")
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self) -> str:
-        """Return a string representation of this object."""
-        return (
-            f"{self.favid} | {self.user.username} | {self.prod.productname} | "
-            f"Added:{self.timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
-        )
 
 
 

@@ -1,0 +1,67 @@
+{% extends 'systemsetup/base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-6">
+
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
+        AI Content
+    </h1>
+
+    {% if error %}
+    <div class="bg-red-100 border-l-4 border-red-600 text-red-700 p-4 mb-6">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    {% if aiContent %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for item in aiContent %}
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-1 transition">
+
+            <a href="{% url 'aicontentview' item.aiid %}">
+                <img
+                    src="{{ item.aiimglink }}"
+                    alt="{{ item.aititle }}"
+                    class="w-full h-48 object-cover"
+                >
+            </a>
+
+            <div class="p-4">
+                <h2 class="text-xl font-semibold text-gray-800 truncate">
+                    {{ item.aititle|title }}
+                </h2>
+
+                <h3 class="text-md text-gray-600 truncate mb-2">
+                    {{ item.aiheader|title }}
+                </h3>
+
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-lg font-bold text-green-700">
+                        ₹ {{ item.aisale }}
+                    </span>
+                    <span class="line-through text-gray-400">
+                        ₹ {{ item.aiprice }}
+                    </span>
+                </div>
+
+                <a href="{% url 'aicontentview' item.aiid %}"
+                   class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                    View Details
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-20 bg-white rounded-xl shadow-lg">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-2">
+            No AI Content Available
+        </h2>
+        <p class="text-gray-500">
+            New content will be added soon.
+        </p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -16,7 +16,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 
 
-from .models import UserDetails, Contactus, ProductInfo, ProductImgs, ProductYT, TeamMember, UserFavProjects, YTvideos, InternDetails, Homeimgs, EarnTask
+from .models import UserDetails, Contactus, ProductInfo, ProductImgs, ProductYT, TeamMember
+from .models import UserFavProjects, YTvideos, InternDetails, Homeimgs, EarnTask, AccessoriesProd
+from .models import AicontentProd
 
 
 
@@ -193,6 +195,38 @@ def profile(request):
 #     except Exception as e:
 #         return render(request, 'ProductSection/productlist.html', {'error': str(e)})
 
+def getQuickFilters(category):
+    """
+    getQuickFilters
+    input: category (string)
+    working: returns 20 quick filter tags based on project category
+    """
+    try:
+        if not category:
+            raise ValueError("Category is required")
+
+        if "softwareprojects" in category:
+            return [
+                'ai', 'ml', 'genai', 'django', 'flask',
+                'webapp', 'mobileapp', 'api', 'backend', 'frontend',
+                'fullstack', 'saas', 'automation', 'chatbot', 'nlp',
+                'computerVision', 'datascience', 'blockchain', 'devops', 'cloud'
+            ]
+
+        elif "hardwareprojects" in category:
+            return [
+                'iot', 'esp32', 'arduino', 'raspberrypi', 'stm32',
+                'robotics', 'embedded', 'sensors', 'automation', 'smartHome',
+                'wearables', 'edgeAi', 'pcb', 'hardwareAi', 'industrialIoT',
+                'bluetooth', 'wifi', 'mqtt', 'serialComm', 'powerManagement'
+            ]
+
+        return []
+
+    except Exception as error:
+        print("Quick filter error:", error)
+        return []
+
 
 def productlist(request):
     """
@@ -225,17 +259,40 @@ def productlist(request):
             )
 
         productList = productList.order_by('-timestamp')
+        
+        quickFilters = getQuickFilters(category)
 
-        return render(request, 'ProductSection/productlist.html', {
+        
+        content = {
             'productList': productList,
             'productListcount': len(productList),
-            'searchQuery': searchQuery
-        })
+            'searchQuery': searchQuery,
+            'quickFilters': quickFilters,
+            
+        }
+
+        return render(request, 'ProductSection/productlist.html', content)
 
     except Exception as e:
-        return render(request, 'ProductSection/productlist.html', {
-            'error': str(e)
-        })
+        return render(request, 'ProductSection/productlist.html', {'error': str(e)})
+
+
+# def productinfo(request, prod_id):
+#     try:
+#         product = get_object_or_404(ProductInfo, prodid=prod_id)
+#         productImages = ProductImgs.objects.filter(prod=product)
+#         productYTlinks = ProductYT.objects.filter(prod=product)
+#         is_favorite = False
+#         if request.user.is_authenticated:
+#             is_favorite = UserFavProjects.objects.filter(user=request.user, prod=product).exists()
+#         return render(request, 'ProductSection/productinfo.html', {
+#             'product': product,
+#             'productImages': productImages,
+#             'productYTlinks': productYTlinks,
+#             'is_favorite': is_favorite,
+#         })
+#     except Exception as e:
+#         return render(request, 'ProductSection/productinfo.html', {'error': str(e)})
 
 
 def productinfo(request, prod_id):
@@ -243,17 +300,58 @@ def productinfo(request, prod_id):
         product = get_object_or_404(ProductInfo, prodid=prod_id)
         productImages = ProductImgs.objects.filter(prod=product)
         productYTlinks = ProductYT.objects.filter(prod=product)
+
         is_favorite = False
         if request.user.is_authenticated:
-            is_favorite = UserFavProjects.objects.filter(user=request.user, prod=product).exists()
-        return render(request, 'ProductSection/productinfo.html', {
+            is_favorite = UserFavProjects.objects.filter(
+                user=request.user,
+                prod=product
+            ).exists()
+
+        # 🔹 Smart SEO keyword generation
+        seoKeywords = set()
+
+        def extractKeywords(text):
+            if not text:
+                return []
+            return [
+                word.lower()
+                for word in text.replace(',', ' ').replace('.', ' ').split()
+                if len(word) > 3
+            ]
+
+        seoKeywords.update(extractKeywords(product.productname))
+        seoKeywords.update(extractKeywords(product.highlighttitle))
+        seoKeywords.update(extractKeywords(product.prodinfo))
+        # seoKeywords.update(extractKeywords(product.benefits))
+        # seoKeywords.update(extractKeywords(product.usage))
+
+        # 🔹 Intent-based keywords
+        seoKeywords.update([
+            "engineering project",
+            "iot project",
+            "final year project",
+            "student project",
+            "diy project",
+            "real world project",
+            "learning project",
+            "hands on project"
+        ])
+
+        seoKeywordsStr = ", ".join(sorted(seoKeywords))
+        content = {
             'product': product,
             'productImages': productImages,
             'productYTlinks': productYTlinks,
             'is_favorite': is_favorite,
-        })
+            'seoKeywords': seoKeywordsStr,
+        }
+
+        return render(request, 'ProductSection/productinfo.html', content)
+
     except Exception as e:
-        return render(request, 'ProductSection/productinfo.html', {'error': str(e)})
+        return render(request,'ProductSection/productinfo.html',{'error': str(e)})
+
 
 @login_required(login_url='/login')
 def add_to_favorites(request, prod_id):
@@ -327,6 +425,63 @@ def video_player(request, video_id):
         'embed_id': embed_id
     }
     return render(request, 'YoutubeSection/video_player.html', context)
+
+
+
+### Accessories Views
+
+def accessoriesProjects(request):
+    try:
+        accessProd = AccessoriesProd.objects.all().order_by('-timestamp')
+        return render(request,'AccessoriesSection/accessprodlist.html',{'accessProd': accessProd})
+    except Exception as error:
+        return render(request,'AccessoriesSection/accessprodlist.html',{'accessProd': [],'error': str(error)})
+
+
+def accessoriesView(request, apid):
+    try:
+        accessProd = get_object_or_404(AccessoriesProd, apid=apid)
+        return render(request,'AccessoriesSection/accessprodview.html',{'accessProd': accessProd})
+    except Exception as error:
+        return render(request,'AccessoriesSection/accessprodview.html',{'error': str(error)})
+
+
+### Ai Content Views
+
+
+def aicontentList(request):
+    try:
+        aiContent = AicontentProd.objects.all().order_by('-timestamp')
+        return render(request,'AiContentSection/aicontentlist.html',{'aiContent': aiContent})
+    except Exception as error:
+        return render(request,'AiContentSection/aicontentlist.html',{'aiContent': [],'error': str(error)})
+
+
+def aicontentView(request, aiid):
+    try:
+        aiContent = get_object_or_404(AicontentProd, aiid=aiid)
+        return render(request,'AiContentSection/aicontentview.html',{'aiContent': aiContent})
+    except Exception as error:
+        return render(request,'AiContentSection/aicontentview.html',{'error': str(error)})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### EarnTask Views
 
