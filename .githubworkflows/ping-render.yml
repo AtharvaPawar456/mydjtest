@@ -1,0 +1,22 @@
+name: Ping Render Website
+
+# Run workflow every 5 minutes
+on:
+  schedule:
+    - cron: '*/15 * * * *' # every 5 minutes
+  workflow_dispatch: # allows manual run too
+
+jobs:
+  pingWebsite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render site
+        run: |
+          echo "Pinging https://www.handmadeprojects.in/ ..."
+          status=$(curl -o /dev/null -s -w "%{http_code}\n" https://www.handmadeprojects.in/)
+          if [ "$status" -eq 200 ]; then
+            echo "✅ Ping successful - Status: $status"
+          else
+            echo "⚠️ Ping failed - Status: $status"
+            exit 1
+          fi
