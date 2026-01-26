@@ -12,7 +12,10 @@ from .models import (
     EarnTask,
     
     AccessoriesProd,
-    AicontentProd
+    AicontentProd,
+    
+    Businesswebinfo
+
 )
 
 admin.site.register(UserDetails)
@@ -27,3 +30,5 @@ admin.site.register(EarnTask)
 
 admin.site.register(AccessoriesProd)
 admin.site.register(AicontentProd)
+
+admin.site.register(Businesswebinfo)

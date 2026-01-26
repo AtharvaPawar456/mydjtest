@@ -18,7 +18,7 @@ from django.db.models import Q
 
 from .models import UserDetails, Contactus, ProductInfo, TeamMember
 from .models import UserFavProjects, YTvideos, InternDetails, Homeimgs, EarnTask, AccessoriesProd
-from .models import AicontentProd
+from .models import AicontentProd, Businesswebinfo
 
 
 
@@ -799,4 +799,85 @@ def edit_hero_images(request):
 
     images = Homeimgs.objects.all()
     return render(request, 'systemsetup/edit_hero_images.html', {'images': images})
+
+
+
+
+def viewAllShop(request):
+    """
+    io: request
+    work: lists all shops in card layout with SEO-friendly content
+    """
+    try:
+        shopList = Businesswebinfo.objects.all().order_by('-btimestamp')
+
+        content = {
+            "shopList": shopList,
+            "shopCount": shopList.count()
+        }
+        return render(request, "BusinessSection/allshops.html", content)
+
+    except Exception as error:
+        return render(
+            request,
+            "BusinessSection/allshops.html",
+            {"error": str(error)}
+        )
+
+
+def viewShop(request, shopname):
+    """
+    io: request, shopname (str)
+    work: fetches shop details from DB using URL name and renders professional profile page
+    """
+    try:
+        shop = get_object_or_404(Businesswebinfo, bname__iexact=shopname)
+
+        galleryImages = [
+            img for img in shop.bgallery.split(';') if img and shop.bgallery != "*"
+        ]
+
+        ownerImages = [
+            img for img in shop.bownerimgs.split(';') if img and shop.bownerimgs != "*"
+        ]
+
+        ytLinks = [
+            link for link in shop.bytlinks.split(';') if link and shop.bytlinks != "*"
+        ]
+
+        webLinks = [
+            link for link in shop.bweblinks.split(';') if link and shop.bweblinks != "*"
+        ]
+
+        seoKeywords = ", ".join(
+            set(
+                word.lower()
+                for word in f"{shop.bname} {shop.bcat} {shop.btags} {shop.bhighlight}".replace(',', ' ').split()
+                if len(word) > 3
+            )
+        )
+
+        content = {
+            "shop": shop,
+            "galleryImages": galleryImages,
+            "ownerImages": ownerImages,
+            "ytLinks": ytLinks,
+            "webLinks": webLinks,
+            "seoKeywords": seoKeywords
+        }
+
+        return render(request, "BusinessSection/shop.html", content)
+
+    except Exception as error:
+        return render(
+            request,
+            "BusinessSection/shop.html",
+            {"error": str(error)}
+        )
+
+
+
+
+
+
 

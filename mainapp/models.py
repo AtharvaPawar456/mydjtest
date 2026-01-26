@@ -192,6 +192,26 @@ class AicontentProd(models.Model):
 
 
 
+class Businesswebinfo(models.Model):
+    bid         = models.AutoField(primary_key=True)
+    bname       = models.TextField(default="*")
+    bcat        = models.TextField(default="*")
+    bmainimg    = models.TextField(default="*")
+    btags       = models.TextField(default="*")#, seprated image.links
+    
+    bhighlight  = models.TextField(default="*")
+    binfo       = models.TextField(default="*")
+    bownerimgs  = models.TextField(default="*") #; seprated image.links
+    
+    bgallery    = models.TextField(default="*") #; seprated image.links
+    bytlinks    = models.TextField(default="*") #; seprated image.links
+    bweblinks   = models.TextField(default="*") #; seprated image.links
+    
+    btimestamp  = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.bid} | {self.bname} | {self.bcat} | {self.btimestamp.strftime('%d-%m-%Y %H:%M:%S')}"
+    
 
 
 

@@ -1,0 +1,45 @@
+
+
+
+
+use our base.html as it is already responseive
+
+# Businesses
+path('allshops/', views.viewallshop, name='viewallshop'),
+- list all the shops in card format : use reference html codes
+
+
+
+path('shop/<str:shopname>/', views.viewshop, name='viewshop'),
+- get the shop name and from url and then get the details from the db model and render it in profecinal way on our responseive web page : use reference html codes
+
+
+
+
+
+mainapp\templates\BusinessSection\allshops.html
+mainapp\templates\BusinessSection\shop.html
+
+
+
+class Businesswebinfo(models.Model):
+    bid         = models.AutoField(primary_key=True)
+    bname       = models.TextField(default="*")
+    bcat        = models.TextField(default="*")
+    bmainimg    = models.TextField(default="*")
+    btags       = models.TextField(default="*")#, seprated image.links
+    
+    bhighlight  = models.TextField(default="*")
+    binfo       = models.TextField(default="*")
+    bownerimgs  = models.TextField(default="*") #; seprated image.links
+    
+    bgallery    = models.TextField(default="*") #; seprated image.links
+    bytlinks    = models.TextField(default="*") #; seprated image.links
+    bweblinks   = models.TextField(default="*") #; seprated image.links
+    
+    btimestamp  = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.bid} | {self.bname} | {self.bcat} | {self.btimestamp.strftime('%d-%m-%Y %H:%M:%S')}"
+    
+

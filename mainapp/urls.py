@@ -51,6 +51,12 @@ urlpatterns = [
 
     path('affiliateinfo/', views.affiliateinfo, name='affiliateinfo'),
     # path('affiliateuser/task/', views.earnTaskDetailView, name='task_detail'),
+    
+    
+    # Businesses
+    path('allshops/', views.viewAllShop, name='viewallshop'),
+    path('shop/<str:shopname>/', views.viewShop, name='viewshop'),
+    
 
     # Admin --------------------------------------------
     path('analysis/', views.analysis, name='analysis'),
