@@ -16,7 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 
 
-from .models import UserDetails, Contactus, ProductInfo, ProductImgs, ProductYT, TeamMember
+from .models import UserDetails, Contactus, ProductInfo, TeamMember
 from .models import UserFavProjects, YTvideos, InternDetails, Homeimgs, EarnTask, AccessoriesProd
 from .models import AicontentProd
 
@@ -277,29 +277,11 @@ def productlist(request):
         return render(request, 'ProductSection/productlist.html', {'error': str(e)})
 
 
-# def productinfo(request, prod_id):
-#     try:
-#         product = get_object_or_404(ProductInfo, prodid=prod_id)
-#         productImages = ProductImgs.objects.filter(prod=product)
-#         productYTlinks = ProductYT.objects.filter(prod=product)
-#         is_favorite = False
-#         if request.user.is_authenticated:
-#             is_favorite = UserFavProjects.objects.filter(user=request.user, prod=product).exists()
-#         return render(request, 'ProductSection/productinfo.html', {
-#             'product': product,
-#             'productImages': productImages,
-#             'productYTlinks': productYTlinks,
-#             'is_favorite': is_favorite,
-#         })
-#     except Exception as e:
-#         return render(request, 'ProductSection/productinfo.html', {'error': str(e)})
 
 
 def productinfo(request, prod_id):
     try:
         product = get_object_or_404(ProductInfo, prodid=prod_id)
-        productImages = ProductImgs.objects.filter(prod=product)
-        productYTlinks = ProductYT.objects.filter(prod=product)
 
         is_favorite = False
         if request.user.is_authenticated:
@@ -319,6 +301,13 @@ def productinfo(request, prod_id):
                 for word in text.replace(',', ' ').replace('.', ' ').split()
                 if len(word) > 3
             ]
+        
+        nogallery = False
+        if product.gallery == "*":
+            nogallery = True
+            
+        productImages = [img for img in product.gallery.split(';') if img]
+        productYTlinks = [link for link in product.ytlinks.split(';') if link]
 
         seoKeywords.update(extractKeywords(product.productname))
         seoKeywords.update(extractKeywords(product.highlighttitle))
@@ -341,6 +330,7 @@ def productinfo(request, prod_id):
         seoKeywordsStr = ", ".join(sorted(seoKeywords))
         content = {
             'product': product,
+            'nogallery': nogallery,
             'productImages': productImages,
             'productYTlinks': productYTlinks,
             'is_favorite': is_favorite,
@@ -781,40 +771,9 @@ def addproduct(request):
 
 
 
-@login_required(login_url='/login')
-def uploadimg(request):
-    if request.user.username != 'atharva':
-        messages.error(request, "You are not authorized to perform this action.")
-        return redirect('/productlist')
-    if request.method == 'POST':
-        try:
-            prodid = request.POST.get('prodid')
-            imageFile = request.FILES.get('imageFile')
-
-            if not (prodid and imageFile):
-                messages.error(request, "Product ID and image are required.")
-                return redirect('uploadProductImg')
-
-            productRef = ProductInfo.objects.get(prodid=prodid)
-            base64Image = base64.b64encode(imageFile.read()).decode('utf-8')
-
-            newImg = ProductImgs(
-                prodid=productRef,
-                productname=productRef.productname,
-                highlighttitle=productRef.highlighttitle,
-                mainimgbasetxt=base64Image
-            )
-            newImg.save()
-            messages.success(request, "Image uploaded successfully.")
-            return redirect('/uploadimg')
-
-        except ProductInfo.DoesNotExist:
-            messages.error(request, "Invalid Product ID.")
-        except Exception as e:
-            messages.error(request, f"Unexpected error: {str(e)}")
-
-    products = ProductInfo.objects.all()
-    return render(request, 'ProductSection/uploadImg.html', {'products': products})
+# @login_required(login_url='/login')
+# def uploadimg(request):
+   
 
 @login_required
 def edit_hero_images(request):

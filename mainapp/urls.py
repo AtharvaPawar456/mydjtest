@@ -56,7 +56,6 @@ urlpatterns = [
     path('analysis/', views.analysis, name='analysis'),
     
     path('addproduct/', views.addproduct, name='addproduct'),
-    path('uploadimg/', views.uploadimg, name='uploadimg'),
     path('add-developer/', views.add_developer, name='add_developer'),
     path('add-intern/', views.add_intern, name='add_intern'),
     path('edit-developer/<int:member_id>/', views.edit_developer, name='edit_developer'),
