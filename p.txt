@@ -1,45 +1,45 @@
 
 
+now give me a whatsapp massage to tell like 
+- keep it short 
+too the point a
+friendly and profecional manner 
 
+we are offering the service of generating the ai contents for the businesses  
+as of giveing the free trail on th eocation of the republic day 
+we have created few content as a example of our service output
 
-use our base.html as it is already responseive
-
-# Businesses
-path('allshops/', views.viewallshop, name='viewallshop'),
-- list all the shops in card format : use reference html codes
-
-
-
-path('shop/<str:shopname>/', views.viewshop, name='viewshop'),
-- get the shop name and from url and then get the details from the db model and render it in profecinal way on our responseive web page : use reference html codes
-
-
-
-
-
-mainapp\templates\BusinessSection\allshops.html
-mainapp\templates\BusinessSection\shop.html
+we create:
+- website : (single page)
+- ai content for promo
 
 
 
-class Businesswebinfo(models.Model):
-    bid         = models.AutoField(primary_key=True)
-    bname       = models.TextField(default="*")
-    bcat        = models.TextField(default="*")
-    bmainimg    = models.TextField(default="*")
-    btags       = models.TextField(default="*")#, seprated image.links
-    
-    bhighlight  = models.TextField(default="*")
-    binfo       = models.TextField(default="*")
-    bownerimgs  = models.TextField(default="*") #; seprated image.links
-    
-    bgallery    = models.TextField(default="*") #; seprated image.links
-    bytlinks    = models.TextField(default="*") #; seprated image.links
-    bweblinks   = models.TextField(default="*") #; seprated image.links
-    
-    btimestamp  = models.DateTimeField(auto_now_add=True)
+if you like our trail ai content 
+then pls let us know 
+so we can share the 
+ai content package pricing
 
-    def __str__(self) -> str:
-        return f"{self.bid} | {self.bname} | {self.bcat} | {self.btimestamp.strftime('%d-%m-%Y %H:%M:%S')}"
-    
 
+
+
+
+
+Hello 👋
+We’re offering *AI content creation services for businesses*
+and, on the occasion of Republic Day 🇮🇳, 
+we’re giving a *free trial*.
+
+https://www.handmadeprojects.in/shop/Hotel-Mauli-Dadar-East/
+
+We’ve created a few sample AI contents 
+as an example of our service result.
+
+Our services include:
+• AI-generated promotional content
+• Single-page website, etc
+
+If you like the trial AI content, please let us know 😊
+We’ll be happy to share our AI content package pricing with you.
+
+Thank you!

@@ -90,7 +90,26 @@
   <h2 class="text-2xl font-semibold text-center mb-6">Gallery</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for img in galleryImages %}
-    <img src="{{ img }}" class="rounded-xl shadow object-cover">
+
+      {% if ".mp4" in img %}
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          controls
+          class="w-full max-h-[320px] object-cover rounded-xl shadow"
+        >
+          <source src="{{ img }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      {% else %}
+        <img
+          src="{{ img }}"
+          class="w-full rounded-xl shadow object-cover"
+        >
+      {% endif %}
+
     {% endfor %}
   </div>
 </div>
