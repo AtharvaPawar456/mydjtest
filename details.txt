@@ -31,14 +31,5 @@ python manage.py migrate
 
 
 
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_1.mp4;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_2.mp4;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_3.mp4;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_4.mp4;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_5.mp4;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/shops-section/shop-1-mauli/videos/file_6.mp4;
-
-
-
 
 
