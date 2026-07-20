@@ -1,0 +1,263 @@
+A realistic engineering prototype of a [DEVICE NAME] built using actual electronics and DIY materials, featuring visible ESP32/Arduino development board, jumper wires, sensors, modules, and functional mechanical parts assembled on a white breadboard or prototype PCB, handcrafted using acrylic sheets, foam board, 3D-printed components, cardboard, PVC pipes, or laser-cut parts instead of a polished commercial enclosure, photographed on a clean white tabletop with a plain white background under soft indoor lighting, slight natural shadows, realistic colors, authentic hardware appearance, engineering project demonstration, DSLR photography, ultra detailed, sharp focus, no people, no CGI, no futuristic design, no luxury product styling.
+
+
+Create a high-quality {modelType} miniature crafted entirely from thin white cardboard, with no colors, textures, prints, or markings. The model should have a clean pop-traditional papercraft style with precise folds and realistic proportions, viewed from the front angle to clearly showcase its shape and details. Place it neatly on a simple desk with a clean, minimal, softly lit background that keeps the focus on the model, using a realistic studio-style composition with sharp focus, subtle shadows, and a premium handcrafted appearance.
+
+
+
+
+
+
+
+AI Image Generation Prompts — HandMadeProjects Hardware Idea Shortlist
+Source: projectdetails.txt (July/Aug 2026 shortlist, 31 ideas)
+Each idea has 4 prompts: [1] hero product shot, [2] real-world use-case scene, [3] technical/exploded diagram, [4] marketing banner with dashboard overlay.
+Use with any text-to-image model (Midjourney, DALL-E 3, Stable Diffusion, Flux). Suggested defaults: 4:3 for hero/diagram, 16:9 for banners.
+
+====================================================================
+1. AI-Based Smart Medicine Reminder and Dispensing System
+====================================================================
+1. Photorealistic product photo of a compact white desktop medicine dispenser box with a small OLED screen showing time and pill count, a rotating pill tray visible through a clear window, a buzzer grille and a 4x4 keypad on the front face, ESP32 board visible through a side vent, situde on a plain light-grey studio background, soft three-point studio lighting, sharp focus, 4K product photography, no people.
+2. An elderly person at a home kitchen table reaching toward a small automatic pill dispenser as it drops a tablet into a tray compartment, morning sunlight through a nearby window, warm homely color palette, shallow depth of field, realistic photography style, caring atmosphere.
+3. Clean technical exploded-view engineering diagram of a smart medicine dispenser: labeled parts include ESP32 board, DS3231 RTC module, servo motor, pill rotor tray, OLED display, buzzer, keypad, arranged in an isometric exploded layout with thin leader lines and part labels, white background, blueprint-style illustration, vector line art.
+4. Wide marketing banner of a modern medicine dispenser device on a bedside table at dusk, a translucent holographic UI overlay floating beside it showing a medication schedule and "Next dose: 8:00 PM" notification, soft blue and white brand colors, cinematic soft lighting, 16:9 composition, tech-product advertisement style.
+
+====================================================================
+2. AI-Based Fall Detection and Alert System for Senior Citizens
+====================================================================
+1. Photorealistic product photo of a small wearable pendant/wristband device with a status LED, embedded MPU6050 motion sensor chip visible in a cutaway view, compact GSM antenna stub, matte white and silver plastic casing, resting on a soft grey fabric surface, studio lighting, macro product photography.
+2. An elderly person at home who has stumbled near a staircase, wearing a wrist-band fall-detection device that is blinking red, with a smartphone in the background showing an incoming emergency alert notification to a caregiver, realistic indoor lighting, concerned but calm mood, documentary photography style.
+3. Exploded technical diagram of a wearable fall-detection band showing labeled internal components: ESP32 chip, MPU6050 accelerometer/gyroscope module, GPS chip, GSM module, small LiPo battery, vibration motor, arranged in isometric exploded view with callout labels, clean white background, engineering blueprint style.
+4. Wide marketing banner showing a senior citizen smiling while wearing a sleek health wristband, a soft holographic UI panel beside them displaying a heartbeat waveform and "Fall Detected — Alert Sent" notification with a small map pin, warm reassuring colors, soft daylight, 16:9 lifestyle-tech advertisement composition.
+
+====================================================================
+3. Smart Respiratory Monitoring System using IoT Sensors
+====================================================================
+1. Photorealistic product photo of a small chest-strap wearable device with an airflow sensor nozzle, tiny OLED display showing breathing rate, white medical-grade plastic housing with a soft fabric strap, placed on a clean white surface, bright clinical studio lighting, macro detail shot.
+2. A patient resting in a hospital bed wearing a slim respiratory monitoring strap around the chest, a bedside monitor screen showing a breathing waveform graph and oxygen stats, soft clinical blue lighting, realistic hospital photography style, calm atmosphere.
+3. Technical exploded-view diagram of a respiratory monitoring device showing labeled parts: ESP32 microcontroller, airflow sensor, temperature and humidity sensor modules, OLED display, Wi-Fi antenna, elastic strap mount, isometric layout, white background, clean vector engineering illustration.
+4. Wide marketing banner of a respiratory monitoring wearable on a nightstand next to a sleeping figure blurred in the background, a translucent dashboard overlay showing a real-time breathing-rate graph and "Normal — 16 breaths/min" label, calming teal and white palette, soft ambient lighting, 16:9 healthcare-tech advertisement style.
+
+====================================================================
+4. Smart Soil Quality Analysis and Automated Fertilizer Recommendation System
+====================================================================
+1. Photorealistic product photo of a rugged outdoor soil-sensor probe stake with metal prongs, a small solar-powered enclosure box on top holding an ESP32 board, pH and NPK sensor ports visible, planted upright in dark brown soil, natural daylight, macro DSLR-style photography, shallow depth of field.
+2. A farmer crouching in a crop field holding a tablet displaying soil moisture, pH and nutrient charts, with a soil-sensor stake planted in the row of crops beside them, golden-hour sunlight, wide agricultural landscape in the background, realistic documentary farm photography.
+3. Exploded technical diagram of a soil-quality sensor stake showing labeled components: ESP32 module, soil moisture sensor, pH sensor probe, NPK sensor, solar panel, weatherproof enclosure, OLED display, isometric exploded view, white background, clean engineering blueprint illustration.
+4. Wide marketing banner of a lush green crop field at sunrise with a soil-sensor stake in the foreground, a holographic dashboard overlay showing "Soil pH: 6.5 · Moisture: 42% · Recommended: Nitrogen-rich fertilizer", earthy green and amber tones, cinematic wide-angle composition, 16:9 agri-tech advertisement style.
+
+====================================================================
+5. IoT-Based Smart Greenhouse Monitoring and Climate Control System
+====================================================================
+1. Photorealistic product photo of a compact greenhouse-control unit box mounted on a metal post, showing a DHT22 sensor, relay module terminals, and a small LCD display, with irrigation tubing and wiring neatly connected, set against a blurred greenhouse interior background, natural light, detailed product photography.
+2. Wide interior shot of a glass greenhouse full of healthy green plants, with a small IoT control box mounted on a support beam, misting nozzles and grow lights automatically active, soft humid atmosphere, warm natural light filtering through the glass roof, realistic architectural photography.
+3. Technical exploded-view diagram of a smart greenhouse controller showing labeled parts: ESP32 board, DHT22 sensor, soil moisture sensor, relay module, water pump, LDR sensor, wiring harness, isometric exploded layout, white background, clean vector engineering illustration.
+4. Wide marketing banner of a thriving greenhouse interior bathed in golden light, a translucent dashboard overlay showing "Temp 26°C · Humidity 68% · Irrigation: Active" with small plant icons, lush green and warm gold color palette, cinematic wide shot, 16:9 agri-tech advertisement style.
+
+====================================================================
+6. Automated Seed Sowing Robot for Precision Farming
+====================================================================
+1. Photorealistic product photo of a small four-wheeled robotic seed-sowing rover with a hopper for seeds on top, a seed-dispensing mechanism underneath, ultrasonic sensors mounted on the front bumper, matte green and black chassis, standing on tilled brown soil, natural outdoor lighting, detailed product photography.
+2. Wide shot of an automated seed-sowing robot moving in a straight line across a freshly tilled agricultural field, leaving a neat row of planted seeds behind it, a farmer supervising from a distance with a remote control tablet, golden afternoon light, realistic wide-angle farm photography.
+3. Technical exploded-view diagram of a seed-sowing robot showing labeled parts: Arduino Mega/ESP32 controller, motor drivers, DC drive motors, ultrasonic obstacle sensors, servo-actuated seed dispenser, seed hopper, GPS module, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a seed-sowing robot working across a vast green field at sunrise, a holographic overlay showing a field map with planted-row progress and "12 rows completed · GPS-guided", earthy green and orange tones, cinematic drone-shot composition, 16:9 agri-tech advertisement style.
+
+====================================================================
+7. Smart Agricultural Weather Prediction and Decision Support System
+====================================================================
+1. Photorealistic product photo of a compact outdoor weather station unit on a metal pole, featuring a small anemometer-like housing, rain gauge funnel, temperature/humidity sensor vents, and a solar panel on top, set against a clear sky background, sharp DSLR-style product photography.
+2. A farmer standing in an open field checking a smartphone app showing a 5-day weather forecast and irrigation recommendation, with a weather-station pole visible in the background under a partly cloudy sky, natural daylight, realistic documentary agricultural photography.
+3. Technical exploded-view diagram of a smart agricultural weather station showing labeled components: ESP32 module, temperature sensor, humidity sensor, rain sensor, barometric pressure sensor, solar panel, antenna, isometric exploded layout, white background, clean engineering blueprint style.
+4. Wide marketing banner of farmland under a dramatic sky with a weather station silhouette in the foreground, a holographic dashboard overlay reading "Rain expected in 6 hrs · Delay irrigation", moody blue-and-gold color grading, cinematic wide composition, 16:9 agri-tech advertisement style.
+
+====================================================================
+8. Smart Kitchen Safety Monitoring and Automation System
+====================================================================
+1. Photorealistic product photo of a small wall-mounted kitchen safety unit with a gas sensor vent, flame sensor lens, buzzer grille and a status LED ring, sleek white and stainless-steel housing, mounted above a stove backdrop, bright kitchen lighting, detailed product photography.
+2. A modern home kitchen scene where a wall-mounted safety device detects a gas leak near the stove and its red alert light is glowing, a smartphone on the counter shows an emergency notification, warm kitchen lighting, realistic lifestyle photography, subtle tension in the mood.
+3. Technical exploded-view diagram of a smart kitchen safety monitor showing labeled parts: ESP32 board, MQ gas sensor, flame sensor, temperature sensor, buzzer, relay module, GSM/Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a bright modern kitchen with a sleek safety monitor mounted on the wall, a translucent dashboard overlay showing "Gas: Normal · Flame: Not Detected · All Systems Safe", clean white and teal palette, soft daylight, 16:9 smart-home advertisement style.
+
+====================================================================
+9. Smart Waste Segregation System for Residential Applications
+====================================================================
+1. Photorealistic product photo of a two-compartment smart waste bin with a small conveyor mechanism visible at the opening, an IR and moisture sensor module mounted above the flap, a discreet camera module lens, matte grey and green plastic housing, studio lighting, detailed product photography.
+2. A person dropping a mix of waste into a smart segregation bin in a modern kitchen, with the bin's mechanical flap automatically directing wet waste to one compartment and dry waste to another, bright indoor lighting, realistic lifestyle photography, clean composition.
+3. Technical exploded-view diagram of a smart waste segregation bin showing labeled components: ESP32 controller, IR sensor, moisture sensor, ultrasonic sensor, servo motor, small conveyor belt mechanism, camera module, isometric exploded layout, white background, engineering blueprint style.
+4. Wide marketing banner of a sleek dual-compartment smart bin in a bright modern kitchen, a holographic overlay showing "Wet Waste: 40% · Dry Waste: 25% · Segregation Active", fresh green and white color palette, soft daylight, 16:9 smart-home advertisement style.
+
+====================================================================
+10. Smart Water Consumption Monitoring System for Homes
+====================================================================
+1. Photorealistic product photo of a compact inline water-flow meter device clamped onto a household pipe, showing a small digital display and a flow sensor housing, brushed metal and blue plastic finish, set in a utility room background, bright even lighting, detailed product photography.
+2. A homeowner looking at a wall-mounted LCD panel in a utility room that displays daily water usage statistics, with visible pipework and a flow-sensor unit installed nearby, natural daylight through a small window, realistic lifestyle photography.
+3. Technical exploded-view diagram of a smart water monitoring system showing labeled parts: ESP32 board, water flow sensor, ultrasonic tank-level sensor, solenoid valve, LCD display, isometric exploded layout, white background, clean engineering blueprint illustration.
+4. Wide marketing banner of a modern home bathroom with a subtle water-flow sensor visible on exposed piping, a translucent dashboard overlay showing "Today: 180L used · 12% below average", cool blue and white palette, soft daylight, 16:9 smart-home advertisement style.
+
+====================================================================
+11. Autonomous Fire Detection and Rescue Robot
+====================================================================
+1. Photorealistic product photo of a rugged tracked robot chassis with a mounted water-pump nozzle, flame and gas sensor modules on the front, a small camera turret on top, matte black and red heat-resistant casing, studio lighting on a neutral background, detailed product photography.
+2. A fire-detection rescue robot navigating through a smoky industrial warehouse corridor toward a small flame source, its water nozzle beginning to spray, dramatic orange emergency lighting, realistic cinematic action photography, sense of urgency.
+3. Technical exploded-view diagram of an autonomous fire-rescue robot showing labeled parts: ESP32 controller, flame sensor, temperature sensor, gas sensor, water pump, servo-actuated nozzle, camera module, tracked wheelbase, isometric exploded layout, white background, engineering blueprint style.
+4. Wide marketing banner of a rugged rescue robot advancing through a dim industrial facility, a holographic HUD overlay showing "Fire Detected · Distance 4m · Extinguishing Sequence Active", dramatic red-orange lighting, cinematic wide composition, 16:9 industrial-safety advertisement style.
+
+====================================================================
+12. Hybrid Renewable Energy Monitoring and Control System
+====================================================================
+1. Photorealistic product photo of a wall-mounted hybrid energy control box with visible voltage/current sensor wiring, an LCD display showing solar and wind power output, relay module terminals, mounted near a small solar panel and wind sensor bracket, outdoor daylight, detailed product photography.
+2. A rooftop scene with solar panels and a small wind sensor mast, a technician checking a wall-mounted energy monitoring panel showing live power generation graphs, clear blue sky, realistic architectural/technical photography.
+3. Technical exploded-view diagram of a hybrid renewable energy monitor showing labeled parts: ESP32 board, voltage sensor, current sensor, relay modules, solar panel, wind sensor, LCD display, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a rooftop solar-and-wind installation at golden hour, a translucent dashboard overlay showing "Solar: 3.2kW · Wind: 1.1kW · Grid: Optimized", warm gold and green tones, cinematic wide shot, 16:9 clean-energy advertisement style.
+
+====================================================================
+13. Smart Parking Slot Detection and Reservation System
+====================================================================
+1. Photorealistic product photo of a small ultrasonic parking-slot sensor puck mounted on a parking garage ceiling, with a subtle green/red status LED ring, a compact IR sensor housing beside it, industrial concrete background, even studio-like lighting, detailed product photography.
+2. A shopping mall parking garage with overhead sensor pucks glowing green over empty spots and red over occupied ones, a driver looking at their phone showing a reserved slot number, realistic architectural interior photography, cool fluorescent lighting.
+3. Technical exploded-view diagram of a smart parking sensor unit showing labeled parts: ESP32 module, ultrasonic sensor, IR sensor, RFID reader, LCD display, Wi-Fi antenna, ceiling-mount bracket, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a modern parking garage aisle with glowing green/red ceiling indicators above each slot, a holographic overlay showing "Slot B12 Reserved · Navigate", cool blue and neon-green palette, cinematic wide-angle shot, 16:9 smart-city advertisement style.
+
+====================================================================
+14. IoT-Based Smart Street Lighting with Adaptive Control
+====================================================================
+1. Photorealistic product photo of a modern street-light fixture head with an integrated LDR sensor, PIR motion sensor lens, and a small control module box mounted on the pole beneath the lamp, clear evening sky background, realistic outdoor product photography.
+2. A quiet street at night where a smart street light brightens automatically as a car approaches and dims again after it passes, motion blur on the car's headlights, cool blue-white LED glow, realistic night photography, cinematic mood.
+3. Technical exploded-view diagram of a smart street light controller showing labeled parts: ESP32 module, LDR sensor, PIR sensor, LED driver, relay module, current sensor, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a city street at dusk with a row of smart street lights gradually brightening, a translucent dashboard overlay showing "Energy Saved Today: 34% · 6 Lights Active", cool blue and amber tones, cinematic wide shot, 16:9 smart-city advertisement style.
+
+====================================================================
+15. Smart Pollution Monitoring and Prediction System
+====================================================================
+1. Photorealistic product photo of a compact outdoor air-quality monitoring pole unit with an MQ135 gas sensor vent, small dust-sensor inlet, weatherproof grey casing, mounted at a street corner, natural daylight, detailed product photography.
+2. A busy city street with an air-quality monitoring pole in the foreground and blurred traffic in the background, a nearby digital signboard displaying a live air-quality index number, hazy urban atmosphere, realistic documentary street photography.
+3. Technical exploded-view diagram of a pollution monitoring device showing labeled parts: ESP32 module, MQ135 gas sensor, CO2 sensor, dust sensor, temperature/humidity sensor, antenna, weatherproof enclosure, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a city skyline at dusk with a subtle air-quality sensor pole in the foreground, a holographic dashboard overlay showing "AQI: 62 — Moderate · Forecast improving", muted teal and grey tones, cinematic wide composition, 16:9 smart-city advertisement style.
+
+====================================================================
+16. Automated Inventory Management System using RFID and IoT
+====================================================================
+1. Photorealistic product photo of a handheld RFID reader device beside a small OLED-display base station on a warehouse shelf, RFID tags visible attached to nearby boxes, industrial shelving background, bright warehouse lighting, detailed product photography.
+2. A warehouse worker scanning boxes on a shelf with a handheld RFID reader, a nearby monitor displaying a live inventory dashboard updating stock counts, tall warehouse racks in the background, realistic industrial photography.
+3. Technical exploded-view diagram of an RFID inventory system showing labeled parts: ESP32 module, RFID reader, RFID tags, barcode scanner, OLED display, Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a modern warehouse aisle with RFID-tagged boxes on shelves, a translucent dashboard overlay showing "1,204 Items Tracked · Low Stock Alert: SKU-2291", industrial blue and amber tones, cinematic wide shot, 16:9 logistics-tech advertisement style.
+
+====================================================================
+17. IoT-Based Noise Pollution Monitoring System
+====================================================================
+1. Photorealistic product photo of a compact outdoor noise-monitoring unit with a visible microphone module grille, small OLED display, weatherproof enclosure, mounted on a pole near a busy road, natural daylight, detailed product photography.
+2. A city intersection with a noise-monitoring pole in the foreground and traffic passing by, a faint sound-wave visualization graphic subtly overlaid to suggest measurement, realistic urban documentary photography.
+3. Technical exploded-view diagram of a noise pollution monitor showing labeled parts: ESP32 module, sound sensor, microphone module, OLED display, Wi-Fi antenna, weatherproof housing, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a busy urban street at dusk with a noise-sensor pole in the foreground, a holographic dashboard overlay showing "Noise Level: 78dB — High · Zone: School Area", muted purple and grey tones, cinematic wide composition, 16:9 smart-city advertisement style.
+
+====================================================================
+18. Smart Forest Fire Detection and Alert System
+====================================================================
+1. Photorealistic product photo of a rugged solar-powered forest sensor unit mounted on a tree trunk, showing a temperature/smoke sensor vent, small LoRa antenna, weatherproof green housing blending with bark, natural forest lighting, detailed product photography.
+2. A dense forest scene at dawn with a sensor unit mounted on a tree, faint smoke rising in the distance being detected, a park ranger checking a handheld device showing an alert, realistic nature documentary photography, tense atmosphere.
+3. Technical exploded-view diagram of a forest fire detection sensor showing labeled parts: ESP32 module, temperature sensor, smoke sensor, flame sensor, GPS module, LoRa/GSM antenna, solar panel, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a vast green forest canopy from above with a small sensor node highlighted on a tree, a holographic overlay showing "Alert: Rising Temperature Detected — Sector 7", deep green and warning-orange tones, cinematic aerial composition, 16:9 disaster-management advertisement style.
+
+====================================================================
+19. Smart RFID-Based Attendance and Access Management System
+====================================================================
+1. Photorealistic product photo of a wall-mounted RFID attendance terminal with a card-reader panel, small LCD screen showing a welcome message, and a servo-actuated door lock mechanism beside it, modern office wall background, bright even lighting, detailed product photography.
+2. A student tapping an RFID card against a wall-mounted reader at a school entrance gate, the gate's servo lock releasing as the LCD shows "Access Granted", bright morning light, realistic institutional photography.
+3. Technical exploded-view diagram of an RFID attendance and access system showing labeled parts: ESP32 module, RFID reader, RFID tags, LCD display, servo lock, Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a modern office entrance with an RFID reader panel beside a glass door, a translucent dashboard overlay showing "142 Checked In Today · Attendance Synced", clean corporate blue and white palette, soft daylight, 16:9 corporate-tech advertisement style.
+
+====================================================================
+20. IoT-Based Smart Locker System with Remote Access
+====================================================================
+1. Photorealistic product photo of a sleek metal smart locker bank with a fingerprint sensor pad, keypad, and small status LED beside each locker door, modern minimalist design, studio lighting, detailed product photography.
+2. A person unlocking a smart locker at an office using a fingerprint scan, the locker's servo lock clicking open, a smartphone in their other hand showing a confirmation notification, bright indoor lighting, realistic lifestyle photography.
+3. Technical exploded-view diagram of a smart locker system showing labeled parts: ESP32 module, RFID module, fingerprint sensor, servo motor, keypad, mobile-app antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a row of sleek smart lockers in a modern office lobby, a holographic overlay showing "Locker 14 Unlocked Remotely · Secure Access Log", sleek silver and blue tones, soft ambient lighting, 16:9 corporate-tech advertisement style.
+
+====================================================================
+21. Smart Wearable Navigation Assistant for Blind People
+====================================================================
+1. Photorealistic product photo of a compact wearable chest-strap or cane-mounted device with an ultrasonic sensor module, small speaker grille, and vibration motor housing, matte black casing, studio lighting on neutral background, detailed product photography.
+2. A visually impaired person walking down a city sidewalk wearing a compact navigation assistant device on their chest, confidently avoiding an obstacle ahead, warm afternoon sunlight, realistic lifestyle documentary photography, empowering mood.
+3. Technical exploded-view diagram of a wearable navigation assistant showing labeled parts: ESP32 module, ultrasonic sensor, GPS module, audio module, vibration motor, Bluetooth antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a person confidently walking a city street wearing the navigation device, a subtle holographic waveform overlay suggesting audio guidance and "Obstacle 2m ahead — turn left", warm empowering color palette, soft daylight, 16:9 assistive-tech advertisement style.
+
+====================================================================
+22. Smart IV Drip Rate Monitoring and Alert System
+====================================================================
+1. Photorealistic product photo of a small clip-on IV drip monitoring device attached to a hospital drip chamber, showing an IR drop-counter sensor and a tiny OLED readout of drip rate, clean white medical device casing, clinical studio lighting, detailed product photography.
+2. A hospital room scene with an IV stand and drip bag, a small monitoring clip attached to the drip chamber, a nurse glancing at a tablet showing a drip-rate alert notification, soft clinical lighting, realistic healthcare photography, calm professional mood.
+3. Technical exploded-view diagram of an IV drip monitoring device showing labeled parts: ESP32 module, IR drop-counter sensor, load cell, OLED display, buzzer, Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a hospital IV stand with a sleek monitoring clip on the drip line, a translucent dashboard overlay showing "Drip Rate: 20 drops/min · Bottle: 85% remaining", clean clinical blue and white palette, soft lighting, 16:9 healthcare-tech advertisement style.
+
+====================================================================
+23. Wearable Health Vitals Monitoring Band with Emergency SOS
+====================================================================
+1. Photorealistic product photo of a sleek health-monitoring wristband with a MAX30102 sensor window on the underside, a small SOS button on the side, subtle status LED, matte black and silver finish, studio lighting, macro product photography.
+2. An elderly person at home pressing the SOS button on their health wristband after feeling unwell, a caregiver's phone in the background showing an emergency alert with location, warm indoor lighting, realistic lifestyle photography, urgent but composed mood.
+3. Technical exploded-view diagram of a health vitals wristband showing labeled parts: ESP32 module, MAX30100/MAX30102 sensor, body temperature sensor, GPS module, GSM/Bluetooth chip, battery, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a person wearing the health band while walking outdoors, a holographic overlay showing "Heart Rate: 78bpm · SpO2: 98% · Status: Normal", calming teal and white tones, soft daylight, 16:9 healthcare-tech advertisement style.
+
+====================================================================
+24. Automated Poultry Farm Climate and Feed Monitoring System
+====================================================================
+1. Photorealistic product photo of a rugged farm-grade control box mounted on a poultry shed wall, showing a DHT22 sensor vent, MQ135 gas sensor port, and a small motor-driven feeder mechanism beside it, industrial farm background, natural daylight, detailed product photography.
+2. Interior of a poultry shed with rows of chickens, an automated feeder dispensing feed into troughs while a wall-mounted control unit monitors conditions, warm ambient barn lighting, realistic agricultural documentary photography.
+3. Technical exploded-view diagram of a poultry farm monitoring system showing labeled parts: ESP32 module, DHT22 sensor, MQ135 gas sensor, servo-driven feeder, relay module, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a well-lit poultry shed interior with healthy chickens, a translucent dashboard overlay showing "Temp: 24°C · Ammonia: Safe · Feed: Auto-dispensed", warm amber and green tones, cinematic wide shot, 16:9 agri-tech advertisement style.
+
+====================================================================
+25. Smart Drip Irrigation Control System based on Soil Moisture and Weather Forecast
+====================================================================
+1. Photorealistic product photo of a compact irrigation controller box mounted near a solenoid valve on a drip-irrigation pipeline, a soil moisture probe inserted into nearby soil, weatherproof casing, natural outdoor daylight, detailed product photography.
+2. A garden or crop row with drip-irrigation tubing releasing water precisely at plant roots, a soil-moisture probe visible in the foreground, a farmer checking a phone app showing "Rain expected — irrigation paused", golden daylight, realistic agricultural photography.
+3. Technical exploded-view diagram of a smart drip irrigation controller showing labeled parts: ESP32 module, soil moisture sensor, solenoid valve, relay module, Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a lush irrigated crop field at golden hour with visible drip lines, a holographic dashboard overlay showing "Soil Moisture: 38% · Next Watering: Skipped (Rain Forecast)", earthy green and blue tones, cinematic wide shot, 16:9 agri-tech advertisement style.
+
+====================================================================
+26. IoT-Based Smart Fire Extinguisher Cabinet with Auto Alert
+====================================================================
+1. Photorealistic product photo of a red wall-mounted fire extinguisher cabinet with an integrated sensor module showing a pressure gauge sensor and small RFID tag on the extinguisher handle, clean industrial hallway background, bright even lighting, detailed product photography.
+2. An office hallway with a fire extinguisher cabinet, its sensor module glowing red as the extinguisher is removed without authorization, a facility manager's phone showing an alert notification, realistic indoor photography, subtle tension.
+3. Technical exploded-view diagram of a smart fire extinguisher cabinet showing labeled parts: ESP32 module, pressure sensor, IR/weight sensor, RFID tag, buzzer, GSM/Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a corporate hallway with a monitored fire-extinguisher cabinet, a translucent dashboard overlay showing "Extinguisher #12: Pressure OK · Last Checked: Today", red and white safety color palette, soft lighting, 16:9 industrial-safety advertisement style.
+
+====================================================================
+27. Smart Home Intrusion Detection and Automated Response System
+====================================================================
+1. Photorealistic product photo of a small wall-mounted PIR motion sensor unit beside a magnetic door-sensor pair on a modern home door frame, sleek white plastic housing, soft indoor lighting, detailed product photography.
+2. A darkened home hallway at night where a PIR sensor detects motion and a door automatically locks via a relay-controlled mechanism, a smartphone glowing on a nearby table showing a security alert, moody night lighting, realistic cinematic photography, tense atmosphere.
+3. Technical exploded-view diagram of a smart home intrusion detection system showing labeled parts: ESP32 module, PIR sensor, magnetic door/window sensor, camera module, relay-controlled lock, GSM/Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a modern home exterior at night with a subtle security sensor near the door, a holographic overlay showing "All Doors Locked · Motion Detected 11:42 PM · Alert Sent", deep blue and white palette, cinematic night lighting, 16:9 smart-home advertisement style.
+
+====================================================================
+28. Solar-Powered Smart Dustbin with Fill-Level Monitoring
+====================================================================
+1. Photorealistic product photo of a public outdoor dustbin with a small solar panel mounted on its lid, an ultrasonic sensor visible inside the rim, weatherproof green housing, standing on a city sidewalk, bright daylight, detailed product photography.
+2. A city park scene with a solar-powered smart dustbin, a municipal worker checking a tablet showing fill-level status before deciding whether to empty it, natural daylight, realistic urban documentary photography.
+3. Technical exploded-view diagram of a solar-powered smart dustbin showing labeled parts: ESP32 module, ultrasonic sensor, solar panel, battery and charge controller, GSM/Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a row of solar-powered smart dustbins along a clean city street, a translucent dashboard overlay showing "Bin #04: 92% Full · Route Updated", fresh green and solar-yellow tones, cinematic wide shot, 16:9 smart-city advertisement style.
+
+====================================================================
+29. IoT-Based Smart Helmet for Rider Safety and Accident Alert
+====================================================================
+1. Photorealistic product photo of a modern motorcycle helmet with a discreet electronics module mounted at the back, showing an MPU6050 sensor bump, small alcohol-sensor vent near the chin strap, and a GPS antenna nub, matte black helmet shell, studio lighting, detailed product photography.
+2. A rider putting on a smart helmet before starting a motorcycle, the ignition light turning green only after the helmet confirms proper wear, urban street background, realistic lifestyle photography, safety-conscious mood.
+3. Technical exploded-view diagram of a smart helmet safety system showing labeled parts: ESP32 module, MPU6050 accelerometer, alcohol (MQ3) sensor, IR wear-detection sensor, GPS module, GSM module, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a motorcyclist riding safely on a highway at sunset wearing a smart helmet, a subtle holographic overlay showing "Helmet: Worn · Alcohol: Not Detected · Ignition Enabled", dynamic orange and dark-blue tones, cinematic wide shot, 16:9 road-safety advertisement style.
+
+====================================================================
+30. Smart Library Book Tracking and Automated Return System using RFID
+====================================================================
+1. Photorealistic product photo of a library book-return kiosk with an RFID reader slot, small OLED display showing "Book Returned", and a stack of RFID-tagged books beside it, warm library interior background, soft ambient lighting, detailed product photography.
+2. A student returning a book at a library's automated RFID kiosk, the display confirming the return while a shelf of neatly organized books is visible in the background, warm wood-toned library interior, realistic institutional photography.
+3. Technical exploded-view diagram of an RFID library tracking system showing labeled parts: ESP32 module, RFID reader, RFID tags, OLED display, Wi-Fi antenna, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a modern library interior with an RFID kiosk in the foreground and tall bookshelves behind, a translucent dashboard overlay showing "3,204 Books Tracked · 12 Overdue", warm wood-tone and soft blue palette, cinematic wide shot, 16:9 edu-tech advertisement style.
+
+====================================================================
+31. AI-Based Smart Traffic Signal Control System for Congestion Management
+====================================================================
+1. Photorealistic product photo of a traffic-signal control cabinet at the base of a signal pole, showing an IR/ultrasonic vehicle sensor module and a small camera unit mounted nearby, urban street background, bright daylight, detailed product photography.
+2. A busy urban intersection from an elevated angle showing varying traffic density on different lanes, with the traffic signal adaptively giving a longer green light to the more congested lane, realistic aerial street photography, dynamic city atmosphere.
+3. Technical exploded-view diagram of a smart traffic signal controller showing labeled parts: ESP32 module, IR/ultrasonic vehicle sensors, camera module, relay-driven signal lights, antenna for cloud connectivity, isometric exploded layout, white background, engineering blueprint illustration.
+4. Wide marketing banner of a busy city intersection at dusk with traffic signals glowing, a holographic dashboard overlay showing "Lane 2: High Density · Green Extended +15s · Avg Wait Reduced 22%", vibrant city-night colors with neon accents, cinematic aerial wide shot, 16:9 smart-city advertisement style.

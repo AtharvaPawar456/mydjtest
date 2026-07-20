@@ -1,48 +1,31 @@
 {% extends "systemsetup/base.html" %}
 
-{% block title %}Contact Us | DigitalAssets{% endblock %}
+{% block title %}Contact Us | HandMadeProjects{% endblock %}
+{% block metaDescription %}Contact HandMadeProjects via Call or WhatsApp for project kits, custom builds, internships, mentoring or business collaboration.{% endblock %}
+{% block ogTitle %}Contact HandMadeProjects{% endblock %}
 
 {% block content %}
 <section class="px-4 max-w-2xl mx-auto">
   <div class="text-center mb-10">
-    <h1 class="text-4xl font-bold text-gray-800">Get in Touch</h1>
-    <p class="text-gray-500 mt-2">We'd love to hear from you. Fill out the form below.</p>
+    <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Get in touch</h1>
+    <p class="text-slate-500 dark:text-slate-400 mt-2">We'd love to hear from you — reach out directly, no forms needed.</p>
   </div>
 
-  {% if messages %}
-    <div class="mb-4">
-      {% for message in messages %}
-        <div class="p-4 rounded bg-green-100 text-green-800">
-          {{ message }}
-        </div>
-      {% endfor %}
+  <div class="rounded-3xl border border-brand-100 dark:border-brand-800 bg-gradient-to-br from-brand-50 to-violet-50 dark:from-slate-900 dark:to-slate-900 px-6 py-10 sm:px-10 text-center">
+    <p class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Talk to us directly</p>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white max-w-md mx-auto">
+      Contact us via Call / WhatsApp for any query or for mentoring
+    </h2>
+    <div class="mt-4 space-y-2 text-slate-700 dark:text-slate-200 font-semibold text-xl sm:text-2xl">
+      <p><i class="fas fa-phone-alt text-brand-600 dark:text-brand-400 mr-2"></i>{{ contact_phone_display }}</p>
+      <p><i class="fas fa-phone-alt text-brand-600 dark:text-brand-400 mr-2"></i>{{ contact_phone_alt_display }} <span class="text-sm font-medium text-slate-400 dark:text-slate-500">(alternate)</span></p>
     </div>
-  {% endif %}
-
-  <form action="{% url 'contactus' %}" method="POST" class="space-y-6 bg-white shadow-md rounded-lg p-6">
-    {% csrf_token %}
-    <div>
-      <label class="block text-gray-700 font-medium mb-1" for="name">Your Name</label>
-      <input type="text" id="name" name="name" required placeholder="Enter your name"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:border-blue-400 outline-none">
+    <div class="mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+      {% include "systemsetup/_call_whatsapp_buttons.html" %}
     </div>
-
-    <div>
-      <label class="block text-gray-700 font-medium mb-1" for="email">Your Email</label>
-      <input type="email" id="email" name="email" required placeholder="Enter your email"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:border-blue-400 outline-none">
-    </div>
-
-    <div>
-      <label class="block text-gray-700 font-medium mb-1" for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Write your message"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:border-blue-400 outline-none"></textarea>
-    </div>
-
-    <div class="text-right">
-      <button type="submit"
-              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Send Message</button>
-    </div>
-  </form>
+    <p class="mt-6 text-sm text-slate-500 dark:text-slate-400">
+      We operate 100% online — demos via Google Meet, genuine projects with after-sale support.
+    </p>
+  </div>
 </section>
 {% endblock %}

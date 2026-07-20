@@ -1,78 +1,274 @@
 {% extends 'systemsetup/base.html' %}
+
+{% block title %}{% if intern %}{{ intern.name }} | Intern Profile{% else %}Intern not found{% endif %} | HandMadeProjects{% endblock %}
+
+{% block metaDescription %}{% if intern %}{{ intern.name }} — {{ intern.role }} intern at HandMadeProjects. {{ intern.experience|truncatewords:25 }}{% else %}This intern profile could not be found.{% endif %}{% endblock %}
+
+{% block ogTitle %}{% if intern %}{{ intern.name }} | Intern Profile | HandMadeProjects{% else %}Intern not found{% endif %}{% endblock %}
+{% block ogDescription %}{% if intern %}{{ intern.name }} — {{ intern.role }} intern at HandMadeProjects.{% else %}This intern profile could not be found.{% endif %}{% endblock %}
+{% block ogImage %}{% if intern and intern.photo_base64 and intern.photo_base64 != '*' %}{{ intern.photo_base64 }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block twitterTitle %}{% if intern %}{{ intern.name }} | Intern Profile | HandMadeProjects{% else %}Intern not found{% endif %}{% endblock %}
+{% block twitterDescription %}{% if intern %}{{ intern.name }} — {{ intern.role }} intern at HandMadeProjects.{% else %}This intern profile could not be found.{% endif %}{% endblock %}
+
+{% block structured_data %}
+{% if intern %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ intern.name|escapejs }}",
+  "jobTitle": "{{ intern.role|escapejs }}",
+  {% if intern.photo_base64 and intern.photo_base64 != '*' %}"image": "{{ intern.photo_base64|escapejs }}",{% endif %}
+  "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'intern_profile' intern.internid %}",
+  "worksFor": { "@type": "Organization", "name": "HandMadeProjects" }
+  {% if intern.linkedin_url or intern.github_url %}
+  ,"sameAs": [
+    {% if intern.linkedin_url %}"{{ intern.linkedin_url|escapejs }}"{% if intern.github_url %},{% endif %}{% endif %}
+    {% if intern.github_url %}"{{ intern.github_url|escapejs }}"{% endif %}
+  ]
+  {% endif %}
+}
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
-<div class="font-sans mb-20">
-    <div class="container mx-auto">
-        {% if intern %}
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <a href="{% url 'internship_listing' %}" class="hover:text-brand-600">Interns</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white font-medium">{% if intern %}{{ intern.name }}{% else %}Profile{% endif %}</span>
+</nav>
 
-            <!-- Header Section -->
-            <div class="flex flex-col md:flex-row items-center p-6 bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
-                <!-- Profile Image -->
-                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mb-4 md:mb-0 md:mr-6">
-                    {% if intern.photo_base64 and intern.photo_base64 != '*' %}
-                    <img src="{{ intern.photo_base64 }}" alt="{{ intern.name }}" class="w-full h-full object-cover">
-                    {% else %}
-                    <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-                        <span class="text-gray-500 text-4xl">{{ intern.name|first }}</span>
-                    </div>
-                    {% endif %}
-                </div>
-
-                <!-- Name, Role, InternID, Social Links -->
-                <div class="text-center md:text-left flex-1">
-                    <h1 class="text-2xl font-bold">{{ intern.name }}</h1>
-                    <p class="text-indigo-200">{{ intern.role }}</p>
-                    <p class="text-yellow-200 font-bold">[ InternID: {{ intern.internid }} ]</p>
-                    <div class="mt-4 flex justify-center md:justify-start space-x-4">
-                        {% if intern.linkedin_url %}
-                        <a href="{{ intern.linkedin_url }}" target="_blank" class="text-white hover:text-indigo-200 transition-colors">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                        {% endif %}
-                        {% if intern.github_url %}
-                        <a href="{{ intern.github_url }}" target="_blank" class="text-white hover:text-indigo-200 transition-colors">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="p-4">
-                <!-- Experience First -->
-                <div class="mb-8">
-                    <h2 class="text-2xl font-semibold text-gray-800 border-b-2 border-indigo-200 pb-2 mb-4">Experience & Skills</h2>
-                    <p class="text-gray-700 leading-relaxed">{{ intern.experience }}</p>
-                </div>
-
-                <!-- About Me Second -->
-                {% if intern.metadata and intern.metadata != '*' %}
-                <div>
-                    <h2 class="text-2xl font-semibold text-gray-800 border-b-2 border-indigo-200 pb-2 mb-4">About Me</h2>
-                    <p class="text-gray-700 leading-relaxed">{{ intern.metadata|safe }}</p>
-                </div>
-                {% endif %}
-            </div>
-
-        </div>
-
-        <a href="{% url 'internship_listing' %}" class="mt-6 inline-block px-6 py-2 text-base font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500 transition-colors">
-            Back to Internships
-        </a>
-
-        {% else %}
-        <div class="text-center py-20 px-6 bg-white rounded-lg shadow-xl">
-            <i class="fas fa-exclamation-triangle text-5xl text-red-400 mb-4"></i>
-            <h2 class="text-2xl font-bold text-gray-800">Intern Not Found</h2>
-            <p class="text-gray-600 mt-2">The requested intern profile could not be found.</p>
-            <a href="{% url 'internship_listing' %}" class="mt-6 inline-block px-6 py-2 text-base font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500 transition-colors">
-                Back to Internships
+{% if intern %}
+<div class="max-w-4xl mx-auto">
+  <div class="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
+    <div class="relative bg-gradient-to-br from-brand-600 to-violet-600 px-6 py-8 md:px-10 md:py-10 text-white">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <div class="shrink-0 flex flex-col items-center gap-2">
+          <div class="h-28 w-28 rounded-2xl overflow-hidden border-4 border-white/30 shadow-lg bg-white/10">
+            {% if intern.photo_base64 and intern.photo_base64 != '*' %}
+            <button
+              type="button"
+              id="internPhotoOpen"
+              class="block w-full h-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-label="View full screen photo"
+            >
+              <img
+                id="internPhotoThumb"
+                src="{{ intern.photo_base64 }}"
+                alt="{{ intern.name }}"
+                class="w-full h-full object-cover"
+              >
+            </button>
+            {% else %}
+            <div class="w-full h-full flex items-center justify-center text-4xl font-bold">{{ intern.name|first }}</div>
+            {% endif %}
+          </div>
+          {% if intern.photo_base64 and intern.photo_base64 != '*' %}
+          <div class="flex flex-wrap justify-center gap-1.5">
+            <button
+              type="button"
+              id="internPhotoFullscreenBtn"
+              class="rounded-full bg-white/15 hover:bg-white/25 px-3 py-1 text-[11px] font-semibold transition"
+            >
+              Full screen
+            </button>
+            <a
+              id="internPhotoDownload"
+              href="{{ intern.photo_base64 }}"
+              download="{{ intern.name|slugify }}-photo.png"
+              class="rounded-full bg-white dark:bg-white text-brand-700 dark:text-brand-300 px-3 py-1 text-[11px] font-semibold hover:bg-brand-50 dark:hover:bg-brand-900/40 transition"
+            >
+              Download
             </a>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
-
-
+        <div class="text-center sm:text-left flex-1">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <p class="text-brand-100 text-xs font-bold uppercase tracking-wider">Intern profile</p>
+            {% if intern.is_stipend %}
+            <span class="rounded-full bg-emerald-400/20 text-emerald-100 border border-emerald-300/30 text-[10px] font-bold uppercase px-2 py-0.5">Stipend</span>
+            {% else %}
+            <span class="rounded-full bg-amber-400/20 text-amber-100 border border-amber-300/30 text-[10px] font-bold uppercase px-2 py-0.5">Unstipend</span>
+            {% endif %}
+          </div>
+          <h1 class="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight">{{ intern.name }}</h1>
+          <p class="mt-1 text-brand-100 font-medium">{{ intern.role }}</p>
+          <p class="mt-2 text-sm text-white/80 font-mono">ID · {{ intern.internid }}</p>
+          <div class="mt-4 flex flex-wrap justify-center sm:justify-start gap-2">
+            {% if intern.linkedin_url %}
+            <a href="{{ intern.linkedin_url }}" target="_blank" rel="noopener"
+               class="rounded-full bg-white/15 hover:bg-white/25 px-4 py-1.5 text-sm font-semibold transition">LinkedIn</a>
+            {% endif %}
+            {% if intern.github_url %}
+            <a href="{{ intern.github_url }}" target="_blank" rel="noopener"
+               class="rounded-full bg-white/15 hover:bg-white/25 px-4 py-1.5 text-sm font-semibold transition">GitHub</a>
+            {% endif %}
+            {% if intern.applicationlink and intern.applicationlink != '*' %}
+            <a href="{{ intern.applicationlink }}" target="_blank" rel="noopener"
+               class="rounded-full bg-white dark:bg-white text-brand-700 dark:text-brand-300 px-4 py-1.5 text-sm font-semibold">Application</a>
+            {% endif %}
+            {% if intern.certificatelink and intern.certificatelink != '*' %}
+            <a href="{{ intern.certificatelink }}" target="_blank" rel="noopener"
+               class="rounded-full border border-white/40 px-4 py-1.5 text-sm font-semibold hover:bg-white/10">Certificate</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="p-6 md:p-10 space-y-8">
+      <section>
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">Experience &amp; skills</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">{{ intern.experience }}</p>
+      </section>
+
+      {% if intern.metadata and intern.metadata != '*' %}
+      <section>
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">About</h2>
+        <div class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed prose prose-slate dark:prose-invert max-w-none prose-content">
+          {{ intern.metadata|safe }}
+        </div>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a href="{% url 'internship_listing' %}" class="rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-semibold px-5 py-2.5 text-slate-700 dark:text-slate-200 hover:border-brand-300 dark:hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-300">
+      ← All interns
+    </a>
+    <a href="{% url 'internship_opportunities' %}" class="rounded-full bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 hover:bg-brand-700">
+      Open opportunities
+    </a>
+  </div>
 </div>
+
+{% if intern.photo_base64 and intern.photo_base64 != '*' %}
+{# Fullscreen lightbox #}
+<div
+  id="internPhotoLightbox"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Full screen photo"
+>
+  <button
+    type="button"
+    id="internPhotoClose"
+    class="absolute top-4 right-4 z-10 rounded-full bg-white/10 hover:bg-white/20 text-white px-4 py-2 text-sm font-semibold"
+  >
+    Close ✕
+  </button>
+  <div class="absolute top-4 left-4 z-10 flex flex-wrap gap-2">
+    <a
+      id="internPhotoDownloadFs"
+      href="{{ intern.photo_base64 }}"
+      download="{{ intern.name|slugify }}-photo.png"
+      class="rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-4 py-2 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800"
+    >
+      Download
+    </a>
+  </div>
+  <img
+    id="internPhotoFull"
+    src="{{ intern.photo_base64 }}"
+    alt="{{ intern.name }} full size"
+    class="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+  >
+</div>
+{% endif %}
+
+{% else %}
+<div class="max-w-lg mx-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-10 text-center">
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white">Intern not found</h2>
+  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">This profile may have been removed.</p>
+  <a href="{% url 'internship_listing' %}" class="inline-flex mt-6 rounded-full bg-brand-600 text-white text-sm font-semibold px-5 py-2.5">Back to interns</a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+{% if intern and intern.photo_base64 and intern.photo_base64 != '*' %}
+<script>
+(function () {
+  var lightbox = document.getElementById("internPhotoLightbox");
+  if (!lightbox) return;
+
+  var openBtns = [
+    document.getElementById("internPhotoOpen"),
+    document.getElementById("internPhotoFullscreenBtn"),
+  ].filter(Boolean);
+  var closeBtn = document.getElementById("internPhotoClose");
+
+  function openFs() {
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeFs() {
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  openBtns.forEach(function (btn) {
+    btn.addEventListener("click", openFs);
+  });
+  if (closeBtn) closeBtn.addEventListener("click", closeFs);
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) closeFs();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeFs();
+  });
+
+  // Robust download for data: URLs (some browsers ignore download= on data URIs)
+  function forceDownload(e) {
+    var a = e.currentTarget;
+    var href = a.getAttribute("href") || "";
+    if (href.indexOf("data:") !== 0) return; // let normal download work for http(s)
+    e.preventDefault();
+    try {
+      var parts = href.split(",");
+      var meta = parts[0] || "";
+      var data = parts.slice(1).join(",");
+      var mime = "image/png";
+      var m = meta.match(/data:([^;]+)/);
+      if (m) mime = m[1];
+      var bin;
+      if (meta.indexOf(";base64") !== -1) {
+        var raw = atob(data);
+        var arr = new Uint8Array(raw.length);
+        for (var i = 0; i < raw.length; i++) arr[i] = raw.charCodeAt(i);
+        bin = arr;
+      } else {
+        bin = new TextEncoder().encode(decodeURIComponent(data));
+      }
+      var blob = new Blob([bin], { type: mime });
+      var url = URL.createObjectURL(blob);
+      var tmp = document.createElement("a");
+      tmp.href = url;
+      tmp.download = a.getAttribute("download") || "intern-photo.png";
+      document.body.appendChild(tmp);
+      tmp.click();
+      tmp.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    } catch (err) {
+      window.open(href, "_blank");
+    }
+  }
+
+  ["internPhotoDownload", "internPhotoDownloadFs"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("click", forceDownload);
+  });
+})();
+</script>
+{% endif %}
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "systemsetup/base.html" %}
+{% load price_filters %}
 
 {% block title %}
 {{ product.productname|title }} | Engineering & IoT Project | HandMadeProjects
@@ -24,36 +25,88 @@
 {{ seoKeywords }}
 {% endblock %}
 
+{% block ogType %}product{% endblock %}
+
+{% block structured_data %}
+{% if product and not error %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.productname|escapejs }}",
+  "description": "{{ product.highlighttitle|default:product.productname|escapejs }}",
+  "image": "{{ product.mainimgbasetxt|escapejs }}",
+  "sku": "PROD-{{ product.prodid }}",
+  "brand": { "@type": "Brand", "name": "HandMadeProjects" },
+  "category": "{{ product.category_label|default:'Engineering project'|escapejs }}",
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'productinfo' product.category_slug product.prodid %}",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "name": "HandMadeProjects" }
+    {% if product.prodcost and product.prodcost != '*' %}
+    ,"price": "{{ product.prodcost|escapejs }}"
+    {% endif %}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'productlist' %}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ product.productname|escapejs }}" }
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
-<section class="mx-auto pb-10 mb-20 px-1">
+<section class="mx-auto pb-10 mb-8">
 
   {% if error %}
-  <div class="bg-red-100 text-red-700 p-4 rounded-lg border border-red-300 mb-6">
+  <div class="bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 p-4 rounded-xl border border-red-200 dark:border-red-800 mb-6">
     {{ error }}
   </div>
   {% else %}
 
+  <nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+    <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+    <span>/</span>
+    <a href="{% url 'productlist' %}" class="hover:text-brand-600">Projects</a>
+    <span>/</span>
+    <span class="text-slate-900 dark:text-white font-medium">{{ product.productname|title }}</span>
+  </nav>
+
+
   <!-- HEADER -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-white rounded-xl p-6 shadow-sm">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
 
     <!-- IMAGE -->
-    <div class="relative">
+    <div class="relative rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-2 shadow-sm">
       <img
         src="{{ product.mainimgbasetxt }}"
         alt="{{ product.productname }}"
-        class="w-full rounded-xl border border-gray-200 shadow-md object-cover"
+        class="w-full rounded-xl border border-slate-100 dark:border-slate-800 object-cover"
       />
     </div>
 
     <!-- INFO -->
-    <div class="space-y-6">
+    <div class="space-y-6 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm">
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+        {% if product.category_label %}
+        <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 px-2.5 py-1 rounded-full mb-3">{{ product.category_label }}</span>
+        {% endif %}
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           {{ product.productname|title }}
         </h1>
 
         {% if product.highlighttitle %}
-        <p class="mt-3 text-lg text-indigo-700 font-medium">
+        <p class="mt-3 text-lg text-brand-700 dark:text-brand-300 font-medium">
           {{ product.highlighttitle|title }}
         </p>
         {% endif %}
@@ -63,21 +116,21 @@
       <div class="flex flex-wrap gap-3">
 
         {% if product.prodcost != '*' %}
-          <p class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">
-            Rs. {{product.prodcost}} /-
+          <p class="px-6 py-3 bg-brand-600 text-white font-semibold rounded-full shadow-sm">
+            Rs. {{product.prodcost|price}} /-
           </p>
         {% endif %}
 
         <a
           href="#contactus"
-          class="px-6 py-3 border border-indigo-600 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition"
+          class="px-6 py-3 border-2 border-brand-600 text-brand-700 dark:text-brand-300 font-semibold rounded-full hover:bg-brand-50 dark:hover:bg-brand-900/40 transition"
         >
           Contact for Access
         </a>
 
         {% if user.username == 'atharva' %}
         <a
-          href="{% url 'edit_product' product.prodid %}"
+          href="{% url 'edit_product' product.category_slug product.prodid %}"
           class="px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 transition"
         >
           Edit
@@ -89,48 +142,12 @@
 
   <!-- DESCRIPTION -->
   {% if product.prodinfo %}
-  <div id="details" class="bg-white p-6 rounded-xl shadow-sm">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+  <div id="details" class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
       About This Project
     </h2>
-    <div class="text-gray-700 leading-relaxed">
+    <div class="text-gray-700 dark:text-slate-200 leading-relaxed prose-content">
       {{ product.prodinfo|safe }}
-    </div>
-  </div>
-  {% endif %}
-
-  <!-- BENEFITS -->
-  {% if product.benefits %}
-  <div class="bg-white mt-8 p-6 rounded-xl shadow-sm">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-3">
-      Key Benefits
-    </h2>
-    <p class="text-gray-700 leading-relaxed">
-      {{ product.benefits }}
-    </p>
-  </div>
-  {% endif %}
-
-  <!-- USAGE -->
-  {% if product.usage %}
-  <div class="bg-white mt-8 p-6 rounded-xl shadow-sm">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-3">
-      Usage & Applications
-    </h2>
-    <p class="text-gray-700 leading-relaxed">
-      {{ product.usage }}
-    </p>
-  </div>
-  {% endif %}
-
-  <!-- DETAILED CONTENT -->
-  {% if product.content %}
-  <div class="bg-white mt-8 p-6 rounded-xl shadow-sm">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-3">
-      Technical Details
-    </h2>
-    <div class="text-gray-700 space-y-3">
-      {{ product.content|safe }}
     </div>
   </div>
   {% endif %}
@@ -138,7 +155,7 @@
   <!-- GALLERY -->
   {% if productImages and not nogallery %}
   <div class="mt-10">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-5 text-center">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-5 text-center">
       Project Gallery
     </h2>
     
@@ -147,7 +164,7 @@
 
   {% for img in productImages %}
   <div
-    class="bg-gray-50 rounded-2xl shadow-sm p-4 flex flex-col items-center transition hover:shadow-md hover:-translate-y-1">
+    class="bg-gray-50 dark:bg-slate-900/60 rounded-2xl shadow-sm p-4 flex flex-col items-center transition hover:shadow-md hover:-translate-y-1">
 
     <!-- Media Preview -->
     <div class="flex justify-center items-center w-full">
@@ -166,14 +183,14 @@
       {% elif "https:" in img %}
         <img
           src="{{ img }}"
-          alt="{{ product.productname }}"
-          class="max-h-[320px] w-auto object-contain rounded-xl" />
+          alt="{{ product.productname }} {{ forloop.counter }}"
+          class="lightbox-trigger max-h-[320px] w-auto object-contain rounded-xl cursor-zoom-in" />
 
       {% else %}
         <img
           src="data:image/png;base64,{{ img }}"
-          alt="{{ product.productname }}"
-          class="max-h-[320px] w-auto object-contain rounded-xl" />
+          alt="{{ product.productname }} {{ forloop.counter }}"
+          class="lightbox-trigger max-h-[320px] w-auto object-contain rounded-xl cursor-zoom-in" />
       {% endif %}
 
     </div>
@@ -181,7 +198,7 @@
     <!-- Product Tag -->
     <div class="mt-4 text-center space-y-2">
       <span
-        class="inline-block px-3 py-1 text-sm font-semibold text-gray-800 bg-gray-200 rounded-full">
+        class="inline-block px-3 py-1 text-sm font-semibold text-gray-800 dark:text-slate-100 bg-gray-200 rounded-full">
         {{ product.productname }}
       </span>
     </div>
@@ -199,28 +216,6 @@
   {% endfor %}
 
 </div>
-
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
-      {% for img in productImages %}
-      <div class="bg-white p-3 rounded-lg shadow hover:shadow-lg transition">
-
-        {% if ".mp4" in img %}
-          <video autoplay loop muted playsinline controls class="max-h-[320px] w-auto object-contain rounded-xl">
-            <source src="{{ img }}" type="video/mp4">
-          </video>
-        {% elif "https:" in img %}
-          <img src="{{ img }}" alt="{{ product.productname }}" class="w-full rounded-md object-cover" />
-
-        {% else %}
-          <img src="data:image/png;base64,{{ img }}" alt="{{ product.productname }}" class="w-full rounded-md object-cover" />
-        {% endif %}
-
-        
-
-      </div>
-      {% endfor %}
-    </div>
   </div>
   {% endif %}
   <!-- CTA FOOTER -->
@@ -231,17 +226,17 @@
     <p class="text-lg mb-6">
       Contact us for complete project, documentation, source code, customization or deployment help.
     </p>
-    <p class="inline-block px-8 py-3 bg-white text-indigo-700 rounded-lg font-bold">
-      Call or WhatsApp us:  <br>+91 81692 39027
-    </p>
+    <div class="mt-4 flex flex-wrap justify-center gap-3">
+      {% include "systemsetup/_call_whatsapp_buttons.html" %}
+    </div>
   </div>
 
   <!-- PAYMENT POLICY -->
-  <div class="mt-2 bg-white p-6 rounded-xl shadow-sm border-4 border-gray-200">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-3">
+  <div class="mt-2 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border-4 border-gray-200 dark:border-slate-700">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
       Payment Policy
     </h2>
-    <p class="text-gray-700 leading-relaxed font-semibold">
+    <p class="text-gray-700 dark:text-slate-200 leading-relaxed font-semibold">
       Advance: 50% of project cost <br>
       On Handover: 50% of project cost
     </p>
@@ -311,6 +306,68 @@
     });
   });
 </script>
+
+{% if productImages and not nogallery %}
+{# Fullscreen lightbox for gallery images #}
+<div
+  id="galleryLightbox"
+  class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Full screen image"
+>
+  <button
+    type="button"
+    id="galleryLightboxClose"
+    class="absolute top-4 right-4 z-10 rounded-full bg-white/10 hover:bg-white/20 text-white px-4 py-2 text-sm font-semibold"
+  >
+    Close ✕
+  </button>
+  <img
+    id="galleryLightboxImg"
+    src=""
+    alt=""
+    class="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+  >
+</div>
+<script>
+(function () {
+  var lightbox = document.getElementById('galleryLightbox');
+  var lightboxImg = document.getElementById('galleryLightboxImg');
+  var closeBtn = document.getElementById('galleryLightboxClose');
+  if (!lightbox || !lightboxImg) return;
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.classList.remove('overflow-hidden');
+    lightboxImg.src = '';
+  }
+
+  document.querySelectorAll('.lightbox-trigger').forEach(function (img) {
+    img.addEventListener('click', function () {
+      openLightbox(img.getAttribute('src'), img.getAttribute('alt'));
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+{% endif %}
 
 
 

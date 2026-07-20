@@ -1,0 +1,18 @@
+{% extends "systemsetup/base.html" %}
+
+{% block title %}Page not found | HandMadeProjects{% endblock %}
+{% block robots %}noindex, follow{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto text-center py-16">
+  <p class="text-7xl font-extrabold text-brand-600">404</p>
+  <h1 class="mt-4 text-2xl font-bold text-slate-900 dark:text-white">Page not found</h1>
+  <p class="mt-2 text-slate-500 dark:text-slate-400">
+    The page you're looking for may have been moved or doesn't exist.
+  </p>
+  <div class="mt-8 flex flex-wrap justify-center gap-3">
+    <a href="{% url 'welcome' %}" class="rounded-full bg-brand-600 text-white font-semibold px-6 py-3 hover:bg-brand-700 transition">Back to home</a>
+    <a href="{% url 'productlist' %}" class="rounded-full border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 hover:border-brand-300 hover:text-brand-700 transition">Browse projects</a>
+  </div>
+</div>
+{% endblock %}

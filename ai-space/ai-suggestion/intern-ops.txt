@@ -1,0 +1,61 @@
+# 50 internship opportunities — HandMadeProjects domain
+# Fields: ID | Title | Track | Mode | Duration | Stipend | Skills | Description
+# Stipend column: use "Unpaid" / "Unstipend" for unpaid; "Stipend" / "Paid" / "Performance-based" for paid.
+
+1 | Django Web Intern | Software | Remote | 1–2 months | Unpaid / certificate | Django, HTML, Tailwind | Build and polish catalog pages, auth flows, and admin UX on the live Django platform.
+2 - Frontend UI Intern (Tailwind) | Software | Remote | 1 month | Unpaid | Tailwind, responsive UI | Improve marketplace cards, shop pages, and internship UI consistency.
+3 | Full-Stack Project Intern | Software | Remote | 2 months | Stipend (performance-based) | Django, JS, Git | Own a mini feature end-to-end: model → view → template → docs.
+4 | Open Source Contributor Intern | Software | Remote | 1–3 months | Unpaid | Git, GitHub, Markdown | Fix issues, write docs, and ship PRs to public student project repos.
+5 - API & Backend Intern | Software | Remote | 1–2 months | Stipend | Django REST basics, JSON | Design simple endpoints for product search and shop listings.
+6 - QA / Test Intern | Software | Remote | 1 month | Unpaid | Manual QA, checklists | Regression test core routes after UI releases; write bug reports.
+7 - DevOps Lite Intern | Software | Remote | 1 month | Unpaid | Render, env vars, static | Help with deploy checklists, static collection, uptime pings.
+8 - IoT Firmware Intern | Hardware | Hybrid | 1–2 months | Stipend | ESP32, Arduino, C/C++ | Prototype sensor nodes and MQTT demos for student kits.
+9 - Embedded Systems Intern | Hardware | Hybrid | 2 months | Stipend | STM32/RPi, sensors | Mentored embedded builds with demo-ready wiring diagrams.
+10 - Robotics Lab Intern | Hardware | On-site/Hybrid | 1 month | Unpaid | Robotics kits, mechanics | Support weekend robotics workshops and kit assembly guides.
+11 - PCB Design Intern | Hardware | Remote | 1–2 months | Unpaid | KiCad/EasyEDA | Draft simple PCBs for student IoT/hardware projects.
+12 - 3D CAD / Print Intern | Mechanical | Remote | 1 month | Unpaid | CAD, 3D print | Design enclosures for ESP32/Arduino projects.
+13 - Hardware Documentation Intern | Hardware | Remote | 1 month | Unpaid | Markdown, diagrams | Write BOM lists, setup guides, and troubleshooting FAQs.
+14 - ML / CV Project Intern | AI/ML | Remote | 2 months | Stipend | Python, OpenCV | Assist face/attendance and vision demos for final-year showcases.
+15 - GenAI Content Intern | AI | Remote | 1 month | Stipend | Prompting, Canva | Produce AI product image packs and social creatives for shops.
+16 - NLP Chatbot Intern | AI | Remote | 1–2 months | Unpaid | Python, LLMs APIs | Prototype FAQ chatbots for project and internship portals.
+17 | Data Analytics Intern | Analytics | Remote | 1 month | Unpaid | Sheets, charts | Build simple dashboards for engagement and project inventory.
+18 | SEO Content Intern | Marketing | Remote | 1–2 months | Unpaid | SEO writing | Write product/shop meta descriptions and SEO-friendly guides.
+19 | Social Media Analysis Intern | Marketing | Remote | 1 month | Unpaid | IG/YT analytics | Track trends and draft weekly insight reports (existing track).
+20 | Digital Marketing Assistant | Marketing | Remote | 1 month | Stipend | Canva, scheduling | Campaign assist across WhatsApp, email, social (existing track).
+21 | WhatsApp Campaign Intern | Marketing | Remote | 1 month | Unpaid | Copywriting | Draft short professional outreach for AI content trials.
+22 - Brand Design Intern | Design | Remote | 1 month | Unpaid | Figma basics | Icons, banners, and consistent brand system for marketplace UI.
+23 - UX Research Intern | Design | Remote | 1 month | Unpaid | Interviews, notes | Observe student users; propose IA improvements for catalog/shops.
+24 - Video Editing Intern | Media | Remote | 1 month | Unpaid | CapCut/Premiere basics | Edit short project demos and internship promo reels.
+25 - YouTube Projects Intern | Media | Remote | 1 month | Unpaid | YouTube, SEO titles | Curate and document YouTube project uploads for the portal.
+26 - Technical Writing Intern | Docs | Remote | 1–2 months | Unpaid | Clear writing | Synopsis, README, and demo scripts for engineering projects.
+27 - Project Mentorship Support Intern | Education | Hybrid | 2 months | Stipend | Teaching assist | Help juniors unblock Django/IoT project issues under mentor guidance.
+28 - Workshop Operations Intern | Education | Hybrid | 1 month | Unpaid | Ops, checklists | Coordinate SkillSprint-style workshops (registrations, materials).
+29 - Internship Desk Intern | Career | Remote | 1 month | Unpaid | Coordination | Maintain opportunity list, FAQs, and applicant screening notes.
+30 - Resume Studio Intern | Career | Remote | 1 month | Unpaid | Portfolio review | Help peers structure project-first resumes and GitHub profiles.
+31 - Community / Meetup Intern | Community | Hybrid | 1–2 months | Unpaid | Events | Support open-source meetups and campus maker circles.
+32 - Campus Ambassador Intern | Growth | Hybrid | 2–3 months | Stipend (performance) | Outreach | Represent HandMadeProjects in colleges; collect project leads.
+33 - Partnerships Intern (Local Shops) | Business | Hybrid | 1–2 months | Stipend | Sales lite | Onboard local businesses into the shop directory with profiles.
+34 - Hospitality Content Intern | Business | Remote | 1 month | Unpaid | AI creatives | Produce sample AI content for hospitality listings (Hotel Mauli style).
+35 - Festival Decor Research Intern | Creative | Remote | 1 month | Unpaid | Research, prompts | Expand Ganpati décor design library research and prompt QA.
+36 - Eco Festival Campaign Intern | Sustainability | Remote | 1 month | Unpaid | Content | Promote eco-idol and sustainable festival messaging.
+37 - Smart Home Solutions Intern | IoT services | Hybrid | 1–2 months | Unpaid | Install docs | Document smart-home install checklists from student kits.
+38 - Solar Education Intern | Green energy | Remote | 1 month | Unpaid | Research | Create solar kit learning guides for student projects.
+39 - Drone Media Intern | Aerial | Hybrid | 1 month | Unpaid | Safety, media | Assist aerial media planning for campus/event coverage (supervised).
+40 - Print & Merch Intern | Ops | Hybrid | 1 month | Unpaid | Print specs | Coordinate campus print/merch specs for clubs and events.
+41 - Accessibility Intern | Software | Remote | 1 month | Unpaid | a11y basics | Audit key pages for contrast, alt text, keyboard nav.
+42 - Security Hygiene Intern | Software | Remote | 1 month | Unpaid | Checklists | Document secrets handling, CSRF checks, and safe admin practices.
+43 - Localization Intern | Content | Remote | 1 month | Unpaid | EN/HI copy | Draft bilingual snippets for key CTAs and shop categories.
+44 - Customer Support Intern | Ops | Remote | 1 month | Unpaid | Comms | First-response templates for contact form and project enquiries.
+45 - Analytics Implementation Intern | Software | Remote | 1 month | Unpaid | Events tracking | Propose privacy-friendly event naming for key funnels.
+46 - Product Catalog Intern | Ops | Remote | 1–2 months | Unpaid | Data entry | Normalize product tags/categories and improve search quality.
+47 - Shop Directory Intern | Ops | Remote | 1 month | Unpaid | CMS | Maintain Businesswebinfo rows, visibility, and gallery URL quality.
+48 - Intern Alumni Stories Intern | Content | Remote | 1 month | Unpaid | Interviews | Collect short alumni profiles for internship listing inspiration.
+49 | Research (RnD) Projects Intern | RnD | Remote | 1–2 months | Stipend | IoT/ML | Hands-on research prototyping (existing RnD track expanded).
+50 - Capstone Delivery Intern | Cross-functional | Hybrid | 2 months | Stipend (performance) | Delivery | End-to-end support: build, docs, demo day for one student project.
+
+# Application notes
+- Default mode: remote-friendly; hybrid where hardware requires lab access.
+- Certificate + LinkedIn recommendation on successful completion.
+- Preferred stack exposure: Django, Tailwind, ESP32/Arduino, Git, AI tooling.
+- Point of contact: HandMadeProjects internship desk / founders WhatsApp.
+- Drive folder (existing docs): share same application pack link used on site.

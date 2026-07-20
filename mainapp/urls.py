@@ -1,12 +1,18 @@
 from django.urls import path
 from . import views
+from . import seo_views
 
 urlpatterns = [
+    path('robots.txt', seo_views.robots_txt, name='robots_txt'),
+    path('sitemap.xml', seo_views.sitemap_xml, name='sitemap_xml'),
+
     path('', views.welcome, name='welcome'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('edit_hero_images/', views.edit_hero_images, name='edit_hero_images'),
     path('contactus/', views.contactus, name='contactus'),
     path('aboutus/', views.aboutus, name='aboutus'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+    path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
     path('ourteam/', views.our_team, name='our_team'),
     path('ourteam/profile/', views.team_member_profile, name='team_member_profile'),
     path('internship/', views.internship_listing, name='internship_listing'),
@@ -18,6 +24,7 @@ urlpatterns = [
     path('video-player/<int:video_id>/', views.video_player, name='video_player'),
     path('add-video/', views.add_video, name='add_video'),
     path('gallery/', views.gallery, name='gallery'),
+    path('search/', views.global_search, name='global_search'),
 
 
     # Accessories
@@ -30,28 +37,29 @@ urlpatterns = [
 
 
 
-    path('register/', views.register, name='register'),
-    path('login/', views.loginView, name='login'),
     path('logout/', views.logoutView, name='logout'),
-    
-    
-
-    # User --------------------------------------------
-    path('userdashboard/', views.userdashboard, name='userdashboard'),
-    path('profile/', views.profile, name='profile'),
 
     path('productlist/', views.productlist, name='productlist'),
-    path('productinfo/<int:prod_id>/', views.productinfo, name='productinfo'),
-    path('edit-product/<int:prod_id>/', views.edit_product, name='edit_product'),
-    path('add-to-favorites/<int:prod_id>/', views.add_to_favorites, name='add_to_favorites'),
+    # Category-scoped product pages (preferred)
+    path(
+        'productinfo/<slug:category_slug>/<int:prod_id>/',
+        views.productinfo,
+        name='productinfo',
+    ),
+    # Legacy: /productinfo/<id>/ redirects to category-scoped URL
+    path('productinfo/<int:prod_id>/', views.productinfo, name='productinfo_legacy'),
+    path(
+        'edit-product/<slug:category_slug>/<int:prod_id>/',
+        views.edit_product,
+        name='edit_product',
+    ),
+    path('edit-product/<int:prod_id>/', views.edit_product, name='edit_product_legacy'),
 
 
     path('earn-tasks/', views.activeEarnTasksView, name='active_earn_tasks'),
-    path('earn-tasks/task/', views.earnTaskDetailView, name='task_detail'),
 
     path('affiliateinfo/', views.affiliateinfo, name='affiliateinfo'),
-    # path('affiliateuser/task/', views.earnTaskDetailView, name='task_detail'),
-    
+
     
     # Businesses
     path('allshops/', views.viewAllShop, name='viewallshop'),

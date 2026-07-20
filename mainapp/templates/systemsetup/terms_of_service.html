@@ -1,0 +1,61 @@
+{% extends "systemsetup/base.html" %}
+
+{% block title %}Terms of Service | HandMadeProjects{% endblock %}
+{% block metaDescription %}Terms of Service for using the HandMadeProjects website and ordering projects.{% endblock %}
+
+{% block content %}
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white dark:text-slate-100 font-medium">Terms of Service</span>
+</nav>
+
+<div class="max-w-3xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-10 space-y-6 text-slate-700 dark:text-slate-200 dark:text-slate-300 leading-relaxed">
+  <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">Terms of Service</h1>
+  <p class="text-sm text-slate-500 dark:text-slate-400">Last updated: 2026</p>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Using this site</h2>
+    <p>
+      HandMadeProjects is a catalog of engineering, IoT, AI, hardware and software project kits for students
+      and makers. Browsing the catalog does not require an account. Orders, custom builds, internships and
+      mentoring are arranged directly via Call or WhatsApp at
+      {% include "systemsetup/_contact_phone_links.html" %}.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Payment policy</h2>
+    <p>
+      Unless otherwise agreed, project orders follow an advance-plus-handover payment structure: 50% of the
+      project cost in advance, and the remaining 50% on handover. Specific terms for custom builds are
+      confirmed directly with our team before starting work.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Content accuracy</h2>
+    <p>
+      We aim to keep project descriptions, pricing and availability accurate, but details may change without
+      notice. Please confirm current pricing and scope directly with our team before committing to an order.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Intellectual property</h2>
+    <p>
+      Project documentation, source code and materials provided as part of an order are for the buyer's
+      personal/academic use unless a different arrangement is agreed in writing.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Contact</h2>
+    <p>
+      Questions about these terms can be directed to
+      {% include "systemsetup/_contact_phone_links.html" %}
+      or <a href="mailto:handmadeprojects2022@gmail.com" class="text-brand-600 dark:text-brand-400 font-semibold">handmadeprojects2022@gmail.com</a>.
+    </p>
+  </section>
+</div>
+{% endblock %}

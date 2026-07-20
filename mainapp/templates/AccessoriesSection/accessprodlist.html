@@ -1,41 +1,47 @@
 {% extends 'systemsetup/base.html' %}
+{% load price_filters %}
+
+{% block title %}Accessories | Engineering & Maker Add-ons | HandMadeProjects{% endblock %}
+{% block metaDescription %}Browse accessories and add-ons for engineering, IoT and maker projects — sensors, modules, tools and more.{% endblock %}
+{% block ogTitle %}Accessories | HandMadeProjects{% endblock %}
+{% block ogDescription %}Browse accessories and add-ons for engineering, IoT and maker projects.{% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-4 mb-4">
-    <div class="flex justify-between items-center mb-2 ">
-        <h1 class="text-3xl font-bold text-gray-800 text-center">Accessories Items</h1>
-    </div>
-    
-    {% if accessProd %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-        {% for item in accessProd %}
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
-            <a href="/accessoriesview/{{item.apid}}" class="block">
-                <img src="{{item.apimglink}}" alt="{{ item.aptitle }}" class="w-full h-48 object-cover">
-            </a>
-            <div class="p-4">
-                <h2 class="text-xl font-semibold text-gray-800 truncate">{{ item.aptitle | title }}</h2>
-                <h2 class="text-md font-semibold text-gray-800 truncate mb-2">{{ item.apheader | title }}</h2>
-                <i class="text-xl text-yellow-900 font-bold bg-yellow-200 px-2 py-0.2 border border-2 border-yellow-600 rounded-md shadow-md ">
-                    Rs. {{item.apsale}} 
-                </i>
-                <div class="mt-4">
-                    <a href="/accessoriesview/{{item.apid}}" class="w-full text-center inline-block px-4 py-2 bg-yellow-800 text-white rounded-md hover:bg-yellow-400 hover:text-gray-800 transition-colors font-bold">
-                        View
-                    </a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class="text-center py-20 px-6 bg-white rounded-lg shadow-xl">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">No Videos Yet</h2>
-        <p class="text-gray-500">Check back later for new video projects!</p>
-    </div>
-    {% endif %}
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white dark:text-slate-100 font-medium">Accessories</span>
+</nav>
+
+<div class="mb-8">
+  <p class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Add-ons &amp; parts</p>
+  <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Accessories</h1>
+  <p class="mt-2 text-slate-500 dark:text-slate-400 max-w-xl">Sensors, modules and tools to extend your engineering, IoT and maker projects.</p>
 </div>
 
-
-
+{% if accessProd %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for item in accessProd %}
+  <a href="{% url 'accessories_view' item.apid %}" class="group rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition">
+    <div class="relative h-48 bg-slate-100 dark:bg-slate-800">
+      <img src="{{ item.apimglink }}" alt="{{ item.aptitle }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-300">
+    </div>
+    <div class="p-5">
+      <h2 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-brand-600 truncate">{{ item.aptitle|title }}</h2>
+      <p class="text-sm text-slate-500 dark:text-slate-400 truncate mt-1">{{ item.apheader|title }}</p>
+      <div class="mt-4 flex items-center justify-between">
+        <span class="text-sm font-bold text-slate-900 dark:text-white">₹{{ item.apsale|price }}</span>
+        <span class="text-sm font-semibold text-brand-600 dark:text-brand-400">View →</span>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% include "systemsetup/_pagination.html" %}
+{% else %}
+<div class="text-center py-20 px-6 rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900">
+  <h2 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">No accessories yet</h2>
+  <p class="text-slate-500 dark:text-slate-400">Check back later for new accessories!</p>
+</div>
+{% endif %}
 {% endblock %}

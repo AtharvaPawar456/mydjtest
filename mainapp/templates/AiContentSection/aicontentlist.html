@@ -1,67 +1,54 @@
 {% extends 'systemsetup/base.html' %}
+{% load price_filters %}
+
+{% block title %}AI Content | Prompts, Tools & AI Resources | HandMadeProjects{% endblock %}
+{% block metaDescription %}Browse AI content, prompts and tools from HandMadeProjects.{% endblock %}
+{% block ogTitle %}AI Content | HandMadeProjects{% endblock %}
+{% block ogDescription %}Browse AI content, prompts and tools from HandMadeProjects.{% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-6">
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white dark:text-slate-100 font-medium">AI Content</span>
+</nav>
 
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
-        AI Content
-    </h1>
-
-    {% if error %}
-    <div class="bg-red-100 border-l-4 border-red-600 text-red-700 p-4 mb-6">
-        {{ error }}
-    </div>
-    {% endif %}
-
-    {% if aiContent %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {% for item in aiContent %}
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-1 transition">
-
-            <a href="{% url 'aicontentview' item.aiid %}">
-                <img
-                    src="{{ item.aiimglink }}"
-                    alt="{{ item.aititle }}"
-                    class="w-full h-48 object-cover"
-                >
-            </a>
-
-            <div class="p-4">
-                <h2 class="text-xl font-semibold text-gray-800 truncate">
-                    {{ item.aititle|title }}
-                </h2>
-
-                <h3 class="text-md text-gray-600 truncate mb-2">
-                    {{ item.aiheader|title }}
-                </h3>
-
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="text-lg font-bold text-green-700">
-                        ₹ {{ item.aisale }}
-                    </span>
-                    <span class="line-through text-gray-400">
-                        ₹ {{ item.aiprice }}
-                    </span>
-                </div>
-
-                <a href="{% url 'aicontentview' item.aiid %}"
-                   class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition">
-                    View Details
-                </a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class="text-center py-20 bg-white rounded-xl shadow-lg">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-2">
-            No AI Content Available
-        </h2>
-        <p class="text-gray-500">
-            New content will be added soon.
-        </p>
-    </div>
-    {% endif %}
-
+<div class="mb-8">
+  <p class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2">Prompts &amp; resources</p>
+  <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">AI Content</h1>
+  <p class="mt-2 text-slate-500 dark:text-slate-400 max-w-xl">AI prompts, tools and resources for your next project.</p>
 </div>
+
+{% if error %}
+<div class="mb-6 rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-4 text-sm text-red-800 dark:text-red-300">{{ error }}</div>
+{% endif %}
+
+{% if aiContent %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for item in aiContent %}
+  <a href="{% url 'aicontentview' item.aiid %}" class="group rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition">
+    <div class="relative h-48 bg-slate-100 dark:bg-slate-800">
+      <img src="{{ item.aiimglink }}" alt="{{ item.aititle }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-300">
+    </div>
+    <div class="p-5">
+      <h2 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-brand-600 truncate">{{ item.aititle|title }}</h2>
+      <p class="text-sm text-slate-500 dark:text-slate-400 truncate mt-1">{{ item.aiheader|title }}</p>
+      <div class="mt-4 flex items-center gap-3">
+        <span class="text-sm font-bold text-slate-900 dark:text-white">₹{{ item.aisale|price }}</span>
+        {% if item.aiprice and item.aiprice != '*' and item.aiprice != item.aisale %}
+        <span class="text-sm line-through text-slate-400 dark:text-slate-500">₹{{ item.aiprice|price }}</span>
+        {% endif %}
+        <span class="ml-auto text-sm font-semibold text-brand-600 dark:text-brand-400">View →</span>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% include "systemsetup/_pagination.html" %}
+{% else %}
+<div class="text-center py-20 px-6 rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900">
+  <h2 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">No AI content available</h2>
+  <p class="text-slate-500 dark:text-slate-400">New content will be added soon.</p>
+</div>
+{% endif %}
 {% endblock %}

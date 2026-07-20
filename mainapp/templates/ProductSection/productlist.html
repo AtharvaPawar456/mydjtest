@@ -1,4 +1,25 @@
 {% extends "systemsetup/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+  /* Pinterest-style masonry — product images keep their natural aspect ratio, no wasted crop space */
+  .product-masonry {
+    column-gap: 1.5rem;
+  }
+  .product-masonry > * {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .product-masonry img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+</style>
+{% endblock %}
 
 {% block title %}
 Engineering, IoT & Digital Products | HandMadeProjects
@@ -15,6 +36,8 @@ Products & Engineering Projects | HandMadeProjects
 {% block ogDescription %}
 Explore a wide range of engineering, IoT, software and digital products designed for learning, innovation and real-world use.
 {% endblock %}
+
+{% block canonical %}{% if request.GET.productcat %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}?productcat={{ request.GET.productcat|urlencode }}{% else %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endif %}{% endblock %}
 
 {% block metakeywords %}
 engineering projects,
@@ -55,162 +78,74 @@ engineering lab projects
 
 
 
-{% block extra_css %}
-<style>
-  .product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-  .gradient-bg {
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-  }
-</style>
-{% endblock %}
-
 {% block content %}
 
-<!-- Error Message -->
 {% if error %}
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-  <div class="bg-red-50 border-l-4 border-red-500 p-4">
-    <div class="flex">
-      <div class="flex-shrink-0">
-        <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-        </svg>
-      </div>
-      <div class="ml-3">
-        <p class="text-sm text-red-700">{{ error }}</p>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="mb-6 rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-4 text-sm text-red-800 dark:text-red-300">{{ error }}</div>
 {% endif %}
 
+<div data-ajax-filter data-ajax-target="#productResults">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Project catalog</h1>
+    </div>
+    <form method="get" action="{% url 'productlist' %}" class="flex w-full sm:w-auto gap-2 max-w-md">
+      {% if request.GET.productcat %}
+      <input type="hidden" name="productcat" value="{{ request.GET.productcat }}">
+      {% endif %}
+      <input
+        type="search"
+        name="q"
+        value="{{ searchQuery|default:'' }}"
+        placeholder="Search name, tags, info…"
+        class="flex-1 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+      >
+      <button type="submit" class="rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">
+        Search
+      </button>
+    </form>
+  </div>
 
-<!-- Search Bar -->
-<form method="get" class="mb-8 max-w-md mx-auto flex gap-2">
-  <input 
-    type="text" 
-    name="q" 
-    value="{{ searchQuery|default:'' }}" 
-    placeholder="Search by name, tags, highlight, info..."
-    class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-  >
-  <button 
-    type="submit" 
-    class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
-  >
-    Search
-  </button>
-</form>
+  {% if quickFilters %}
+  <div class="mb-8">
+    <p class="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500 mb-2">
+      {% if category_display_name %}{{ category_display_name }} · {% endif %}Sub-categories
+    </p>
+    <div class="flex flex-wrap gap-2">
+    {% for tag in quickFilters %}
+    <a href="?productcat={{ active_productcat|default:request.GET.productcat|default:'' }}&q={{ tag }}"
+       class="rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold px-3 py-1.5 hover:bg-brand-50 dark:hover:bg-brand-900/40 hover:text-brand-700 dark:hover:text-brand-300 transition
+       {% if searchQuery == tag %}bg-brand-600 text-white hover:bg-brand-700 hover:text-white{% endif %}">
+      #{{ tag }}
+    </a>
+    {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 
-<!-- Quick Filters -->
-<div class="max-w-4xl mx-auto mb-6 flex flex-wrap justify-center gap-2">
-  {% for tag in quickFilters %}
-    <button
-      type="button"
-      onclick="applyQuickFilter('{{ tag }}')"
-      class="px-3 py-1 text-sm border border-indigo-300 rounded-full text-indigo-700 hover:bg-indigo-600 hover:text-white transition"
-    >
-      {{ tag }}
-    </button>
-  {% endfor %}
+  <div id="productResults">
+    {% include "ProductSection/_product_results.html" %}
+  </div>
 </div>
 
-
-<script>
-  /**
-   * applyQuickFilter
-   * input: tag (string)
-   * working: appends/replaces `q` query param in URL and reloads page
-   */
-  function applyQuickFilter(tag) {
-    try {
-      if (!tag) {
-        throw new Error('Invalid filter tag');
-      }
-
-      const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.set('q', tag);
-      window.location.href = currentUrl.toString();
-    } catch (error) {
-      console.error('Quick filter error:', error);
-      alert('Unable to apply filter. Please try again.');
-    }
-  }
-</script>
-
-<p class="text-lg text-center">
-  Showing {{ productListcount }} result{{ productListcount|pluralize }}.
-</p>
-
-<!-- Products Grid -->
-<section class="py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {% if productList %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {% for product in productList %}
-      <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl">
-        <a href="{% url 'productinfo' product.prodid %}" class="block">
-          <div class="relative pb-2/3 h-64 bg-gray-100">
-            <!-- <img 
-              src="data:image/png;base64,{{ product.mainimgbasetxt }}" 
-              alt="{{ product.productname }}" 
-              class="absolute h-full w-full object-cover"
-              onerror="this.src='https://via.placeholder.com/400x300?text=Product+Image'"
-            /> -->
-            <img 
-              src="{{ product.mainimgbasetxt }}" 
-              alt="{{ product.productname }}" 
-              class="absolute h-full w-full object-cover"
-              onerror="this.src='https://via.placeholder.com/400x300?text=Product+Image'"
-            />
-          </div>
-          <div class="p-6">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">{{ product.productname | title }}</h2>
-            <p class="text-gray-600">{{ product.highlighttitle | title }}</p>
-            <div class="mt-4">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                Learn More
-                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-    {% else %}
-    <div class="text-center py-12">
-      <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4.5L4 7m16 0l-8 4.5M4 7v9.5l8 4.5m0-9.5v9.5m8-4.5v-9.5"></path>
-      </svg>
-      <h3 class="mt-2 text-lg font-medium text-gray-900">No products available</h3>
-      <p class="mt-1 text-gray-500">Check back later for new products.</p>
-    </div>
-    {% endif %}
+<section class="mt-4 mb-8 rounded-3xl bg-gradient-to-r from-brand-600 to-violet-600 px-8 py-10 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+  <div>
+    <h2 class="text-xl font-bold">Can't find what you're looking for?</h2>
+    <p class="mt-2 text-brand-100 text-sm max-w-md">We're adding projects often. Suggest one or get help from the team.</p>
+  </div>
+  <div class="flex flex-wrap gap-3">
+    <a href="{% url 'contactus' %}" class="rounded-full bg-white dark:bg-white text-brand-700 dark:text-brand-300 font-semibold px-5 py-2.5 text-sm">Contact us</a>
+    <a href="{{ contact_whatsapp_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-emerald-600 text-white font-semibold px-5 py-2.5 text-sm">
+      <i class="fab fa-whatsapp"></i> {{ contact_phone_display }}
+    </a>
+    <a href="{{ contact_whatsapp_alt_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-emerald-700 text-white font-semibold px-5 py-2.5 text-sm">
+      <i class="fab fa-whatsapp"></i> {{ contact_phone_alt_display }}
+    </a>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="bg-white py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl font-bold text-gray-900 mb-4">Can't find what you're looking for?</h2>
-    <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-      We're constantly adding new products. Contact us to suggest a product or get more information.
-    </p>
-    <!-- <a href="/contactus" class="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
-      Contact Us
-    </a> -->
-    <p class="text-xl inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
-      Contact Us:  +91 81692 39027
-    </p>
-  </div>
-</section>
+{% endblock %}
 
+{% block extra_js %}
+<script src="{% static 'mainapp/js/ajax-filters.js' %}"></script>
 {% endblock %}

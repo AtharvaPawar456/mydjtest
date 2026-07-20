@@ -1,150 +1,350 @@
 {% extends "systemsetup/base.html" %}
 
 {% block title %}
-{{ shop.bname|title }} | Business Profile | HandMadeProjects
+{% if shop %}{{ shop.bname|title }} | Business Profile | HandMadeProjects{% else %}Shop | HandMadeProjects{% endif %}
 {% endblock %}
 
 {% block metaDescription %}
-{{ shop.bhighlight }}
+{% if shop %}{{ shop.bhighlight }}{% else %}Business profile{% endif %}
 {% endblock %}
 
 {% block ogTitle %}
-{{ shop.bname|title }}
+{% if shop %}{{ shop.bname|title }}{% else %}Shop{% endif %}
 {% endblock %}
 
 {% block ogDescription %}
-{{ shop.bhighlight }}
+{% if shop %}{{ shop.bhighlight }}{% else %}Business profile{% endif %}
 {% endblock %}
 
 {% block ogImage %}
-{{ shop.bmainimg }}
+{% if shop %}{{ shop.bmainimg }}{% endif %}
 {% endblock %}
 
 {% block metakeywords %}
 {{ seoKeywords }}
 {% endblock %}
 
+{% block structured_data %}
+{% if shop and not error %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ shop.bname|escapejs }}",
+  "description": "{{ shop.bhighlight|default:shop.bname|escapejs }}",
+  "image": "{{ shop.bmainimg|escapejs }}",
+  "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'viewshop' shop.bname %}",
+  "category": "{{ shop.bcat|default:'Local business'|escapejs }}",
+  "keywords": "{{ shop.btags|default:''|escapejs }}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Shops", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'viewallshop' %}" },
+    { "@type": "ListItem", "position": 3, "name": "{{ shop.bname|escapejs }}" }
+  ]
+}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Pinterest-style masonry gallery — keep full image aspect ratios */
+  .shop-masonry {
+    column-gap: 1rem;
+  }
+  .shop-masonry > * {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .shop-masonry img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+  /* After video loads, let it size to its natural ratio inside the card */
+  .lazy-video-card video.lazy-video:not(.hidden) {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  .lazy-video-card.is-playing .relative {
+    aspect-ratio: auto;
+    min-height: 0;
+    max-height: none;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 
-<section class="max-w-7xl mx-auto px-1 md:px-4 py-10">
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <a href="{% url 'viewallshop' %}" class="hover:text-brand-600">Shops</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white font-medium">{% if shop %}{{ shop.bname|title }}{% else %}Not found{% endif %}</span>
+</nav>
 
 {% if error %}
-<div class="bg-red-100 text-red-700 p-4 rounded-lg">
+<div class="rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-4 text-red-800 dark:text-red-300 mb-6">
   {{ error }}
 </div>
-{% else %}
+{% elif shop %}
 
-<!-- HEADER -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-1 md:p-4 rounded-xl md:shadow">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+  <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
+    <img
+      src="{{ shop.bmainimg }}"
+      alt="{{ shop.bname }}"
+      class="w-full h-auto max-h-[70vh] object-contain bg-slate-50 dark:bg-slate-900/60"
+      onerror="this.onerror=null;this.src='https://placehold.co/960x600/e2e8f0/475569?text=Shop+image';"
+    />
+  </div>
 
-  <img
-    src="{{ shop.bmainimg }}"
-    alt="{{ shop.bname }}"
-    class="w-full rounded-xl object-cover"
-  />
-
-  <div>
-    <h1 class="text-3xl font-bold text-gray-900">
+  <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm">
+    {% if shop.bcat and shop.bcat != '*' %}
+    <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 px-2.5 py-1 rounded-full mb-3">
+      {{ shop.bcat|title }}
+    </span>
+    {% endif %}
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
       {{ shop.bname|title }}
     </h1>
-
-    <p class="text-indigo-600 font-medium mt-2">
-      {{ shop.bcat|title }}
-    </p>
-
-    <p class="mt-4 text-gray-700">
+    {% if shop.bhighlight and shop.bhighlight != '*' %}
+    <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
       {{ shop.bhighlight|safe }}
     </p>
+    {% endif %}
+    {% if shop.btags and shop.btags != '*' %}
+    <p class="mt-4 text-xs text-slate-400 dark:text-slate-500">{{ shop.btags }}</p>
+    {% endif %}
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="{% url 'contactus' %}" class="rounded-full bg-brand-600 text-white text-sm font-semibold px-5 py-2.5 hover:bg-brand-700">Contact</a>
+      {% if galleryImages %}
+      <a href="#gallery" class="rounded-full border border-slate-200 dark:border-slate-700 text-sm font-semibold px-5 py-2.5 text-slate-700 dark:text-slate-200 hover:border-brand-300 dark:hover:border-brand-500">View gallery ({{ galleryImages|length }})</a>
+      {% endif %}
+    </div>
   </div>
-
 </div>
 
-
-<!-- ABOUT -->
-{% if shop.binfo != "*" %}
-
-<div class="bg-white mt-8 p-6 rounded-xl shadow">
-  <h2 class="text-2xl font-semibold mb-3">About Business</h2>
-  <p class="text-gray-700 leading-relaxed">
+{% if shop.binfo and shop.binfo != "*" %}
+<div class="mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm">
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">About</h2>
+  <div class="text-slate-600 dark:text-slate-300 leading-relaxed prose prose-slate dark:prose-invert max-w-none prose-shop">
     {{ shop.binfo|safe }}
-  </p>
+  </div>
 </div>
 {% endif %}
 
-
-<!-- OWNER -->
-{% if ownerImages and ownerImages != "*" %}
+{% if ownerImages %}
 <div class="mt-10">
-  <h2 class="text-2xl font-semibold text-center mb-6">Owner</h2>
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white text-center mb-6">Owner</h2>
   <div class="flex justify-center gap-6 flex-wrap">
     {% for img in ownerImages %}
-    <img src="{{ img }}" class="w-40 h-40 object-cover rounded-full shadow">
+    <img src="{{ img }}" alt="{{ shop.bname }} owner {{ forloop.counter }}" class="w-40 h-40 object-cover rounded-full border border-slate-200 dark:border-slate-700 shadow-sm bg-slate-100 dark:bg-slate-800">
     {% endfor %}
   </div>
 </div>
 {% endif %}
 
-<!-- GALLERY -->
 {% if galleryImages %}
-<div class="mt-10">
-  <h2 class="text-2xl font-semibold text-center mb-6">Gallery</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div id="gallery" class="mt-10 scroll-mt-24" data-lazy-gallery>
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white text-center mb-2">Gallery</h2>
+  <p class="text-center text-sm text-slate-500 dark:text-slate-400 mb-6">
+    {{ galleryImages|length }} file{{ galleryImages|length|pluralize }} · photos &amp; videos
+    <span class="block sm:inline sm:before:content-['·_'] text-slate-400 dark:text-slate-500">videos load only when you play them</span>
+  </p>
+  {# Pinterest-style masonry: natural aspect ratios, no crop #}
+  <div class="shop-masonry columns-1 sm:columns-2 lg:columns-3 gap-4">
     {% for img in galleryImages %}
-
-      {% if ".mp4" in img %}
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          controls
-          class="w-full max-h-[320px] object-cover rounded-xl shadow"
-        >
-          <source src="{{ img }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      {% if ".mp4" in img|lower or ".webm" in img|lower %}
+        {# No <source src> until user plays — avoids downloading all mp4s on page open #}
+        <div class="lazy-video-card break-inside-avoid mb-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-900 overflow-hidden shadow-sm" data-video-src="{{ img }}">
+          <div class="relative min-h-[200px] aspect-[4/5] max-h-[520px] bg-gradient-to-br from-slate-800 to-black flex items-center justify-center">
+            <video
+              class="lazy-video absolute inset-0 w-full h-full object-contain bg-black hidden"
+              controls
+              playsinline
+              muted
+              preload="none"
+              controlslist="nodownload"
+            ></video>
+            <button
+              type="button"
+              class="lazy-video-play relative z-10 flex flex-col items-center gap-2 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-xl px-4 py-3"
+              aria-label="Load and play video {{ forloop.counter }}"
+            >
+              <span class="h-14 w-14 rounded-full bg-white/15 border border-white/30 backdrop-blur flex items-center justify-center hover:bg-white/25 transition">
+                <svg class="h-7 w-7 ml-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              <span class="text-xs font-semibold text-slate-200">Tap to play all (muted)</span>
+              <span class="text-[10px] text-slate-500 dark:text-slate-400">First tap starts every video silently</span>
+            </button>
+            <div class="lazy-video-status absolute bottom-2 left-2 right-2 text-center text-[11px] text-slate-400 dark:text-slate-500 hidden">Loading video…</div>
+          </div>
+          <p class="px-3 py-2 text-[11px] text-slate-400 dark:text-slate-500 truncate">Video · {{ forloop.counter }}</p>
+        </div>
       {% else %}
-        <img
-          src="{{ img }}"
-          class="w-full rounded-xl shadow object-cover"
+        <a
+          href="{{ img }}"
+          target="_blank"
+          rel="noopener"
+          class="shop-masonry-item break-inside-avoid mb-4 block group rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-50 dark:bg-slate-900/60 shadow-sm hover:shadow-lg hover:border-brand-200 transition"
         >
+          <img
+            src="{{ img }}"
+            alt="{{ shop.bname }} gallery {{ forloop.counter }}"
+            class="block w-full h-auto max-w-full align-middle group-hover:brightness-[1.02] transition duration-300"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+            referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='https://placehold.co/640x360/e2e8f0/64748b?text=Image+unavailable';"
+          >
+        </a>
       {% endif %}
-
     {% endfor %}
   </div>
 </div>
+{% else %}
+<div id="gallery" class="mt-10 scroll-mt-24 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8 text-center text-sm text-slate-500 dark:text-slate-400">
+  No gallery files for this shop yet.
+</div>
 {% endif %}
 
-<!-- LINKS -->
 {% if webLinks or ytLinks %}
-<div class="mt-10 bg-white p-6 rounded-xl shadow">
-  <h2 class="text-2xl font-semibold mb-4">Online Presence</h2>
-
+<div class="mt-10 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6 shadow-sm">
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Online presence</h2>
   {% for link in webLinks %}
-  <a href="{{ link }}" target="_blank" class="block text-blue-600 hover:underline">
-    {{ link }}
-  </a>
+  <a href="{{ link }}" target="_blank" rel="noopener" class="block text-brand-600 dark:text-brand-400 hover:underline text-sm mb-1">{{ link }}</a>
   {% endfor %}
-
   {% for yt in ytLinks %}
-  <a href="{{ yt }}" target="_blank" class="block text-red-600 hover:underline">
-    {{ yt }}
-  </a>
+  <a href="{{ yt }}" target="_blank" rel="noopener" class="block text-red-600 hover:underline text-sm mb-1">{{ yt }}</a>
   {% endfor %}
 </div>
 {% endif %}
 
-<!-- CTA -->
-<div class="mt-12 bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-8 rounded-xl text-center">
-  <h3 class="text-2xl font-bold mb-2">
-    Want to collaborate or contact this business?
-  </h3>
-  <p class="text-lg">
-    Reach out directly or contact HandMadeProjects for assistance.
-  </p>
+<div class="mt-12 rounded-3xl bg-gradient-to-r from-brand-600 to-violet-600 text-white p-8 text-center">
+  <h3 class="text-2xl font-bold mb-2">Want to collaborate or contact this business?</h3>
+  <p class="text-brand-100">Reach out directly or contact HandMadeProjects for assistance.</p>
+  <a href="{% url 'contactus' %}" class="inline-flex mt-5 rounded-full bg-white dark:bg-white text-brand-700 dark:text-brand-300 font-semibold px-5 py-2.5 text-sm">Contact HandMadeProjects</a>
 </div>
 
+{% else %}
+<div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-12 text-center">
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white">Shop not found</h2>
+  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">This business may be hidden or the URL is incorrect.</p>
+  <a href="{% url 'viewallshop' %}" class="inline-flex mt-6 rounded-full bg-brand-600 text-white text-sm font-semibold px-5 py-2.5">Back to directory</a>
+</div>
 {% endif %}
-</section>
 
 {% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  var root = document.querySelector("[data-lazy-gallery]");
+  if (!root) return;
+
+  var cards = Array.prototype.slice.call(root.querySelectorAll(".lazy-video-card"));
+  if (!cards.length) return;
+
+  function showPlayer(card) {
+    var video = card.querySelector("video.lazy-video");
+    var playBtn = card.querySelector(".lazy-video-play");
+    var status = card.querySelector(".lazy-video-status");
+    if (video) video.classList.remove("hidden");
+    if (playBtn) playBtn.classList.add("hidden");
+    if (status) status.classList.add("hidden");
+  }
+
+  function loadAndPlayMuted(card) {
+    var src = card.getAttribute("data-video-src");
+    var video = card.querySelector("video.lazy-video");
+    var playBtn = card.querySelector(".lazy-video-play");
+    var status = card.querySelector(".lazy-video-status");
+    if (!src || !video) return;
+
+    // Already loaded — just ensure muted autoplay
+    if (card.dataset.loaded === "1") {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute("muted", "");
+      video.playsInline = true;
+      showPlayer(card);
+      video.play().catch(function () {});
+      return;
+    }
+
+    if (status) {
+      status.textContent = "Loading video…";
+      status.classList.remove("hidden");
+    }
+    if (playBtn) playBtn.classList.add("opacity-50", "pointer-events-none");
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.preload = "auto";
+    video.src = src;
+    video.load();
+    card.dataset.loaded = "1";
+
+    function tryPlay() {
+      showPlayer(card);
+      card.classList.add("is-playing");
+      // Prefer natural video dimensions once metadata is known
+      if (video.videoWidth && video.videoHeight) {
+        video.style.aspectRatio = video.videoWidth + " / " + video.videoHeight;
+      }
+      video.muted = true;
+      video.play().catch(function () {});
+    }
+
+    video.addEventListener("loadeddata", tryPlay, { once: true });
+    video.addEventListener("canplay", tryPlay, { once: true });
+
+    video.addEventListener("error", function () {
+      if (status) {
+        status.textContent = "Could not load video. Tap again to retry.";
+        status.classList.remove("hidden");
+      }
+      card.dataset.loaded = "0";
+      try { video.removeAttribute("src"); video.load(); } catch (e) {}
+      if (playBtn) playBtn.classList.remove("hidden", "opacity-50", "pointer-events-none");
+    }, { once: true });
+  }
+
+  function playAllMuted() {
+    // User gesture unlocks autoplay — start every gallery video muted
+    cards.forEach(function (card) {
+      loadAndPlayMuted(card);
+    });
+  }
+
+  cards.forEach(function (card) {
+    var playBtn = card.querySelector(".lazy-video-play");
+    if (playBtn) {
+      playBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        playAllMuted();
+      });
+    }
+  });
+})();
+</script>
+{% endblock %}
+

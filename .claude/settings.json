@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python manage.py runserver 127.0.0.1:8824 --noreload)",
+      "PowerShell(Remove-Item \"mainapp\\\\tests.py\" -Confirm:$false)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"mainapp\\\\tests\")",
+      "PowerShell(\"done\")",
+      "PowerShell(python manage.py test mainapp -v 2 2>&1)",
+      "PowerShell(python manage.py test mainapp --settings=handmadeprojects.settings_test -v 2 2>&1)",
+      "PowerShell(python manage.py test mainapp --settings=handmadeprojects.settings_test 2>&1)",
+      "PowerShell(python manage.py runserver 127.0.0.1:8826 --noreload)"
+    ]
+  }
+}

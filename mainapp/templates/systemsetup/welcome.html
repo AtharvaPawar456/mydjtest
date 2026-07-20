@@ -1,269 +1,278 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "systemsetup/base.html" %}
+{% load static %}
 
-  <!-- ✅ Primary SEO -->
-  <title>HandMadeProjects | Engineering, IoT, AI & Web Development Projects</title>
-  <meta name="description" content="HandMadeProjects offers engineering, IoT, AI, ML, and web development projects for students and makers. Build real-world projects and grow your skills.">
+{% block title %}HandMadeProjects | Engineering, IoT, AI & Web Development Projects{% endblock %}
 
-  <meta name="keywords" content="engineering projects, final year engineering projects, iot projects, arduino projects, esp32 projects, raspberry pi projects, ai projects, machine learning projects, python projects, django projects, web development projects, computer engineering projects, electronics projects, student mini projects, major projects for engineering students, real world projects, handmade projects, open source projects, craft, origami">
+{% block metaDescription %}HandMadeProjects offers engineering, IoT, AI, ML, and web development projects for students and makers. Build real-world projects and grow your skills.{% endblock %}
 
-  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+{% block ogTitle %}HandMadeProjects | Build. Learn. Grow.{% endblock %}
+{% block ogDescription %}Explore engineering, IoT, AI, ML, and web development projects designed for students and makers.{% endblock %}
 
-  <!-- ✅ Open Graph -->
-  <meta property="og:title" content="HandMadeProjects | Build. Learn. Grow.">
-  <meta property="og:description" content="Explore engineering, IoT, AI, ML, and web development projects designed for students and makers.">
-  <meta property="og:image" content="https://atharvapawar456.github.io/HandMadeProjects/static/your-logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ request.build_absolute_uri }}">
-
-  <!-- ✅ Assets -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="https://atharvapawar456.github.io/HandMadeProjects/static/your-logo.png">
-  <link rel="shortcut icon" href="https://atharvapawar456.github.io/HandMadeProjects/static/your-logo.png" type="image/x-icon">
-
-  <!-- Analytics -->
-  <script src="https://analytics.ahrefs.com/analytics.js" data-key="AgI+KjomtJ0Kk5bZO9c3/g" async></script>
-
-</head>
-
-
-
-
-
-
-
-
-
-
-
-<body class="bg-gray-50 text-gray-900">
-
-<!-- ✅ Navbar -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-
-    <!-- Logo -->
-    <a href="/" class="text-2xl font-bold text-indigo-600">HandMadeProjects</a>
-
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="/engineering-projects"  class="hover:text-indigo-600 hover:bg-gray-100 p-2 rounded-md">Projects</a>
-      <a href="/internship" class="hover:text-indigo-600 hover:bg-gray-100 p-2 rounded-md">Internships</a>
-      <a href="/aboutus"    class="hover:text-indigo-600 hover:bg-gray-100 p-2 rounded-md">About</a>
-      <a href="/contactus"  class="hover:text-indigo-600 hover:bg-gray-100 p-2 rounded-md">Contact</a>
-    </nav>
-
-    <!-- Mobile Hamburger Button -->
-    <button id="menuBtn" class="md:hidden focus:outline-none">
-      <svg id="menuIcon" class="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="closeIcon" class="w-7 h-7 text-gray-800 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu (hidden by default) -->
-  <nav id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
-    <div class="flex flex-col space-y-2 py-4 px-6">
-      <a href="/engineering-projects" class="hover:text-indigo-600">Projects</a>
-      <a href="/internship" class="hover:text-indigo-600">Internships</a>
-      <!-- <a href="/ourteam" class="hover:text-indigo-600">Our Team</a> -->
-      <a href="/contactus" class="hover:text-indigo-600">Contact</a>
-    </div>
-  </nav>
-</header>
-
-<!-- ✅ Toggle Script -->
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuIcon = document.getElementById('menuIcon');
-  const closeIcon = document.getElementById('closeIcon');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    menuIcon.classList.toggle('hidden');
-    closeIcon.classList.toggle('hidden');
-  });
-</script>
-
-<!-- ✅ Hero Section -->
-<section
-  class="relative h-[80vh] bg-cover bg-center flex items-center justify-center"
-  style="background-image: url({% static 'images/hero.jpg' %});"
->
-  <!-- dark overlay for readability -->
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <div class="relative text-center text-white max-w-3xl px-4">
-    
-    <div class="inline-block px-6 py-4 rounded-2xl backdrop-blur-sm shadow-2xl">
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-        Build. Learn. Grow.
-      </h1>
-      <p class="mt-3 text-lg md:text-xl text-purple-100">
-        Innovative projects for students & makers
-      </p>
-    </div>
-
-    <a
-      href="/engineering-projects"
-      class="mt-8 inline-block px-8 py-3 text-lg font-semibold text-white
-             bg-gradient-to-r from-indigo-500 to-purple-600
-             rounded-full shadow-xl
-             hover:scale-105 hover:shadow-2xl transition-all duration-300"
-    >
-      Explore Projects
-    </a>
-  </div>
-</section>
-
-
-<!-- ✅ Project Domains -->
-<section class="py-16 max-w-7xl mx-auto px-4">
-  <h2 class="text-3xl font-bold text-center mb-12">Project Domains</h2>
-  <div class="grid md:grid-cols-3 gap-10">
-
-    <!-- Card 1 -->
-    <div class="p-8 bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 text-center border border-gray-100">
-      <h3 class="text-xl font-semibold">IoT Projects</h3>
-      <p class="text-gray-600 mt-3">Smart solutions using ESP32, Arduino, Raspberry Pi, and more.</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="p-8 bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 text-center border border-gray-100">
-      <h3 class="text-xl font-semibold">AI & ML</h3>
-      <p class="text-gray-600 mt-3">Machine learning projects with Python, TensorFlow, and OpenCV.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="p-8 bg-white rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 text-center border border-gray-100">
-      <h3 class="text-xl font-semibold">Web Development</h3>
-      <p class="text-gray-600 mt-3">Django, Flask, and modern web apps with clean UI/UX.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ✅ Featured Projects -->
-<section class="py-16 bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-10">Featured Projects</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-xl shadow hover:shadow-lg transition">
-        <img src="https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/projectThumbnails/SmartVendingMachine.jpeg" alt="Project 1" class="rounded-t-xl">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg">Smart Vending Machine</h3>
-          <p class="text-gray-600 text-sm mt-2">Register The Vendors, Buy The Product By Doing Online Payment.</p>
+{% block content_wrapper %}
+  {% block content %}
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-violet-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900"></div>
+    <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-100/60 dark:bg-brand-900/20 blur-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-300 shadow-sm mb-5">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+          Engineering · IoT · AI · Student projects
+        </p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+          Build real projects.<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-violet-600">Ship portfolio proof.</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 max-w-xl">
+          Browse software, hardware, IoT &amp; AI project kits for students and makers — with docs, tags, and ready-to-present demos.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="{% url 'engineering_projects_category' %}" class="inline-flex items-center justify-center rounded-full bg-brand-600 text-white font-semibold px-6 py-3 shadow-lg shadow-brand-600/25 hover:bg-brand-700 transition">Explore catalog</a>
+          <a href="{% url 'productlist' %}" class="inline-flex items-center justify-center rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 hover:border-brand-300 dark:hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-300 transition">All projects</a>
         </div>
+        <dl class="mt-10 grid grid-cols-3 gap-4 max-w-md">
+          <div><dt class="text-2xl font-bold text-slate-900 dark:text-white">250+</dt><dd class="text-xs text-slate-500 dark:text-slate-400">Projects delivered</dd></div>
+          <div><dt class="text-2xl font-bold text-slate-900 dark:text-white">6</dt><dd class="text-xs text-slate-500 dark:text-slate-400">Domains</dd></div>
+          <div><dt class="text-2xl font-bold text-slate-900 dark:text-white">12/7</dt><dd class="text-xs text-slate-500 dark:text-slate-400">WhatsApp support</dd></div>
+        </dl>
       </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-lg transition">
-        <img src="https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/projectThumbnails/aiquize.jpeg" alt="Project 2" class="mx-auto rounded-t-xl">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg">AI Video Summarization</h3>
-          <p class="text-gray-600 text-sm mt-2">Ai-Powered Platform To Summarize Educational Videos And Auto-Generate Interactive Quizzes For Learners.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl shadow hover:shadow-lg transition">
-        <img src="https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/projectThumbnails/agromark.jpg" alt="Project 3" class="rounded-t-xl">
-        <div class="p-4">
-          <h3 class="font-semibold text-lg">Agro E-commerce Web App</h3>
-          <p class="text-gray-600 text-sm mt-2">Full-stack Django + Tailwind shopping platform to Buy/Sell/Bid Agro Products</p>
+
+      <div class="relative">
+        <div class="grid grid-cols-2 gap-4">
+          <a href="/productlist/?productcat=software" class="col-span-2 sm:col-span-1 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/60 overflow-hidden hover:-translate-y-1 transition block group">
+            <div class="relative h-40 sm:h-44 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+              <img
+                src="https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/homepageimg/SoftwareAi-projects.png"
+                alt="Software &amp; AI projects — Django, ML, SaaS starters"
+                width="640"
+                height="360"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-[1.03]"
+              >
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Software</span>
+              <h3 class="font-semibold text-slate-900 dark:text-white mt-1">Software &amp; AI projects</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">Django, ML, SaaS starters for final-year demos.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <span class="text-sm font-bold text-slate-900 dark:text-white">Browse</span>
+                <span class="text-xs rounded-full bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 font-medium">Hot</span>
+              </div>
+            </div>
+          </a>
+          <a href="/productlist/?productcat=hardware" class="col-span-2 sm:col-span-1 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/60 overflow-hidden hover:-translate-y-1 transition sm:mt-8 block group">
+            <div class="relative h-40 sm:h-44 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+              <img
+                src="https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/homepageimg/IoT-hardware-kits.png"
+                alt="IoT &amp; hardware kits — ESP32, Arduino, sensors"
+                width="640"
+                height="360"
+                loading="eager"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-300 group-hover:scale-[1.03]"
+              >
+            </div>
+            <div class="p-4">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-orange-600 dark:text-orange-300">Hardware</span>
+              <h3 class="font-semibold text-slate-900 dark:text-white mt-1">IoT &amp; hardware kits</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">ESP32, Arduino, sensors, smart systems.</p>
+              <div class="mt-3 flex items-center justify-between">
+                <span class="text-sm font-bold text-slate-900 dark:text-white">Browse</span>
+                <span class="text-xs rounded-full bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 px-2 py-0.5 font-medium">IoT</span>
+              </div>
+            </div>
+          </a>
+          <div class="col-span-2 rounded-2xl bg-slate-900 text-white p-5 flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm text-slate-300">Need a custom build?</p>
+              <p class="font-semibold">Talk to the team for tailored projects.</p>
+            </div>
+            <a href="{% url 'contactus' %}" class="shrink-0 rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm font-semibold px-4 py-2 hover:bg-brand-50 dark:hover:bg-brand-900/40">Contact</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ✅ Facts & Numbers -->
-<section class="py-16 bg-white max-w-7xl mx-auto px-4">
-  <h2 class="text-3xl font-bold text-center mb-12">About us</h2>
-  <div class="grid md:grid-cols-4 gap-8 text-center">
-    <div class="p-6 bg-indigo-50 rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="text-4xl font-bold text-indigo-600">6</h3>
-      <p class="text-gray-600 mt-2">Colleges Collaborated</p>
-    </div>
-    <div class="p-6 bg-indigo-50 rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="text-4xl font-bold text-indigo-600">250+</h3>
-      <p class="text-gray-600 mt-2">Projects Delivered</p>
-    </div>
-    <div class="p-6 bg-indigo-50 rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="text-4xl font-bold text-indigo-600">5</h3>
-      <p class="text-gray-600 mt-2">Tech Developers in Team</p>
-    </div>
-    <div class="p-6 bg-indigo-50 rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="text-4xl font-bold text-indigo-600">12/7</h3>
-      <p class="text-gray-600 mt-2">WhatsApp Support</p>
-    </div>
-  </div>
-  <div class="mt-12 text-center">
-    <p class="text-lg text-gray-700">We operate <span class="font-semibold">100% online</span>, making it seamless to connect with you.</p>
-    <p class="text-lg text-gray-700 mt-2">For demos and knowledge transfer, we use <span class="font-semibold">Google Meet</span> to ensure clarity and ease.</p>
-    <p class="text-lg text-gray-700 mt-2">Our commitment includes <span class="font-semibold">great after-sale support</span> and <span class="font-semibold">100% genuine projects</span>.</p>
-  </div>
-</section>
-
-<!-- ✅ Why Choose Us -->
-<section class="py-16 max-w-7xl mx-auto px-4">
-  <h2 class="text-3xl font-bold text-center mb-10">Why Choose Us?</h2>
-  <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="font-semibold text-xl">Hands-On Learning</h3>
-      <p class="text-gray-600 mt-2">Build real projects and strengthen your skills.</p>
-    </div>
-    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="font-semibold text-xl">Free & Open Source</h3>
-      <p class="text-gray-600 mt-2">All our projects use free tools and open libraries.</p>
-    </div>
-    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-md transition">
-      <h3 class="font-semibold text-xl">Community Driven</h3>
-      <p class="text-gray-600 mt-2">Learn, share, and grow with like-minded makers.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ✅ Footer -->
-<footer class="bg-gray-900 text-gray-300 py-12">
-  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
-    <div>
-      <h4 class="text-white font-semibold mb-4">HandMadeProjects</h4>
-      <p class="text-sm">Innovative projects for students & makers.</p>
-    </div>
-    <div>
-      <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/dashboard" class="hover:text-white">Projects</a></li>
-        <li><a href="/internship" class="hover:text-white">Internships</a></li>
-        <li><a href="/aboutus" class="hover:text-white">About</a></li>
-        <li><a href="/contactus" class="hover:text-white">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="text-white font-semibold mb-4">Contact</h4>
-      <p class="text-sm">Email: handmadeprojects2022@gmail.com</p>
-      <p class="text-sm">Phone: +91 81692 39027</p>
-    </div>
-    <div>
-      <h4 class="text-white font-semibold mb-4">Follow Us</h4>
-      <div class="flex space-x-4">
-        <a href="https://www.youtube.com/@handmadeprojects3143" target="_blank" class="hover:text-white">YouTube</a>
-        <a href="https://www.instagram.com/handmadeprojects_2022/" target="_blank" class="hover:text-white">Instagram</a>
+  <!-- Contact strip -->
+  <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+    <div class="rounded-3xl border border-brand-100 dark:border-brand-800 bg-gradient-to-r from-brand-50 to-violet-50 dark:from-slate-900 dark:to-slate-900 px-6 py-8 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-center sm:text-left">
+        <p class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-1">Talk to us directly</p>
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+          Contact us via Call / WhatsApp for any query or for mentoring
+        </h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300 font-semibold text-lg space-y-1">
+          <span class="block"><i class="fas fa-phone-alt text-brand-600 dark:text-brand-400 mr-2"></i>{{ contact_phone_display }}</span>
+          <span class="block"><i class="fas fa-phone-alt text-brand-600 dark:text-brand-400 mr-2"></i>{{ contact_phone_alt_display }} <span class="text-xs font-medium text-slate-400 dark:text-slate-500">(alt)</span></span>
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 shrink-0">
+        {% include "systemsetup/_call_whatsapp_buttons.html" %}
       </div>
     </div>
-  </div>
-  <div class="mt-10 text-center text-gray-500 text-sm">
-    © 2022 HandMadeProjects. All rights reserved.
-  </div>
-</footer>
+  </section>
 
-</body>
-</html>
+  <!-- Domains -->
+  <section id="domains" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Shop by domain</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Same categories as the product catalog.</p>
+      </div>
+      <a href="{% url 'productlist' %}" class="text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">View all →</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <a href="/productlist/?productcat=software" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition text-xl font-bold">S</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Software</p>
+      </a>
+      <a href="/productlist/?productcat=hardware" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition text-xl font-bold">H</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Hardware</p>
+      </a>
+      <a href="/productlist/?productcat=mechanical" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-300 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition text-xl font-bold">M</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Mechanical</p>
+      </a>
+      <a href="/productlist/?productcat=simulation" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-violet-50 dark:bg-violet-900/30 text-violet-600 dark:text-violet-300 flex items-center justify-center group-hover:bg-violet-500 group-hover:text-white transition text-xl font-bold">Si</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Simulation</p>
+      </a>
+      <a href="/productlist/?productcat=science" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-300 flex items-center justify-center group-hover:bg-pink-500 group-hover:text-white transition text-xl font-bold">Sc</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Science</p>
+      </a>
+      <a href="/productlist/?productcat=craft" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition text-center">
+        <div class="mx-auto h-12 w-12 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition text-xl font-bold">Cr</div>
+        <p class="mt-3 text-sm font-semibold text-slate-900 dark:text-white">Craft</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured projects: 1 random project per catalog category -->
+  <section id="projects" class="bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Featured projects</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">One random pick from each category — refresh to see other builds.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a href="{% url 'productlist' %}" class="rounded-full bg-brand-600 text-white text-xs font-semibold px-3 py-1.5">All</a>
+          {% for card in featured_category_cards %}
+          <a href="{% url 'productlist' %}?productcat={{ card.category.slug }}"
+             class="rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold px-3 py-1.5 hover:bg-slate-200 dark:hover:bg-slate-700">
+            {{ card.category.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for card in featured_category_cards %}
+        {% with cat=card.category product=card.product %}
+        <a href="{% if product %}{% url 'productinfo' product.category_slug product.prodid %}{% else %}{% url 'productlist' %}?productcat={{ cat.slug }}{% endif %}"
+           class="group rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg transition bg-white dark:bg-slate-900 block">
+          <div class="aspect-[16/10] relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+            {% if product and product.mainimgbasetxt and product.mainimgbasetxt != '*' %}
+            <img
+              src="{{ product.mainimgbasetxt }}"
+              alt="{{ product.productname }}"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x500/e2e8f0/64748b?text={{ cat.name|urlencode }}'"
+            />
+            {% else %}
+            <div class="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-500 text-sm font-semibold px-4 text-center">
+              {{ cat.name }} projects
+            </div>
+            {% endif %}
+            <span class="absolute top-3 left-3 rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-slate-100 text-[10px] font-bold px-2 py-1">
+              {{ cat.name }}
+            </span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 line-clamp-2">
+              {% if product %}{{ product.productname|title }}{% else %}Browse {{ cat.name }}{% endif %}
+            </h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+              {% if product and product.highlighttitle and product.highlighttitle != '*' %}
+                {{ product.highlighttitle|title }}
+              {% else %}
+                {{ cat.description|default:"Explore projects in this category." }}
+              {% endif %}
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-sm text-slate-500 dark:text-slate-400">{{ cat.name }}</span>
+              <span class="text-sm font-semibold text-brand-600 dark:text-brand-400">
+                {% if product %}View →{% else %}Explore →{% endif %}
+              </span>
+            </div>
+          </div>
+        </a>
+        {% endwith %}
+        {% empty %}
+        <div class="col-span-full rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 p-10 text-center text-slate-500 dark:text-slate-400">
+          Categories will appear here once seeded.
+          <a href="{% url 'productlist' %}" class="text-brand-600 dark:text-brand-400 font-semibold">Browse catalog</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white text-center mb-10">About us</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 text-center shadow-sm">
+        <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">6</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Colleges collaborated</p>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 text-center shadow-sm">
+        <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">250+</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Projects delivered</p>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 text-center shadow-sm">
+        <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">5</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Tech developers</p>
+      </div>
+      <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-6 text-center shadow-sm">
+        <p class="text-3xl font-extrabold text-brand-600 dark:text-brand-400">12/7</p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">WhatsApp support</p>
+      </div>
+    </div>
+    <p class="mt-8 text-center text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed">
+      We operate 100% online. Demos via Google Meet. Genuine projects with after-sale support.
+    </p>
+  </section>
+
+  <!-- Shops strip -->
+  <section id="shops" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+    <div class="flex items-end justify-between mb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Featured local shops</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Business showcase pages on HandMadeProjects.</p>
+      </div>
+      <a href="{% url 'viewallshop' %}" class="text-sm font-semibold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">All shops →</a>
+    </div>
+  </section>
+
+  <!-- Intern CTA -->
+  <section id="intern" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="rounded-3xl bg-gradient-to-r from-brand-600 to-violet-600 px-8 py-10 md:px-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-white">
+      <div>
+        <h2 class="text-2xl font-bold">Internships &amp; team paths</h2>
+        <p class="mt-2 text-brand-100 max-w-lg">Join builds, ship real work, and grow your maker profile.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="{% url 'internship_listing' %}" class="rounded-full bg-white dark:bg-white text-brand-700 dark:text-brand-300 font-semibold px-5 py-2.5 text-sm">View internships</a>
+        <a href="{% url 'our_team' %}" class="rounded-full border border-white/40 text-white font-semibold px-5 py-2.5 text-sm hover:bg-white/10">Meet the team</a>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+{% endblock %}

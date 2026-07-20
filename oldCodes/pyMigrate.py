@@ -1,6 +1,15 @@
 import sqlite3
 import csv
 import os
+import re
+
+IDENTIFIER_PATTERN = re.compile(r'^[A-Za-z_][A-Za-z0-9_]*$')
+
+
+def assertValidIdentifier(identifier):
+    """Guards against SQL injection when table/column names come from filenames or CSV headers."""
+    if not IDENTIFIER_PATTERN.match(identifier):
+        raise ValueError(f"Invalid SQL identifier: {identifier!r}")
 
 def exportTablesToCsv(oldDbPath, exportDir):
     """
@@ -60,6 +69,10 @@ def importCsvToNewDb(newDbPath, importDir):
                     reader = csv.reader(file)
                     columns = next(reader)
 
+                    assertValidIdentifier(tableName)
+                    for col in columns:
+                        assertValidIdentifier(col)
+
                     placeholder = ",".join(["?"] * len(columns))
                     createColumns = ",".join([f"{col} TEXT" for col in columns])
 
@@ -98,7 +111,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-
-dont inport all the tables
+# NOTE: don't import all the tables

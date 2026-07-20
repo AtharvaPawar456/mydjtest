@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandMadeProjects — Learning Campus UI Concept</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            campus: {
+              50: '#f0fdf9',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              900: '#134e4a',
+              ink: '#0f172a',
+              sand: '#fffbeb'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Fraunces"', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-campus-sand text-campus-ink font-sans antialiased">
+
+  <!-- Soft learning campus: top nav + friendly hero + learning paths -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-teal-900/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <span class="h-9 w-9 rounded-2xl bg-campus-600 text-white flex items-center justify-center font-display text-lg shadow-sm">H</span>
+        <span class="font-display text-xl text-campus-900">HandMade<span class="text-campus-600">Campus</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#paths" class="hover:text-campus-700">Learning paths</a>
+        <a href="#projects" class="hover:text-campus-700">Projects</a>
+        <a href="#learn" class="hover:text-campus-700">How it works</a>
+        <a href="#intern" class="hover:text-campus-700">Internships</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#" class="hidden sm:inline text-sm font-semibold text-slate-600 px-3 py-2">Sign in</a>
+        <a href="#paths" class="rounded-full bg-campus-600 text-white text-sm font-bold px-4 py-2 shadow-sm hover:bg-campus-700 transition">Start learning</a>
+        <button id="navBtn" type="button" class="md:hidden p-2 rounded-xl border border-slate-200" aria-label="Menu">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="navMobile" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-2 text-sm font-semibold">
+      <a href="#paths" class="block py-2">Learning paths</a>
+      <a href="#projects" class="block py-2">Projects</a>
+      <a href="#learn" class="block py-2">How it works</a>
+      <a href="#intern" class="block py-2">Internships</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: editorial + soft shapes -->
+    <section class="relative overflow-hidden">
+      <div class="absolute top-20 right-0 w-72 h-72 bg-campus-100 rounded-full blur-3xl opacity-70"></div>
+      <div class="absolute bottom-0 left-10 w-56 h-56 bg-amber-100 rounded-full blur-3xl opacity-60"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-16 md:pt-20 md:pb-24">
+        <div class="max-w-2xl">
+          <p class="inline-flex items-center gap-2 rounded-full bg-white border border-teal-100 px-3 py-1 text-xs font-bold text-campus-700 mb-5 shadow-sm">
+            Concept C · Learning-first campus
+          </p>
+          <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-campus-ink leading-[1.12] tracking-tight">
+            Learn by building — not by scrolling alone.
+          </h1>
+          <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+            Guided paths for engineering students and young makers: pick a track, follow project milestones, earn proof for your portfolio and internships.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#paths" class="rounded-full bg-campus-ink text-white font-bold px-6 py-3 text-sm hover:bg-slate-800 transition shadow-lg shadow-slate-900/10">Choose a path</a>
+            <a href="#projects" class="rounded-full bg-white border border-slate-200 text-slate-700 font-bold px-6 py-3 text-sm hover:border-campus-500 hover:text-campus-700 transition">Browse projects</a>
+          </div>
+        </div>
+
+        <!-- Progress preview card -->
+        <div class="mt-12 md:mt-14 max-w-xl rounded-3xl bg-white border border-slate-100 shadow-xl shadow-teal-900/5 p-6">
+          <div class="flex items-center justify-between mb-4">
+            <p class="text-sm font-bold text-slate-800">Your next milestone</p>
+            <span class="text-xs font-semibold text-campus-700 bg-campus-50 px-2.5 py-1 rounded-full">Week 2</span>
+          </div>
+          <p class="font-display text-xl text-campus-ink">Ship an IoT sensor dashboard</p>
+          <div class="mt-4 h-2.5 rounded-full bg-slate-100 overflow-hidden">
+            <div class="h-full w-2/3 rounded-full bg-gradient-to-r from-campus-500 to-emerald-400"></div>
+          </div>
+          <div class="mt-3 flex justify-between text-xs font-medium text-slate-500">
+            <span>3 of 5 steps done</span>
+            <span class="text-campus-700">67%</span>
+          </div>
+          <ul class="mt-5 space-y-2 text-sm">
+            <li class="flex items-center gap-2 text-slate-600"><span class="text-campus-600 font-bold">✓</span> Wire DHT11 + ESP32</li>
+            <li class="flex items-center gap-2 text-slate-600"><span class="text-campus-600 font-bold">✓</span> Publish MQTT topics</li>
+            <li class="flex items-center gap-2 text-slate-800 font-semibold"><span class="text-amber-500 font-bold">○</span> Build web chart (current)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning paths -->
+    <section id="paths" class="bg-white py-16 border-y border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="font-display text-3xl md:text-4xl text-campus-ink">Learning paths</h2>
+          <p class="mt-3 text-slate-600">Maps cleanly to your categories: software, hardware, kids science & craft — presented as journeys, not only a catalog.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="#" class="group rounded-3xl border-2 border-transparent bg-campus-50 p-6 hover:border-campus-500 transition">
+            <div class="h-12 w-12 rounded-2xl bg-campus-600 text-white flex items-center justify-center font-bold text-lg mb-4">01</div>
+            <h3 class="font-display text-xl text-campus-ink group-hover:text-campus-700">Software & AI</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">Django, ML, chatbots, SaaS demos. Ideal for CSE final year.</p>
+            <p class="mt-4 text-sm font-bold text-campus-700">12 projects · ~8 weeks →</p>
+          </a>
+          <a href="#" class="group rounded-3xl border-2 border-transparent bg-amber-50 p-6 hover:border-amber-400 transition">
+            <div class="h-12 w-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg mb-4">02</div>
+            <h3 class="font-display text-xl text-campus-ink">Hardware & IoT</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">Arduino, ESP32, sensors, smart home. Build-then-document flow.</p>
+            <p class="mt-4 text-sm font-bold text-amber-700">10 projects · ~6 weeks →</p>
+          </a>
+          <a href="#" class="group rounded-3xl border-2 border-transparent bg-violet-50 p-6 hover:border-violet-400 transition">
+            <div class="h-12 w-12 rounded-2xl bg-violet-500 text-white flex items-center justify-center font-bold text-lg mb-4">03</div>
+            <h3 class="font-display text-xl text-campus-ink">Kids science & craft</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">Gentle STEM and craft tracks for younger makers (beta-friendly).</p>
+            <p class="mt-4 text-sm font-bold text-violet-700">8 activities · flexible →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="learn" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <h2 class="font-display text-3xl text-campus-ink text-center mb-10">How HandMadeCampus works</h2>
+      <ol class="grid sm:grid-cols-3 gap-8">
+        <li class="relative">
+          <span class="font-display text-5xl text-campus-100 absolute -top-4 -left-2">1</span>
+          <div class="relative pt-6">
+            <h3 class="font-bold text-lg">Explore</h3>
+            <p class="mt-2 text-sm text-slate-600">Browse domain paths or search the same catalog fields (name, tags, highlight).</p>
+          </div>
+        </li>
+        <li class="relative">
+          <span class="font-display text-5xl text-campus-100 absolute -top-4 -left-2">2</span>
+          <div class="relative pt-6">
+            <h3 class="font-bold text-lg">Build & favorite</h3>
+            <p class="mt-2 text-sm text-slate-600">Follow project detail pages; save favorites when logged in (UserFavProjects).</p>
+          </div>
+        </li>
+        <li class="relative">
+          <span class="font-display text-5xl text-campus-100 absolute -top-4 -left-2">3</span>
+          <div class="relative pt-6">
+            <h3 class="font-bold text-lg">Showcase & intern</h3>
+            <p class="mt-2 text-sm text-slate-600">Use gallery, team, and internship flows to turn builds into opportunities.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Project curriculum cards -->
+    <section id="projects" class="bg-campus-ink text-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <h2 class="font-display text-3xl">Featured curriculum projects</h2>
+            <p class="mt-2 text-slate-400 text-sm">Friendly cards with “lesson” framing instead of pure e-commerce.</p>
+          </div>
+          <a href="#" class="text-sm font-bold text-campus-100 hover:text-white">See full catalog →</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="rounded-3xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
+            <p class="text-xs font-bold uppercase tracking-wider text-campus-100">Lesson pack · Software</p>
+            <h3 class="mt-2 font-display text-xl">Build a Django project portfolio site</h3>
+            <p class="mt-2 text-sm text-slate-400">Auth, list pages, and SEO meta patterns matching the live site.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs font-semibold bg-white/10 rounded-full px-3 py-1">4 modules</span>
+              <span class="text-sm font-bold text-campus-100">Start free →</span>
+            </div>
+          </article>
+          <article class="rounded-3xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
+            <p class="text-xs font-bold uppercase tracking-wider text-amber-200">Lesson pack · Hardware</p>
+            <h3 class="mt-2 font-display text-xl">Smart plant watering node</h3>
+            <p class="mt-2 text-sm text-slate-400">Sensors, actuators, and a simple phone-friendly status page.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs font-semibold bg-white/10 rounded-full px-3 py-1">5 modules</span>
+              <span class="text-sm font-bold text-campus-100">Start free →</span>
+            </div>
+          </article>
+          <article class="rounded-3xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition sm:col-span-2 lg:col-span-1">
+            <p class="text-xs font-bold uppercase tracking-wider text-violet-200">Lesson pack · AI content</p>
+            <h3 class="mt-2 font-display text-xl">Promo creatives for local shops</h3>
+            <p class="mt-2 text-sm text-slate-400">Connects AI packs + shop showcase pages for real business trials.</p>
+            <div class="mt-5 flex items-center justify-between">
+              <span class="text-xs font-semibold bg-white/10 rounded-full px-3 py-1">3 modules</span>
+              <span class="text-sm font-bold text-campus-100">Start free →</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internships soft CTA -->
+    <section id="intern" class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div class="rounded-[2rem] bg-gradient-to-br from-campus-100 via-white to-amber-50 border border-teal-100 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
+        <div class="flex-1">
+          <h2 class="font-display text-3xl text-campus-ink">From classroom builds to internships</h2>
+          <p class="mt-3 text-slate-600 max-w-lg">Same internship listing & profile ideas as production — framed as the “next semester” after your first shipped projects.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#" class="rounded-full bg-campus-600 text-white font-bold px-5 py-2.5 text-sm hover:bg-campus-700">View opportunities</a>
+            <a href="#" class="rounded-full bg-white border border-slate-200 font-bold px-5 py-2.5 text-sm text-slate-700">Meet mentors</a>
+          </div>
+        </div>
+        <div class="w-full md:w-72 rounded-2xl bg-white shadow-lg border border-slate-100 p-5">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Cohort pulse</p>
+          <p class="mt-2 font-display text-2xl text-campus-ink">18 builders</p>
+          <p class="text-sm text-slate-500">active this month</p>
+          <div class="mt-4 flex -space-x-2">
+            <span class="h-9 w-9 rounded-full bg-teal-300 border-2 border-white"></span>
+            <span class="h-9 w-9 rounded-full bg-amber-300 border-2 border-white"></span>
+            <span class="h-9 w-9 rounded-full bg-violet-300 border-2 border-white"></span>
+            <span class="h-9 w-9 rounded-full bg-slate-200 border-2 border-white text-[10px] font-bold flex items-center justify-center text-slate-600">+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between gap-6 text-sm text-slate-500">
+      <div>
+        <p class="font-display text-lg text-campus-ink">HandMadeCampus</p>
+        <p class="mt-1 max-w-sm">Concept C — warm, educational, path-based. Tailwind CDN only. Complements marketplace (1) and dark lab (2).</p>
+      </div>
+      <div class="flex gap-8">
+        <div>
+          <p class="font-semibold text-slate-800 mb-2">Explore</p>
+          <ul class="space-y-1">
+            <li><a href="#paths" class="hover:text-campus-700">Paths</a></li>
+            <li><a href="#projects" class="hover:text-campus-700">Projects</a></li>
+            <li><a href="#intern" class="hover:text-campus-700">Internships</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-800 mb-2">Prototype</p>
+          <p>UI 3 of 3 · Static mock</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navBtn')?.addEventListener('click', () => {
+      document.getElementById('navMobile').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

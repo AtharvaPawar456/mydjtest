@@ -1,0 +1,2 @@
+{# Inline phone links for both numbers (text style) #}
+{% for num in contact_numbers %}{% if not forloop.first %} / {% endif %}<a href="tel:{{ num.tel }}" class="{{ link_class|default:'text-brand-600 dark:text-brand-400 font-semibold' }}">{{ num.display }}</a>{% endfor %}

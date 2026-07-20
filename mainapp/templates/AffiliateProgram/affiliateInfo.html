@@ -4,11 +4,11 @@
 {% block content %}
 <div class="max-w-6xl mx-auto p-1 pb-20">
   <!-- Intro Card -->
-  <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-    <h1 class="text-3xl font-bold text-blue-700 mb-4">🎯 Join Our Affiliate Program</h1>
-    <p class="text-gray-700 text-lg mb-2">Earn money by referring students to our project development services!</p>
+  <div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md mb-6">
+    <h1 class="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-4">🎯 Join Our Affiliate Program</h1>
+    <p class="text-gray-700 dark:text-slate-200 text-lg mb-2">Earn money by referring students to our project development services!</p>
     
-    <ul class="list-disc ml-6 text-gray-600 mb-4 space-y-1">
+    <ul class="list-disc ml-6 text-gray-600 dark:text-slate-300 mb-4 space-y-1">
       <li>Create your affiliate account and receive your <span class="font-semibold text-green-600">unique affiliate code</span>.</li>
       <li>Share this code with students during their project registration.</li>
       <li>Students must enter this code in the Google form.</li>
@@ -16,7 +16,7 @@
       <li>Earn additional commissions after project completion and full payment.</li>
     </ul>
 
-    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 text-sm text-gray-700">
+    <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 text-sm text-gray-700 dark:text-slate-200">
       <p class="mb-1">💼 <strong>Student Registration Payout:</strong> ₹1 per unique student (credited to your wallet)</p>
       <p class="mb-1">💸 <strong>Withdrawal Condition:</strong> Minimum ₹200 in your wallet to withdraw</p>
       <p class="mb-1">🗓️ <strong>Payout Frequency:</strong> Monthly basis</p>
@@ -25,23 +25,29 @@
       link to register (google form link : https://forms.gle/ab1HU7TdHkMRuJrT7)
     </div>
 
-    <p class="text-md font-medium text-indigo-600 mt-4">
-      📞 For any queries, contact us at 
-      <a href="tel:+918169239027" class="underline">+91 81692 39027</a>
+    <p class="text-md font-medium text-indigo-600 dark:text-indigo-300 mt-4">
+      📞 For any queries, contact us at
+      <a href="tel:{{ contact_phone_tel }}" class="underline">{{ contact_phone_display }}</a>
+      /
+      <a href="tel:{{ contact_phone_alt_tel }}" class="underline">{{ contact_phone_alt_display }}</a>
+      or
+      <a href="{{ contact_whatsapp_url }}" target="_blank" rel="noopener" class="underline">WhatsApp</a>
+      /
+      <a href="{{ contact_whatsapp_alt_url }}" target="_blank" rel="noopener" class="underline">WhatsApp (alt)</a>
     </p>
   </div>
 
   <!-- Commission Tiers -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for tier in commissionTiers %}
-      <div class="bg-white shadow-md rounded-lg p-5 border-l-4 border-blue-600 hover:shadow-xl transition">
+      <div class="bg-white dark:bg-slate-900 shadow-md rounded-lg p-5 border-l-4 border-blue-600 hover:shadow-xl transition">
         <h3 class="text-xl font-bold text-blue-800 mb-2">
           💰 Project: ₹{{ tier.rangeMin }} - ₹{{ tier.rangeMax }}
         </h3>
         <p class="text-green-600 font-semibold text-lg">
           Earn: ₹{{ tier.reward }} per project
         </p>
-        <p class="text-gray-600 mt-2 text-sm">* Payout after full project completion & payment</p>
+        <p class="text-gray-600 dark:text-slate-300 mt-2 text-sm">* Payout after full project completion & payment</p>
       </div>
     {% endfor %}
   </div>

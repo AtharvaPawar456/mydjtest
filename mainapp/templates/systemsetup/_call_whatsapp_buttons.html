@@ -1,0 +1,16 @@
+{# Call + WhatsApp for primary and alternate numbers #}
+{% for num in contact_numbers %}
+<div class="flex flex-col items-stretch sm:items-center gap-1.5">
+  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-center sm:text-left">{{ num.label }} · {{ num.display }}</span>
+  <div class="flex flex-wrap justify-center gap-2">
+    <a href="tel:{{ num.tel }}"
+       class="inline-flex items-center gap-2 rounded-full bg-brand-600 text-white font-semibold px-5 py-2.5 text-sm shadow-lg shadow-brand-600/25 hover:bg-brand-700 transition">
+      <i class="fas fa-phone-alt"></i> Call
+    </a>
+    <a href="{{ num.whatsapp_url }}" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 rounded-full bg-emerald-600 text-white font-semibold px-5 py-2.5 text-sm shadow-lg shadow-emerald-600/25 hover:bg-emerald-700 transition">
+      <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+    </a>
+  </div>
+</div>
+{% endfor %}

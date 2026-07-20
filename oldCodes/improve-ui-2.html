@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandMadeProjects — Dark Maker Lab UI Concept</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: '#07090f', 900: '#0c1018', 800: '#121826', 700: '#1a2234' },
+            neon: { cyan: '#22d3ee', lime: '#a3e635', violet: '#a78bfa' }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          boxShadow: {
+            glow: '0 0 40px -8px rgba(34, 211, 238, 0.45)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-ink-950 text-slate-200 font-sans antialiased selection:bg-cyan-500/30">
+
+  <!-- Sidebar shell: desktop maker OS feel -->
+  <div class="min-h-screen lg:flex">
+    <aside class="hidden lg:flex w-64 shrink-0 flex-col border-r border-white/5 bg-ink-900 sticky top-0 h-screen">
+      <div class="p-5 border-b border-white/5">
+        <a href="#" class="flex items-center gap-3">
+          <span class="h-10 w-10 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center font-mono text-ink-950 font-bold text-sm shadow-glow">HP</span>
+          <div>
+            <p class="font-semibold text-white leading-tight">HandMade</p>
+            <p class="text-[10px] font-mono text-cyan-400/80 tracking-widest uppercase">Lab · v2</p>
+          </div>
+        </a>
+      </div>
+      <nav class="flex-1 p-3 space-y-1 text-sm">
+        <p class="px-3 pt-3 pb-1 text-[10px] font-mono uppercase tracking-widest text-slate-500">Workspace</p>
+        <a href="#build" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/5 text-white border border-white/5">
+          <span class="h-1.5 w-1.5 rounded-full bg-neon-cyan"></span> Dashboard
+        </a>
+        <a href="#catalog" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">
+          <span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span> Project catalog
+        </a>
+        <a href="#hardware" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">
+          <span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span> Hardware / IoT
+        </a>
+        <a href="#ai" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">
+          <span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span> AI content packs
+        </a>
+        <p class="px-3 pt-5 pb-1 text-[10px] font-mono uppercase tracking-widest text-slate-500">Community</p>
+        <a href="#team" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">Team</a>
+        <a href="#intern" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">Internships</a>
+        <a href="#gallery" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-white/5 hover:text-white transition">Gallery</a>
+      </nav>
+      <div class="p-4 border-t border-white/5">
+        <a href="#" class="flex items-center gap-3 rounded-xl border border-dashed border-white/10 px-3 py-3 hover:border-cyan-500/40 transition">
+          <div class="h-9 w-9 rounded-full bg-ink-700 flex items-center justify-center text-xs font-mono text-neon-lime">ME</div>
+          <div class="min-w-0">
+            <p class="text-sm font-medium text-white truncate">Guest maker</p>
+            <p class="text-[11px] text-slate-500">Log in to save favorites</p>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0">
+      <!-- Mobile top bar -->
+      <header class="lg:hidden sticky top-0 z-40 border-b border-white/5 bg-ink-950/90 backdrop-blur px-4 h-14 flex items-center justify-between">
+        <span class="font-semibold text-white">HandMade <span class="text-cyan-400 font-mono text-xs">LAB</span></span>
+        <button id="mOpen" type="button" class="text-sm border border-white/10 rounded-lg px-3 py-1.5">Menu</button>
+      </header>
+      <div id="mDrawer" class="hidden lg:hidden fixed inset-0 z-50 bg-ink-950/95 p-6 space-y-3">
+        <button id="mClose" class="text-sm text-slate-400 mb-4">Close ✕</button>
+        <a href="#catalog" class="block text-lg text-white">Catalog</a>
+        <a href="#hardware" class="block text-lg text-white">Hardware</a>
+        <a href="#ai" class="block text-lg text-white">AI packs</a>
+        <a href="#team" class="block text-lg text-white">Team</a>
+      </div>
+
+      <main class="px-4 sm:px-6 lg:px-10 py-8 max-w-6xl mx-auto">
+        <!-- Hero terminal -->
+        <section id="build" class="relative rounded-3xl border border-white/10 bg-ink-900 overflow-hidden mb-10 shadow-glow">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(34,211,238,0.12),_transparent_50%),radial-gradient(ellipse_at_bottom_left,_rgba(167,139,250,0.1),_transparent_50%)]"></div>
+          <div class="relative p-6 sm:p-10">
+            <div class="flex items-center gap-2 text-[11px] font-mono text-slate-500 mb-6">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+              <span class="ml-2">maker@handmadeprojects ~ concept-b</span>
+            </div>
+            <p class="inline-flex items-center gap-2 font-mono text-xs text-neon-cyan mb-4">
+              <span class="animate-pulse">●</span> BUILD MODE · Dark maker lab
+            </p>
+            <h1 class="text-3xl sm:text-5xl font-bold text-white tracking-tight max-w-2xl leading-tight">
+              From breadboard to portfolio — in one lab shell.
+            </h1>
+            <p class="mt-4 text-slate-400 max-w-xl text-base sm:text-lg">
+              Dense, technical UI for engineers. Sidebar navigation (like production), neon accents, status chips, and project “build cards.”
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#catalog" class="inline-flex items-center rounded-lg bg-neon-cyan text-ink-950 font-semibold px-5 py-2.5 text-sm hover:brightness-110 transition">Open catalog</a>
+              <a href="#hardware" class="inline-flex items-center rounded-lg border border-white/15 text-white font-medium px-5 py-2.5 text-sm hover:border-cyan-400/50 transition">Hardware track</a>
+            </div>
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+              <div class="rounded-xl bg-black/30 border border-white/5 p-3">
+                <p class="text-slate-500">CPU</p>
+                <p class="text-neon-lime mt-1">projects.ready</p>
+              </div>
+              <div class="rounded-xl bg-black/30 border border-white/5 p-3">
+                <p class="text-slate-500">STACK</p>
+                <p class="text-white mt-1">Django · IoT · AI</p>
+              </div>
+              <div class="rounded-xl bg-black/30 border border-white/5 p-3">
+                <p class="text-slate-500">TZ</p>
+                <p class="text-white mt-1">Asia/Kolkata</p>
+              </div>
+              <div class="rounded-xl bg-black/30 border border-white/5 p-3">
+                <p class="text-slate-500">STATUS</p>
+                <p class="text-neon-cyan mt-1">online</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Catalog as terminal table + cards -->
+        <section id="catalog" class="mb-12">
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="text-xl font-semibold text-white">Active project builds</h2>
+            <span class="font-mono text-[11px] text-slate-500">filter: all domains</span>
+          </div>
+          <div class="rounded-2xl border border-white/10 overflow-hidden mb-6">
+            <div class="grid grid-cols-12 gap-2 px-4 py-2 bg-ink-800 text-[10px] font-mono uppercase tracking-wider text-slate-500 border-b border-white/5">
+              <div class="col-span-1">#</div>
+              <div class="col-span-5">Title</div>
+              <div class="col-span-3 hidden sm:block">Domain</div>
+              <div class="col-span-3 sm:col-span-2">Tags</div>
+              <div class="col-span-3 sm:col-span-1 text-right">Cost</div>
+            </div>
+            <a href="#" class="grid grid-cols-12 gap-2 px-4 py-3 text-sm border-b border-white/5 hover:bg-white/[0.03] transition items-center">
+              <div class="col-span-1 font-mono text-slate-500">01</div>
+              <div class="col-span-5 text-white font-medium">Edge AI Waste Sorter</div>
+              <div class="col-span-3 hidden sm:block text-slate-400">hardwareprojects</div>
+              <div class="col-span-3 sm:col-span-2"><span class="text-[10px] font-mono text-neon-cyan border border-cyan-500/30 rounded px-1.5 py-0.5">edgeAi</span></div>
+              <div class="col-span-3 sm:col-span-1 text-right font-mono text-neon-lime text-xs">₹4.2k</div>
+            </a>
+            <a href="#" class="grid grid-cols-12 gap-2 px-4 py-3 text-sm border-b border-white/5 hover:bg-white/[0.03] transition items-center">
+              <div class="col-span-1 font-mono text-slate-500">02</div>
+              <div class="col-span-5 text-white font-medium">RAG Knowledge Portal</div>
+              <div class="col-span-3 hidden sm:block text-slate-400">softwareprojects</div>
+              <div class="col-span-3 sm:col-span-2"><span class="text-[10px] font-mono text-neon-violet border border-violet-400/30 rounded px-1.5 py-0.5">genai</span></div>
+              <div class="col-span-3 sm:col-span-1 text-right font-mono text-neon-lime text-xs">₹5.5k</div>
+            </a>
+            <a href="#" class="grid grid-cols-12 gap-2 px-4 py-3 text-sm hover:bg-white/[0.03] transition items-center">
+              <div class="col-span-1 font-mono text-slate-500">03</div>
+              <div class="col-span-5 text-white font-medium">Drone Path Simulator</div>
+              <div class="col-span-3 hidden sm:block text-slate-400">simulationprojects</div>
+              <div class="col-span-3 sm:col-span-2"><span class="text-[10px] font-mono text-neon-lime border border-lime-400/30 rounded px-1.5 py-0.5">sim</span></div>
+              <div class="col-span-3 sm:col-span-1 text-right font-mono text-neon-lime text-xs">₹3.1k</div>
+            </a>
+          </div>
+
+          <div id="hardware" class="grid sm:grid-cols-2 gap-4">
+            <article class="rounded-2xl border border-white/10 bg-ink-900 p-5 hover:border-cyan-500/30 transition">
+              <div class="flex items-start justify-between">
+                <h3 class="text-white font-semibold">ESP32 Telemetry Mesh</h3>
+                <span class="font-mono text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">LIVE</span>
+              </div>
+              <p class="text-sm text-slate-400 mt-2">Multi-node MQTT mesh with Grafana-style dashboard mock for student demos.</p>
+              <div class="mt-4 flex gap-2 font-mono text-[10px] text-slate-500">
+                <span class="border border-white/10 rounded px-2 py-1">esp32</span>
+                <span class="border border-white/10 rounded px-2 py-1">mqtt</span>
+                <span class="border border-white/10 rounded px-2 py-1">iot</span>
+              </div>
+            </article>
+            <article id="ai" class="rounded-2xl border border-white/10 bg-ink-900 p-5 hover:border-violet-500/30 transition">
+              <div class="flex items-start justify-between">
+                <h3 class="text-white font-semibold">AI Product Image Pack</h3>
+                <span class="font-mono text-[10px] text-violet-300 bg-violet-400/10 px-2 py-1 rounded">HOT</span>
+              </div>
+              <p class="text-sm text-slate-400 mt-2">AicontentProd-style packs: promo creatives for e-com & local businesses.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <div class="flex gap-2 font-mono text-[10px] text-slate-500">
+                  <span class="border border-white/10 rounded px-2 py-1">aiimages</span>
+                  <span class="border border-white/10 rounded px-2 py-1">ads</span>
+                </div>
+                <span class="text-sm font-mono text-neon-lime">₹999</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Gallery mosaic -->
+        <section id="gallery" class="mb-12">
+          <h2 class="text-xl font-semibold text-white mb-5">Build gallery</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 auto-rows-[100px]">
+            <div class="rounded-xl bg-gradient-to-br from-cyan-600/40 to-ink-800 border border-white/10 md:col-span-2 md:row-span-2 md:auto-rows-auto min-h-[200px]"></div>
+            <div class="rounded-xl bg-gradient-to-br from-violet-600/40 to-ink-800 border border-white/10"></div>
+            <div class="rounded-xl bg-gradient-to-br from-lime-500/30 to-ink-800 border border-white/10"></div>
+            <div class="rounded-xl bg-gradient-to-br from-fuchsia-600/30 to-ink-800 border border-white/10 md:col-span-2"></div>
+          </div>
+        </section>
+
+        <!-- Team + intern -->
+        <section id="team" class="grid md:grid-cols-2 gap-4 mb-12">
+          <div class="rounded-2xl border border-white/10 p-6 bg-ink-900">
+            <h2 class="text-lg font-semibold text-white">Core team</h2>
+            <p class="text-sm text-slate-400 mt-1">Compact roster cards — darker than production gray sidebar.</p>
+            <div class="mt-5 space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600"></div>
+                <div>
+                  <p class="text-sm text-white font-medium">Atharva · Lead</p>
+                  <p class="text-xs text-slate-500 font-mono">full-stack · product</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-gradient-to-br from-violet-400 to-purple-700"></div>
+                <div>
+                  <p class="text-sm text-white font-medium">Hardware lead</p>
+                  <p class="text-xs text-slate-500 font-mono">esp32 · robotics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="intern" class="rounded-2xl border border-cyan-500/20 p-6 bg-gradient-to-br from-cyan-950/50 to-ink-900">
+            <h2 class="text-lg font-semibold text-white">Open internship slots</h2>
+            <p class="text-sm text-slate-400 mt-1">Status-driven list like a ticket board.</p>
+            <ul class="mt-5 space-y-2 text-sm">
+              <li class="flex justify-between border border-white/5 rounded-lg px-3 py-2">
+                <span>Frontend · Tailwind</span>
+                <span class="font-mono text-[10px] text-neon-lime">OPEN</span>
+              </li>
+              <li class="flex justify-between border border-white/5 rounded-lg px-3 py-2">
+                <span>IoT firmware</span>
+                <span class="font-mono text-[10px] text-amber-300">2 LEFT</span>
+              </li>
+              <li class="flex justify-between border border-white/5 rounded-lg px-3 py-2">
+                <span>Content / SEO</span>
+                <span class="font-mono text-[10px] text-slate-500">WAITLIST</span>
+              </li>
+            </ul>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-neon-cyan hover:underline">Apply via internship flow →</a>
+          </div>
+        </section>
+
+        <footer class="border-t border-white/5 pt-8 pb-12 text-center text-xs text-slate-500 font-mono">
+          Concept B · Dark maker lab · Tailwind CDN only · UI 2 of 3 · handmadeprojects.in
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const drawer = document.getElementById('mDrawer');
+    document.getElementById('mOpen')?.addEventListener('click', () => drawer.classList.remove('hidden'));
+    document.getElementById('mClose')?.addEventListener('click', () => drawer.classList.add('hidden'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+Your Role: You are an experienced software engineer. Before you start the task as mentioned below, please do the planning and write your steps in an aidlc-docs/plans/code_generation_plan.md file with checkboxes against each step in the plan. If any step needs my clarification, please add it to the step to interact with me and get my confirmation. Do not make critical decisions on your own. Once you produce the plan, ask for my review and approval. After my approval, you can go ahead to execute the same plan one step at a time. Once you finish each step, mark the checkboxes as done in the plan.
+
+
+
+
+
+
+Task 1: Analyze the assigned task, create a concise implementation plan with findings, assumptions, dependencies, and execution steps, and save it to `ai-space/tasks/task-<tasknumber>.md` without writing any code.
+    - understand the project code and create a project-guide.md file properly 
+
+
+Reviewing the current UI, then creating three distinct Tailwind-only redesign prototypes and a reusable prompt.
+Read C:\Users\Atharva Pawar\Documents\GitHub\mydjtest\mainapp\templates\systemsetup\base.html (66-265 of 343)
+Read C:\Users\Atharva Pawar\Documents\GitHub\mydjtest\mainapp\templates\systemsetup\welcome.html (1-80 of 269)
+Read C:\Users\Atharva Pawar\Documents\GitHub\mydjtest\mainapp\templates\systemsetup\herosection.html (1-100 of 132)
+
+Creating three distinct homepage redesigns (marketplace, dark maker, learning-focused) with Tailwind CDN only.
+
+
+
+
+
+
+
+Task 3: Analyze the assigned task, create a concise implementation plan with findings, assumptions, dependencies, and execution steps, and save it to `ai-space/tasks/task-<tasknumber>.md` without writing any code.
+
+    I1 : http://127.0.0.1:8000/allshops/ : Business Directory - Showing 1 business
+        i want to expan this section : so suggest me more shops by considering the our domain 
+
+    I2 : create a new shop for ganpati decoration designs where show multiple design : for this give me 100 ai image generation prompt in task file and i will create it and add it in shop gallery section 
+
+    I3 : i guess we need to improve the shop crda and shop info page : in terms of details and look, so suggest me - keep it in ai-space\ai-suggestion 
+
+
+
+
+
+add all this shop (5. I1 — Suggested shops to expand the directory) : also give a button on our django-admin page : view/hide
+and for each i need images so give me all the ai img gen prompts save it in like : ai-space/ai-suggestion/shops/shop-2-ai-img-prompt.txt, ...
+and same for 100 AI image generation prompts : ai-space/ai-suggestion/shops/shop-ganpati-decor-ai-img-prompt.txt
+also suggest more 50 internship opportunities with our domain : ai-space/ai-suggestion/intern-ops.txt
+improve ui of http://127.0.0.1:8000/internship/, http://127.0.0.1:8000/internship/opportunities/, http://127.0.0.1:8000/internship/profile/2/, http://127.0.0.1:8000/internship/profile/1/
+
+
+http://127.0.0.1:8000/shop/Hotel-Mauli-Dadar-East/#gallery : view files are not visible
+
+
+http://127.0.0.1:8000/internship/ : here also give filter of stipend/unstipend internship, from django admin i can toggle it  
+http://127.0.0.1:8000/internship/profile/1/ : also give the image download option and view in full screen
+
+
+Task 4: Analyze the assigned task, create a concise implementation plan with findings, assumptions, dependencies, and execution steps, and save it to `ai-space/tasks/task-<tasknumber>.md` without writing any code.
+    - Improve our website from SEO point if view
+    - list them and then implement it
+
+
+
+
+
+
+Task : Analyze complete code base and then List all the vulrabilities in this django project : grok-build-test with thier fixes suggestion
+
+
+
+put this content in dj model : ai-space\ai-suggestion\intern-ops.txt : http://127.0.0.1:8000/internship/opportunities/
+where - is hide
+where | is visible
+
+
+
+homeimgs
+- Imgtitle: if title not "" or "*" then visible
+- Imglink:
+
+
+categories name change:
+from Kids Craft to Craft : inside that also add hashtag (will be used as sub cat)
+from Kids Science to Science : inside that also add hashtag (will be used as sub cat)
+
+
+
+on page : http://127.0.0.1:8000/
+put this images on 
+hero area:
+Software & AI projects
+Django, ML, SaaS starters for final-year demos.
+
+IoT & hardware kits
+ESP32, Arduino, sensors, smart systems.
+
+properly
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/homepageimg/IoT-hardware-kits.png
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/homepageimg/SoftwareAi-projects.png
+
+
+add alternate contact number : +91 93206 68111, update every where 
+
+
+
+http://127.0.0.1:8000/allshops/
+add new shop 
+MacNet Technology - 
+Contact : +91 90043 04565 (Manohar) 
+Address: 1st floor, shree ganesh bhuvan, Police Station, 18, opp. Lamington Road, Krishna Kunj, Grant Road East, Shapur Baug, Grant Road, Mumbai, Maharashtra 400007
+About: you get majority robotic, electronics components, motors, modules, etc
+
+
+
+some of the dark mode ui is not proper, the text color is dark in dark mode, etc 
+so identify and fix this issues properly
+
+
+
+show project in random order
+
+http://127.0.0.1:8000/productlist/
+http://127.0.0.1:8000/productlist/?productcat=<cat>
+
+
+
+split this db model items : Product infos based on the category into different individual models :
+
+rename this db model names to 
+Project_Software
+Project_Hardware
+Project_Mechanical
+Project_Simulation
+Project_Science
+Project_Craft  
+
+becase its getting mess as more items are getting added
+
+
+
+
+
+Featured projects : http://127.0.0.1:8000/
+here only show the ideas where the img link dont have this keyword 'promoimg.png' handle this in properly

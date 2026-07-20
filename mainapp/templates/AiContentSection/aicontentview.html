@@ -1,84 +1,98 @@
 {% extends 'systemsetup/base.html' %}
+{% load price_filters %}
+
+{% block title %}{% if aiContent %}{{ aiContent.aititle|title }} | AI Content | HandMadeProjects{% else %}Content not found | HandMadeProjects{% endif %}{% endblock %}
+{% block metaDescription %}{% if aiContent %}{{ aiContent.aiheader|default:aiContent.aititle }}{% else %}This AI content item could not be found.{% endif %}{% endblock %}
+
+{% block ogTitle %}{% if aiContent %}{{ aiContent.aititle|title }}{% else %}Content not found{% endif %}{% endblock %}
+{% block ogDescription %}{% if aiContent %}{{ aiContent.aiheader|default:aiContent.aititle }}{% else %}This AI content item could not be found.{% endif %}{% endblock %}
+{% block ogImage %}{% if aiContent %}{{ aiContent.aiimglink }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block ogType %}product{% endblock %}
+
+{% block structured_data %}
+{% if aiContent and not error %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ aiContent.aititle|escapejs }}",
+  "description": "{{ aiContent.aiheader|default:aiContent.aititle|escapejs }}",
+  "image": "{{ aiContent.aiimglink|escapejs }}",
+  "sku": "AI-{{ aiContent.aiid }}",
+  "brand": { "@type": "Brand", "name": "HandMadeProjects" },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'aicontentview' aiContent.aiid %}",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock"
+    {% if aiContent.aisale and aiContent.aisale != '*' %},"price": "{{ aiContent.aisale|escapejs }}"{% endif %}
+  }
+}
+</script>
+{% endif %}
+{% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-10">
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <a href="{% url 'aicontentlist' %}" class="hover:text-brand-600">AI Content</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white dark:text-slate-100 font-medium">{% if aiContent %}{{ aiContent.aititle|title }}{% else %}Not found{% endif %}</span>
+</nav>
 
-    {% if error %}
-    <div class="bg-red-100 border-l-4 border-red-600 text-red-700 p-4 mb-6">
-        {{ error }}
+{% if error %}
+<div class="mb-6 rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-4 text-sm text-red-800 dark:text-red-300">{{ error }}</div>
+{% elif aiContent %}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+  <div class="rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
+    <img src="{{ aiContent.aiimglink }}" alt="{{ aiContent.aititle }}" class="w-full h-auto max-h-[70vh] object-contain bg-slate-50 dark:bg-slate-900/60 dark:bg-slate-800">
+  </div>
+
+  <div class="rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm">
+    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">{{ aiContent.aititle|title }}</h1>
+    <p class="mt-2 text-slate-500 dark:text-slate-400">{{ aiContent.aiheader|title }}</p>
+
+    <div class="mt-6 flex items-center gap-4">
+      <span class="text-2xl font-bold text-slate-900 dark:text-white">₹{{ aiContent.aisale|price }}</span>
+      {% if aiContent.aiprice and aiContent.aiprice != '*' and aiContent.aiprice != aiContent.aisale %}
+      <span class="line-through text-slate-400 dark:text-slate-500">₹{{ aiContent.aiprice|price }}</span>
+      {% endif %}
+    </div>
+
+    {% if aiContent.aitag and aiContent.aitag != '*' %}
+    <div class="mt-6 flex flex-wrap gap-2">
+      {% for tag in aiContent.aitag.split %}
+      <span class="rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold px-3 py-1.5">{{ tag }}</span>
+      {% endfor %}
     </div>
     {% endif %}
 
-    <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+    <p class="mt-4 text-xs text-slate-400 dark:text-slate-500">Added on {{ aiContent.timestamp|date:"d M Y" }}</p>
 
-        <!-- Image -->
-        <div class="w-full h-96 bg-gray-100">
-            <img
-                src="{{ aiContent.aiimglink }}"
-                alt="{{ aiContent.aititle }}"
-                class="w-full h-full object-cover"
-            >
-        </div>
-
-        <!-- Content -->
-        <div class="p-6 md:p-8">
-
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">
-                {{ aiContent.aititle|title }}
-            </h1>
-
-            <h2 class="text-lg text-gray-600 mb-4">
-                {{ aiContent.aiheader|title }}
-            </h2>
-
-            <!-- Price -->
-            <div class="flex items-center gap-4 mb-6">
-                <span class="text-2xl font-bold text-green-700">
-                    ₹ {{ aiContent.aisale }}
-                </span>
-                <span class="line-through text-gray-500">
-                    ₹ {{ aiContent.aiprice }}
-                </span>
-            </div>
-
-            <!-- Description -->
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">
-                    Description
-                </h3>
-                <p class="text-gray-700 leading-relaxed">
-                    {{ aiContent.aidesc }}
-                </p>
-            </div>
-
-            <!-- Tags -->
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">
-                    Tags
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                    {% for tag in aiContent.aitag.split %}
-                    <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-sm rounded-full">
-                        {{ tag }}
-                    </span>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- Timestamp -->
-            <p class="text-sm text-gray-500 mb-6">
-                Added on {{ aiContent.timestamp|date:"d M Y" }}
-            </p>
-
-            <!-- Back -->
-            <div class="text-center">
-                <a href="{% url 'aicontentlist' %}"
-                   class="inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">
-                    ← Back to AI Content
-                </a>
-            </div>
-
-        </div>
+    <div class="mt-6 flex flex-wrap gap-3">
+      {% include "systemsetup/_call_whatsapp_buttons.html" %}
     </div>
+  </div>
 </div>
+
+{% if aiContent.aidesc and aiContent.aidesc != '*' %}
+<div class="mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-8 shadow-sm">
+  <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Description</h2>
+  <p class="text-slate-600 dark:text-slate-300 leading-relaxed">{{ aiContent.aidesc }}</p>
+</div>
+{% endif %}
+
+<div class="mt-8">
+  <a href="{% url 'aicontentlist' %}" class="rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-semibold px-5 py-2.5 text-slate-700 dark:text-slate-200 hover:border-brand-300 dark:hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-300 transition">
+    ← Back to AI Content
+  </a>
+</div>
+{% else %}
+<div class="rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 p-12 text-center">
+  <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Content not found</h2>
+  <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">This item may have been removed.</p>
+  <a href="{% url 'aicontentlist' %}" class="inline-flex mt-6 rounded-full bg-brand-600 text-white text-sm font-semibold px-5 py-2.5">Back to AI Content</a>
+</div>
+{% endif %}
 {% endblock %}

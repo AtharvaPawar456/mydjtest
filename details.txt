@@ -32,4 +32,29 @@ python manage.py migrate
 
 
 
+# Ref model img to cardboard model image:
 
+Convert the reference image into a realistic buildable white cardboard guide model for real-life fabrication. Recreate the subject using only thin white cardboard with clean folds, layered panels, crisp edges, and practical construction, preserving the overall shape and proportions while omitting all colors, textures, prints, and markings. Present it as a premium handcrafted papercraft prototype on a plain black desk against a pure black seamless background, photographed from the best angle with soft studio lighting, subtle shadows, and sharp focus. No Text. Only one model, with proper shapes and angles.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Project Ideas:
+
+software:
+https://github.com/The-Cool-Coders/Project-Ideas-And-Resources
+https://dev.to/kishansheth/200-project-ideas-from-beginner-to-advanced-with-open-source-contributions-3g6a
+https://www.hostinger.com/in/tutorials/web-app-ideas?utm_source=google&utm_medium=cpc&utm_id=17958226493&utm_campaign=Generic-Tutorials-DSA-t2|NT:Se|Lang:EN|LO:IN&utm_term=&utm_content=808809695674&gad_source=1&gad_campaignid=17958226493&gbraid=0AAAAADMy-hbebA4QZkqcpa9M-MZBYjuAM&gclid=Cj0KCQjwguLSBhDLARIsAH-yPrEf0L4dhQlzUg1wyBKkJOt_tc5sgMIgk2WcgWsmRNe0pvWJH3c3pOoaAuhpEALw_wcB
+https://www.reddit.com/r/SideProject/comments/1oy11q9/50_side_project_ideas_you_can_actually_build_and/
+
+https://codecrafters.io/blog/programming-project-ideas

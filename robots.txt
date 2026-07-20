@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /hpmadmin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /logout/
+Disallow: /userdashboard/
+Disallow: /profile/
+Disallow: /addproduct/
+Disallow: /analysis/
 Sitemap: https://www.handmadeprojects.in/sitemap.xml
