@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import RedirectView
 from . import views
 from . import seo_views
 
@@ -39,6 +40,16 @@ urlpatterns = [
 
     path('logout/', views.logoutView, name='logout'),
 
+    # Legacy alias: /products used to 404 (real catalog is /productlist/)
+    path(
+        'products/',
+        RedirectView.as_view(pattern_name='productlist', permanent=True),
+        name='products_redirect',
+    ),
+    path(
+        'products',
+        RedirectView.as_view(pattern_name='productlist', permanent=True),
+    ),
     path('productlist/', views.productlist, name='productlist'),
     # Category-scoped product pages (preferred)
     path(

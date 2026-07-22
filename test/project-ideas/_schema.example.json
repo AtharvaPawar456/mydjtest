@@ -1,0 +1,33 @@
+{
+  "product_name": "EXAMPLE — replace with real title",
+  "prodid": 0,
+  "category_slug": "hardware",
+  "highlighttitle": "One-sentence highlight of what the system does and for whom.",
+  "tech": "ESP32, Sensor A, Module B, Cloud Platform",
+  "abstract": "(120–160 words) ...",
+  "keywords": [
+    "keyword1",
+    "keyword2"
+  ],
+  "project_description": "(220–350 words) ...",
+  "project_features": [
+    "Feature bullet 1",
+    "Feature bullet 2"
+  ],
+  "hardware_components": "MCU, sensors, actuators, display",
+  "software_components": "Arduino IDE, cloud dashboard",
+  "applications": [
+    "Scenario 1",
+    "Scenario 2"
+  ],
+  "advantages": [
+    "Advantage 1"
+  ],
+  "limitations": [
+    "Limitation 1"
+  ],
+  "future_scope": [
+    "Upgrade 1"
+  ],
+  "conclusion": "(120–180 words) ..."
+}

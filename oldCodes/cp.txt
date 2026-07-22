@@ -136,3 +136,40 @@ becase its getting mess as more items are getting added
 
 Featured projects : http://127.0.0.1:8000/
 here only show the ideas where the img link dont have this keyword 'promoimg.png' handle this in properly
+
+
+review and fix this issue :
+    https://www.handmadeprojects.in/products
+
+https://www.handmadeprojects.in/sitemap.xml
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+
+
+
+
+
+Task 8: Analyze the assigned task, create a concise implementation plan with findings, assumptions, dependencies, and execution steps, and save it to `ai-space/tasks/task-<tasknumber>.md` without writing any code.
+
+    for each of project topic where this url is their 
+    https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/promoimg.png
+
+    generate and add project details properly
+    project-details-structure.txt
+
+    use ollama cloud models for content generation 
+    for this create a seprate py file 
+    ollama cloud model : gemma4:cloud
+
+    folder : /test
+
+
+
+
+
+my ollama usage free creds got exhausted 
+so i will manually generat each project details 
+so just give me prompt for each and its target reply will be in json 
+which i will update it back in /test/project-ideas/ideas-<number>.json 
+
+for this i will be using chat gpt 
+so prompt should be proper and to the point we want proper detailed content for each project 

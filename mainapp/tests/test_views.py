@@ -39,7 +39,11 @@ class PublicPagesRenderTests(TestCase):
         self.assertOk("/kids-projects/")
 
     def test_aboutus(self):
-        self.assertOk("/aboutus/")
+        response = self.assertOk("/aboutus/")
+        # CTA must point at real catalog route, not the legacy /products 404
+        self.assertContains(response, 'href="/productlist/"')
+        self.assertNotContains(response, 'href="/products"')
+        self.assertContains(response, 'href="/contactus/"')
 
     def test_contactus_has_no_form_and_has_whatsapp(self):
         response = self.assertOk("/contactus/")
@@ -131,6 +135,21 @@ class PublicPagesRenderTests(TestCase):
         response = self.assertOk("/sitemap.xml")
         self.assertIn(b"<urlset", response.content)
         self.assertIn(b"xmlns:image", response.content)
+        # Catalog uses /productlist/, not the legacy /products path
+        self.assertIn(b"/productlist/", response.content)
+        self.assertNotIn(b"/products</loc>", response.content)
+        self.assertNotIn(b"/products/</loc>", response.content)
+
+    def test_products_redirects_to_productlist(self):
+        """Legacy /products URL (broken link from aboutus) permanently redirects."""
+        for path in ("/products", "/products/"):
+            response = self.client.get(path)
+            self.assertEqual(
+                response.status_code,
+                301,
+                f"{path} returned {response.status_code}, expected 301",
+            )
+            self.assertEqual(response.url, "/productlist/")
 
 
 class RemovedFeaturesAreGoneTests(TestCase):
