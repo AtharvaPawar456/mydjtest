@@ -166,10 +166,67 @@ Task 8: Analyze the assigned task, create a concise implementation plan with fin
 
 
 
-my ollama usage free creds got exhausted 
-so i will manually generat each project details 
-so just give me prompt for each and its target reply will be in json 
-which i will update it back in /test/project-ideas/ideas-<number>.json 
 
-for this i will be using chat gpt 
-so prompt should be proper and to the point we want proper detailed content for each project 
+
+
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_16_EBike_Speed_Controller_System/file_2.png
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_2.png
+
+
+
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_1.jpg;
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based%20Smart%20Greenhouse%20Monitoring%20And%20Climate%20Control%20System/file_1.jpg
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based%20Smart%20Greenhouse%20Monitoring%20And%20Climate%20Control%20System/file_1.jpg
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_2.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_3.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_4.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_5.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_6.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_7.jpg;
+
+
+
+
+
+
+
+fix this properly :
+Want this project or a custom version?
+Contact us for complete project, documentation, source code, customization or deployment help.
+
+{# Call + WhatsApp for primary and alternate numbers. Optional: variant="on-dark" for gradient/blue CTA bands (readable labels + white borders). #}
+
+
+
+also add our both contacts in it : Download as .txt
+
+
+
+
+
+
+
+
+
+
+=================
+
+
+Component Macro View 
+Top-Down Structural Layout 
+Exploded Engineering 
+Assembly Prototype Workspace
+Transparent X-Ray Internal View
+System Architecture Layout
+Blueprint / Technical Drawing
+
+
+
+
+
+Master Prompt: Using the provided reference image as the exact project/product reference, preserve the complete design, dimensions, component placement, wiring, structure, materials, colors, labels, and overall appearance without modifying the hardware. Generate seven unique high-resolution images, each representing a different professional engineering presentation style: (1) Component Macro View with detailed close-ups of important electronics and connections, (2) Top-Down Structural Layout showing the complete project from directly above, (3) Exploded Engineering Assembly with components separated while maintaining perfect alignment, (4) Prototype Workspace placed naturally on a clean electronics laboratory workbench with subtle engineering tools, (5) Transparent X-Ray Internal View revealing the complete internal construction through the enclosure, (6) System Architecture Layout presenting the project in the center with neatly organized hardware modules and technical callout lines around it, and (7) Blueprint / Technical Drawing featuring orthographic engineering views with precise line-art, dimensions, and technical documentation aesthetics. Maintain realistic materials, soft studio lighting, clean white or minimal professional backgrounds, ultra-sharp details, premium engineering visualization quality, and ensure the reference project remains the primary subject in every generated image.

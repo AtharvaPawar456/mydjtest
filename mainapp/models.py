@@ -200,6 +200,23 @@ class ProductBase(models.Model):
     prodinfo = models.TextField(default="*")
     gallery = models.TextField(default="*")  # ; separated image links
     ytlinks = models.TextField(default="*")
+    # Component photos (BOM / parts): same format as gallery
+    components = models.TextField(
+        default="*",
+        help_text=(
+            "Semicolon-separated component image URLs. "
+            "Optional label: Label|https://example.com/part.jpg"
+        ),
+    )
+    # Project docs (ppt/pptx/pdf/doc/docx/…): semicolon-separated URLs.
+    # Optional label per entry: "Project Report|https://…/file.pdf"
+    documents = models.TextField(
+        default="*",
+        help_text=(
+            "Semicolon-separated document URLs (ppt, pptx, pdf, doc, docx, xls, xlsx, …). "
+            "Optional label: Label|https://example.com/file.pdf"
+        ),
+    )
     timestamp = models.DateTimeField(auto_now_add=True)
 
     # Set on each concrete subclass
@@ -304,6 +321,17 @@ class ProductInfo(models.Model):
     prodinfo = models.TextField(default="*")
     gallery = models.TextField(default="*")
     ytlinks = models.TextField(default="*")
+    components = models.TextField(
+        default="*",
+        help_text="Semicolon-separated component image URLs (optional Label|URL).",
+    )
+    documents = models.TextField(
+        default="*",
+        help_text=(
+            "Semicolon-separated document URLs (ppt, pdf, doc, …). "
+            "Optional label: Label|https://example.com/file.pdf"
+        ),
+    )
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:

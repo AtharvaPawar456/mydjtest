@@ -11,6 +11,12 @@ from ..product_catalog import (
     find_product_by_id,
     list_products,
 )
+from ..project_documents import parse_documents
+from ..product_media import (
+    build_carousel_images,
+    find_block_diagram_url,
+    parse_media_list,
+)
 from ._shared import isAjaxRequest, paginate
 
 logger = logging.getLogger(__name__)
@@ -139,9 +145,22 @@ def productinfo(request, prod_id, category_slug=None):
                 if len(word) > 3
             ]
 
-        nogallery = product.gallery == "*"
-        productImages = [img for img in product.gallery.split(";") if img]
-        productYTlinks = [link for link in product.ytlinks.split(";") if link]
+        galleryItems = parse_media_list(product.gallery)
+        componentItems = parse_media_list(getattr(product, "components", None))
+        productYTlinks = [
+            link.strip()
+            for link in (product.ytlinks or "").replace("\n", ";").split(";")
+            if link.strip() and link.strip() != "*"
+        ]
+        productDocuments = parse_documents(getattr(product, "documents", None))
+        carouselImages = build_carousel_images(product.mainimgbasetxt, galleryItems)
+        blockDiagramUrl = find_block_diagram_url(
+            galleryItems, mainimg=product.mainimgbasetxt
+        )
+        # Absolute URL for About .txt branding (and share)
+        projectAbsoluteUrl = request.build_absolute_uri(
+            f"/productinfo/{product.category_slug}/{product.prodid}/"
+        )
 
         seoKeywords.update(extractKeywords(product.productname))
         seoKeywords.update(extractKeywords(product.highlighttitle))
@@ -164,9 +183,13 @@ def productinfo(request, prod_id, category_slug=None):
 
         content = {
             "product": product,
-            "nogallery": nogallery,
-            "productImages": productImages,
+            "galleryItems": galleryItems,
+            "componentItems": componentItems,
+            "carouselImages": carouselImages,
+            "blockDiagramUrl": blockDiagramUrl,
             "productYTlinks": productYTlinks,
+            "productDocuments": productDocuments,
+            "projectAbsoluteUrl": projectAbsoluteUrl,
             "seoKeywords": ", ".join(sorted(seoKeywords)),
             "product_category_slug": product.category_slug,
         }

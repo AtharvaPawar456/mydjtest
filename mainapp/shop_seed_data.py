@@ -310,6 +310,76 @@ SHOPS = [
         ),
         "color": "1d4ed8",
     },
+    {
+        "bname": "Yerunkar-Corner",
+        "bcat": "Food dealer, Sweets & snacks",
+        "btags": (
+            "food, sweets, laddu, ladu, methi, besan, nachani, moong, "
+            "mithai, Prabhadevi, Mumbai, Yerunkar, food-dealer"
+        ),
+        "bhighlight": (
+            "Homestyle laddus — every type ₹30 each (80 g). Box of 12 = ₹360. "
+            "Food dealer: Mr. Ganesh Yerunkar · +91 98694 32812 · Prabhadevi, Mumbai."
+        ),
+        "binfo": (
+            "<h3>About</h3>"
+            "<p><strong>Yerunkar Corner</strong> is a local food dealer from "
+            "<strong>Prabhadevi, Mumbai</strong>, known for fresh, homemade-style "
+            "<strong>laddus (लाडू)</strong>.</p>"
+            "<h3>Food Dealer</h3>"
+            "<p><strong>Mr. Ganesh Yerunkar</strong></p>"
+            "<h3>Contact</h3>"
+            "<p>"
+            "<a href=\"tel:+919869432812\">+91 98694 32812</a>"
+            " · "
+            "<a href=\"https://wa.me/919869432812\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>"
+            "</p>"
+            "<h3>Location</h3>"
+            "<p>Prabhadevi, Mumbai, India</p>"
+            "<h3>Pricing (all laddu types)</h3>"
+            "<ul>"
+            "<li><strong>₹30</strong> per laddu</li>"
+            "<li>Each laddu: <strong>80 grams</strong></li>"
+            "<li>Box of 12: 12 × ₹30 = <strong>₹360</strong></li>"
+            "</ul>"
+            "<h3>Laddu menu / लाडू प्रकार</h3>"
+            "<ul>"
+            "<li><strong>मेथी लाडू</strong> — Methi Laddu (Fenugreek laddu)</li>"
+            "<li><strong>बिगर मेथी लाडू</strong> — Bigar Methi Laddu (Plain / without methi laddu)</li>"
+            "<li><strong>नाचणी लाडू</strong> — Nachani Laddu (Finger millet / ragi laddu)</li>"
+            "<li><strong>मुग लाडू (साली सकट पौष्टिक लाडू)</strong> — Moong Laddu "
+            "(nutritious moong dal laddu with skin / wholesome moong laddu)</li>"
+            "<li><strong>बेसन लाडू</strong> — Besan Laddu (Gram flour laddu)</li>"
+            "</ul>"
+            "<p><em>Listed on HandMadeProjects as a local food &amp; sweets partner.</em></p>"
+        ),
+        "bmainimg": (
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/main.jpg"
+        ),
+        # New gallery only — old basan-ladu / rava-ladu images removed
+        "bgallery": (
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/main.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l1.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l1p.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l2.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l2p.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l3.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l3p.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l4.jpg;"
+            "https://cdn.jsdelivr.net/gh/AtharvaPawar456/hmp_assets@main/"
+            "assets/shops-section/shop-3-yerunkar-corner/l4p.jpg"
+        ),
+        "color": "c2410c",
+    },
 ]
 
 

@@ -59,6 +59,8 @@ def make_product(**overrides):
         "prodinfo": "<p>Test info</p>",
         "gallery": "*",
         "ytlinks": "*",
+        "components": "*",
+        "documents": "*",
     }
     defaults.update(overrides)
     return Model.objects.create(**defaults)

@@ -883,14 +883,126 @@ modelTypeList = [
     for item in categoryList
 ]
 
+'''
+    "Ford Model T",
+    "Ford Model A",
+    "Chevrolet Bel Air",
+    "Chevrolet Impala",
+    "Cadillac Eldorado",
+    "Cadillac DeVille",
+    "Buick Riviera",
+    "Pontiac GTO",
+    "Plymouth Barracuda",
+    "Dodge Charger",
+    "Dodge Challenger",
+    "Chevrolet Camaro",
+    "Ford Mustang",
+    "Shelby Cobra",
+    "Shelby GT500",
+    "AMC Javelin",
+    "Oldsmobile 442",
+    "Mercury Cougar",
+    "Porsche 356",
+    "Porsche 911",
+    "Porsche 959",
+    "Porsche Carrera GT",
+    "Porsche 918 Spyder",
+    "Ferrari 250 GTO",
+    "Ferrari F40",
+    "Ferrari F50",
+    "Ferrari Enzo",
+    "Ferrari LaFerrari",
+    "Ferrari 488 GTB",
+    "Ferrari SF90 Stradale",
+    "Lamborghini Miura",
+    "Lamborghini Countach",
+    "Lamborghini Diablo",
+    "Lamborghini Murcielago",
+    "Lamborghini Gallardo",
+    "Lamborghini Aventador",
+    "Lamborghini Huracan",
+    "Lamborghini Revuelto",
+    "McLaren F1",
+    "McLaren P1",
+    "McLaren 720S",
+    "McLaren 765LT",
+    "McLaren Senna",
+    "McLaren Speedtail",
+    "Bugatti EB110",
+'''
+
+
+
+modelTypeList = [
+
+    "Bugatti Veyron",
+    "Bugatti Chiron",
+    "Bugatti Divo",
+    "Bugatti Bolide",
+    "Koenigsegg CC8S",
+    "Koenigsegg CCR",
+    "Koenigsegg CCX",
+    "Koenigsegg Agera",
+    "Koenigsegg Regera",
+    "Koenigsegg Jesko",
+    "Koenigsegg Gemera",
+    "Pagani Zonda",
+    "Pagani Huayra",
+    "Pagani Utopia",
+    "Aston Martin DB5",
+    "Aston Martin DB11",
+    "Aston Martin Valkyrie",
+    "Jaguar E-Type",
+    "Jaguar XJ220",
+    "Lotus Elise",
+    "Lotus Exige",
+    "Lotus Evija",
+    "Nissan Skyline GT-R R32",
+    "Nissan Skyline GT-R R34",
+    "Nissan GT-R R35",
+    "Nissan 350Z",
+    "Nissan 370Z",
+    "Nissan Z",
+    "Toyota 2000GT",
+    "Toyota Supra MK3",
+    "Toyota Supra MK4",
+    "Toyota GR Supra",
+    "Toyota AE86",
+    "Toyota GR86",
+    "Mazda RX-7 FD",
+    "Mazda RX-8",
+    "Mazda MX-5 Miata",
+    "Honda NSX",
+    "Honda S2000",
+    "Honda Civic Type R",
+    "Acura Integra Type R",
+    "Subaru Impreza WRX STI",
+    "Subaru BRZ",
+    "Mitsubishi Lancer Evolution X",
+    "Mitsubishi 3000GT",
+    "Lexus LFA",
+    "BMW M3 E30",
+    "BMW M4",
+    "BMW i8",
+    "Mercedes-Benz 300SL",
+    "Mercedes-Benz SLS AMG",
+    "Mercedes-AMG GT",
+    "Audi R8",
+    "Audi TT RS",
+    "Alpine A110"
+]
+
+
 
 tempPrompt = """
-Create a high-quality @@@modelType@@@ miniature crafted entirely from thin white cardboard, with no colors, textures, prints, or markings. The model should have a clean pop-traditional papercraft style with precise folds, crisp edges, and realistic proportions, viewed from the front angle to clearly showcase its shape and details. Place it neatly on a plain white desk against a pure white seamless background, creating a clean studio setup with soft, even lighting, subtle natural shadows, sharp focus, and a premium handcrafted appearance that keeps the entire focus on the white cardboard model.
+Create a high-quality @@@modelType@@@ miniature crafted entirely from thin white cardboard, with no colors, textures, prints, or markings. The model should have a clean pop-traditional papercraft style with precise folds, crisp edges, and realistic proportions, viewed from the front angle to clearly showcase its shape and details. Place it neatly on a plain black desk against a pure black seamless background, creating a clean studio setup with soft, even lighting, subtle natural shadows, sharp focus, and a premium handcrafted appearance that keeps the entire focus on the white cardboard model. With a thin black outline along every edge and angle to clearly define the shape and enhance the visibility of each fold, cut, and panel.
+
 """
 lenModelTypeList = len(modelTypeList)
 
+fileName = "pop-prompt-v3.txt"
 try:
-    with open("pop-prompt-v2.txt", "w", encoding="utf-8") as file:
+    with open(fileName, "w", encoding="utf-8") as file:
         for idx, item in enumerate(modelTypeList):
             prompt = tempPrompt.replace("@@@modelType@@@", item)
 
@@ -899,7 +1011,7 @@ try:
             file.write(f"{idx + 1}/{lenModelTypeList} : {prompt}")
             file.write("\n\n")
 
-    print(f"\nSuccessfully saved {lenModelTypeList} prompts to 'pop-prompt.txt'.")
+    print(f"\nSuccessfully saved {lenModelTypeList} prompts to '{fileName}'.")
 
 except Exception as err:
     print(f"Error while saving prompts: {err}")

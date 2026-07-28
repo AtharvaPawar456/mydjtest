@@ -1,0 +1,380 @@
+1. Smart Solar-Powered Grass Cutting Machine
+Category
+
+Renewable Energy | Fabrication
+
+Difficulty
+
+Intermediate
+
+Duration
+
+4–6 Weeks
+
+Abstract
+
+This project develops an eco-friendly grass-cutting machine powered entirely by solar energy. The system integrates a rechargeable battery, DC motors, and a rotary blade mechanism to eliminate fuel consumption and reduce emissions.
+
+Key Features
+Solar charging
+Rechargeable battery
+Lightweight chassis
+Adjustable cutting height
+Portable design
+Technologies
+Mild Steel Fabrication
+Solar Panel
+DC Motor
+Chain Drive
+Learning Outcomes
+Mechanical fabrication
+Power transmission
+Renewable energy integration
+Design optimization
+2. Automatic Pneumatic Can Crusher
+Category
+
+Automation
+
+Difficulty
+
+Intermediate
+
+Duration
+
+3–5 Weeks
+
+Abstract
+
+The project uses compressed air to crush aluminum cans automatically. It demonstrates pneumatic actuation while reducing storage space for recyclable waste.
+
+Features
+Pneumatic cylinder
+Automatic crushing
+Safety guard
+Compact design
+High crushing force
+Applications
+Recycling plants
+Industries
+Educational demonstrations
+3. Multi-Purpose Agricultural Seeder Machine
+Category
+
+Agriculture
+
+Difficulty
+
+Advanced
+
+Duration
+
+6 Weeks
+
+Abstract
+
+A manually operated machine capable of sowing multiple seed varieties with adjustable spacing and depth.
+
+Features
+Adjustable seed spacing
+Depth control
+Fertilizer attachment
+Lightweight frame
+Applications
+Small farms
+Rural agriculture
+Precision farming
+4. Hydraulic Scissor Lift Platform
+Category
+
+Hydraulics
+
+Difficulty
+
+Intermediate
+
+Duration
+
+5 Weeks
+
+Abstract
+
+A compact hydraulic lift designed for lifting medium-weight objects safely using hydraulic cylinders and scissor mechanisms.
+
+Features
+Hydraulic operation
+Compact footprint
+Stable lifting
+Load locking
+5. Gearless Power Transmission Using Elbow Mechanism
+Category
+
+Mechanism Design
+
+Difficulty
+
+Intermediate
+
+Duration
+
+4 Weeks
+
+Abstract
+
+Demonstrates transmission of rotary motion between shafts positioned at different angles without using gears.
+
+Features
+Gearless transmission
+Low maintenance
+Smooth operation
+Compact mechanism
+6. Automatic Conveyor Sorting System
+Category
+
+Industrial Automation
+
+Difficulty
+
+Advanced
+
+Duration
+
+6–8 Weeks
+
+Abstract
+
+Develop a conveyor system capable of automatically sorting objects based on size or weight using mechanical guides.
+
+Features
+Conveyor belt
+Mechanical sorting
+Continuous operation
+Adjustable guides
+7. Portable Manual Sheet Metal Bending Machine
+Category
+
+Manufacturing
+
+Difficulty
+
+Intermediate
+
+Duration
+
+4 Weeks
+
+Abstract
+
+A manually operated sheet bending machine for producing bends of different angles with high accuracy.
+
+Features
+Adjustable bending angle
+Portable frame
+Easy maintenance
+Low fabrication cost
+8. Pedal Operated Water Pump
+Category
+
+Sustainable Engineering
+
+Difficulty
+
+Beginner
+
+Duration
+
+3 Weeks
+
+Abstract
+
+Uses human pedaling effort to pump water efficiently without electricity.
+
+Features
+Human powered
+Eco-friendly
+Low maintenance
+Rural applications
+9. Automatic Material Handling Trolley
+Category
+
+Material Handling
+
+Difficulty
+
+Intermediate
+
+Duration
+
+5 Weeks
+
+Abstract
+
+A motorized trolley designed to transport loads within industrial environments with reduced human effort.
+
+Features
+Electric drive
+Load platform
+Battery powered
+Compact steering
+10. Plastic Bottle Crushing Machine
+Category
+
+Waste Management
+
+Difficulty
+
+Intermediate
+
+Duration
+
+4 Weeks
+
+Abstract
+
+A mechanical crushing machine designed to reduce plastic bottle volume for recycling purposes.
+
+Features
+Rotating blades
+Safety enclosure
+Manual/Electric operation
+Easy maintenance
+11. Automatic Sand Sieving Machine
+Category
+
+Construction Equipment
+
+Abstract
+
+Automatically separates fine and coarse sand using an eccentric rotating mechanism.
+
+Features
+Vibrating sieve
+High throughput
+Low maintenance
+Compact design
+12. Mini Hydraulic Press
+Category
+
+Manufacturing
+
+Abstract
+
+A small hydraulic press for demonstration of hydraulic force multiplication.
+
+Features
+Hydraulic jack
+Steel frame
+Pressure gauge
+Replaceable dies
+13. Automatic Floor Cleaning Machine
+Category
+
+Domestic Automation
+
+Abstract
+
+A battery-operated cleaning machine capable of sweeping and mopping simultaneously.
+
+Features
+Dual cleaning
+Rechargeable battery
+Water tank
+Easy maneuverability
+14. Chainless Bicycle Drive Mechanism
+Category
+
+Automotive
+
+Abstract
+
+Develop an alternative bicycle transmission system eliminating traditional chains using shaft drive mechanisms.
+
+Features
+Shaft drive
+Low maintenance
+Enclosed transmission
+Clean operation
+15. Mini Belt Conveyor with Loading Mechanism
+Category
+
+Industrial Systems
+
+Abstract
+
+Design a conveyor system for transporting lightweight materials between workstations.
+
+Features
+Adjustable speed
+Belt drive
+Compact frame
+Continuous transport
+16. Solar Water Heating System
+Category
+
+Renewable Energy
+
+Abstract
+
+A compact solar water heater utilizing evacuated tubes or flat plate collectors.
+
+Features
+Solar collector
+Insulated storage
+High thermal efficiency
+Low operating cost
+17. Automatic Pneumatic Hacksaw Machine
+Category
+
+Manufacturing
+
+Abstract
+
+Uses pneumatic power to automate reciprocating cutting operations.
+
+Features
+Pneumatic actuation
+High cutting speed
+Reduced operator effort
+Safe operation
+18. Four-Wheel Steering Demonstration Vehicle
+Category
+
+Automotive
+
+Abstract
+
+A working prototype demonstrating improved maneuverability through four-wheel steering.
+
+Features
+Front & rear steering
+Small turning radius
+Linkage mechanism
+Mechanical synchronization
+19. Dual Axis Solar Tracking System
+Category
+
+Renewable Energy
+
+Abstract
+
+Mechanical dual-axis tracking increases solar panel efficiency by continuously aligning panels toward the sun.
+
+Features
+Dual-axis movement
+Gear drive
+High efficiency
+Renewable energy application
+20. Automatic Pipe Cutting Machine
+Category
+
+Manufacturing
+
+Abstract
+
+A motorized pipe-cutting machine capable of precise cuts using a guided feed mechanism.
+
+Features
+Motorized feed
+Adjustable clamp
+Accurate cutting
+Safety shield

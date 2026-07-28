@@ -270,6 +270,7 @@ def product_payload(idea, category=None):
         ),
         "gallery": "*",
         "ytlinks": "*",
+        "documents": "*",
     }
     if category is not None:
         data["category"] = category

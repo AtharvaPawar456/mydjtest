@@ -199,6 +199,9 @@ def edit_product(request, prod_id, category_slug=None):
             product.productname = request.POST.get('productname', product.productname)
             product.highlighttitle = request.POST.get('highlighttitle', product.highlighttitle)
             product.prodinfo = request.POST.get('prodinfo', product.prodinfo)
+            product.documents = request.POST.get('documents', product.documents) or "*"
+            product.gallery = request.POST.get('gallery', product.gallery) or "*"
+            product.components = request.POST.get('components', getattr(product, 'components', '*')) or "*"
 
             imageFile = request.FILES.get('mainimgfile')
             if imageFile:
@@ -224,6 +227,8 @@ def edit_product(request, prod_id, category_slug=None):
                     'prodinfo': product.prodinfo,
                     'gallery': product.gallery,
                     'ytlinks': product.ytlinks,
+                    'components': getattr(product, 'components', '*') or '*',
+                    'documents': getattr(product, 'documents', '*') or '*',
                 }
                 try:
                     moved = NewModel(prodid=product.prodid, **data)
@@ -273,6 +278,7 @@ def addproduct(request):
             prodinfo = request.POST.get('prodinfo', '*')
             mainImgBaseTxt = request.POST.get('mainimgfile', '*')
             prodtags = request.POST.get('prodtags', '*')
+            documents = request.POST.get('documents', '*') or '*'
 
             cat_slug = canonical_slug(productCategory)
             Model = get_product_model(cat_slug)
@@ -286,6 +292,7 @@ def addproduct(request):
                 prodtags=prodtags,
                 highlighttitle=highlightTitle,
                 prodinfo=prodinfo,
+                documents=documents,
             )
             messages.success(
                 request,

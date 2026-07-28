@@ -34,6 +34,26 @@
         </div>
 
         <div>
+            <label for="gallery" class="block text-sm font-medium text-gray-700 dark:text-slate-200">Project Gallery images</label>
+            <textarea name="gallery" id="gallery" rows="3" placeholder="https://…/file_1.png; https://…/block-diagram.png" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-mono text-xs">{% if product.gallery and product.gallery != '*' %}{{ product.gallery }}{% endif %}</textarea>
+            <p class="mt-1 text-xs text-gray-500 dark:text-slate-400">Semicolon-separated. Optional <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded">Block Diagram|https://…/block.png</code> for the Block Diagram download button.</p>
+        </div>
+
+        <div>
+            <label for="components" class="block text-sm font-medium text-gray-700 dark:text-slate-200">Components images</label>
+            <textarea name="components" id="components" rows="3" placeholder="Resistor|https://…/r1.jpg; https://…/esp32.jpg" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-mono text-xs">{% if product.components and product.components != '*' %}{{ product.components }}{% endif %}</textarea>
+            <p class="mt-1 text-xs text-gray-500 dark:text-slate-400">Part photos for the Components section (same format as gallery).</p>
+        </div>
+
+        <div>
+            <label for="documents" class="block text-sm font-medium text-gray-700 dark:text-slate-200">Project Documents (PPT / PDF / DOC / …)</label>
+            <textarea name="documents" id="documents" rows="3" placeholder="Label|https://…/file.pptx  or bare URL. Separate multiple with ;" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm font-mono text-xs">{% if product.documents and product.documents != '*' %}{{ product.documents }}{% endif %}</textarea>
+            <p class="mt-1 text-xs text-gray-500 dark:text-slate-400">
+              Semicolon-separated URLs. Optional label: <code class="bg-slate-100 dark:bg-slate-800 px-1 rounded">Project PPT|https://…/file.pptx</code>. Supports ppt, pptx, pdf, doc, docx, xls, xlsx, etc.
+            </p>
+        </div>
+
+        <div>
             <label for="mainimgfile" class="block text-sm font-medium text-gray-700 dark:text-slate-200">Update Main Image (Optional)</label>
             <input type="file" name="mainimgfile" id="mainimgfile" class="mt-1 block w-full text-sm text-gray-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
             <p class="text-xs text-gray-500 dark:text-slate-400 mt-1">Current Image:</p>

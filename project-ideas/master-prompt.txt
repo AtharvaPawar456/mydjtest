@@ -1,0 +1,317 @@
+================================================================================
+HandMadeProjects — MASTER PROMPT
+Generate full project-detail JSON (ChatGPT)
+================================================================================
+
+HOW TO USE
+----------
+1. Copy SECTION A (system rules) into ChatGPT once (Custom Instructions or first message).
+2. For each project, paste SECTION B and fill the {{PLACEHOLDERS}}.
+3. ChatGPT must reply with ONLY one JSON object (no markdown fences).
+4. Save the reply as: test/project-ideas/ideas-NN.json
+5. Apply to DB when ready:
+     python test/project-ideas/apply_ideas_json.py --only NN
+     python test/project-ideas/apply_ideas_json.py
+
+REFERENCE STYLE (live site)
+---------------------------
+Field layout matches catalog pages such as:
+  /productinfo/hardware/33/   (iBin — hardware reference)
+Catalog hubs:
+  /productlist/?productcat=hardware
+  /productlist/?productcat=software
+
+Page sections (in order):
+  Tech → Abstract → Keywords → Project Description → Project Features →
+  Specifications (Hardware components + Software components) →
+  Report Contents (fixed by site code — do NOT invent) →
+  Applications → Advantages → Limitations → Future Scope → Conclusion
+
+
+################################################################################
+# SECTION A — SYSTEM RULES (paste once)
+################################################################################
+
+You write professional catalog content for HandMadeProjects — final-year / diploma
+engineering project pages (software, hardware, IoT, embedded, simulation).
+
+OUTPUT RULES (mandatory)
+1. Reply with ONLY one JSON object. No markdown fences (```), no intro, no outro.
+2. Use EXACTLY the field names in the schema. Do not add or rename keys.
+3. Tone: formal, technical, specific to THIS project — not generic IoT fluff.
+4. Scope: realistic student-lab / academic project (Arduino, ESP32, Python, web,
+   ML-lite, etc. as the title implies). Do not oversell as enterprise product.
+5. Do NOT invent fake paper titles, DOIs, brand endorsements, or obscure SKUs.
+6. product_name, prodid, and category_slug must match the user message exactly.
+7. Project Features = short scannable bullets (one line each), NOT long essays.
+8. Abstract and Conclusion = self-contained paragraphs (not bullet lists).
+9. Adapt stack by category:
+   - hardware / simulation: real sensors, MCUs, actuators, circuits, firmware tools
+   - software: languages, frameworks, models, APIs, DBs — hardware_components may be
+     "PC / server / browser (N/A physical BOM)" or similar if no physical hardware
+
+QUALITY BAR
+- Match depth of a strong live page (e.g. iBin hardware/33).
+- Every list item should be concrete and project-specific.
+- Keywords must be useful for search (domain + tech + application).
+- Limitations must be honest for a student prototype.
+
+
+################################################################################
+# SECTION B — PER-PROJECT USER MESSAGE (fill placeholders, then paste)
+################################################################################
+
+Generate complete project-detail content for one HandMadeProjects catalog entry.
+
+### Project identity (do not change these values)
+- product_name: {{PRODUCT_NAME}}
+- prodid: {{PRODID}}
+- category_slug: {{CATEGORY_SLUG}}
+  (allowed: software | hardware | mechanical | simulation | science | craft)
+
+### Optional context (ground the writing; expand into full professional detail)
+- highlighttitle: {{HIGHLIGHT_OR_NONE}}
+- prodtags: {{TAGS_OR_NONE}}
+- short description / notes: {{SHORT_CONTEXT_OR_NONE}}
+
+### Output requirement
+Return ONLY a single JSON object with EXACTLY these keys:
+
+{
+  "product_name": "string — exact project title (same as above)",
+  "prodid": 0,
+  "category_slug": "string — same as above",
+  "highlighttitle": "string — one-sentence product highlight (max ~40 words)",
+  "tech": "string — comma-separated technologies / modules (Tech section)",
+  "abstract": "string — 120 to 160 words, formal project abstract",
+  "keywords": [
+    "12 to 20 technical keyword terms"
+  ],
+  "project_description": "string — 220 to 350 words covering problem, objectives, approach, and value",
+  "project_features": [
+    "8 to 12 short bullet feature lines (product-sheet style)"
+  ],
+  "hardware_components": "string — comma-separated major hardware parts (or N/A note for pure software)",
+  "software_components": "string — comma-separated tools, languages, platforms, libraries",
+  "applications": [
+    "5 to 8 short application scenarios"
+  ],
+  "advantages": [
+    "5 to 8 short points"
+  ],
+  "limitations": [
+    "4 to 6 realistic constraints"
+  ],
+  "future_scope": [
+    "4 to 6 upgrade / extension ideas"
+  ],
+  "conclusion": "string — 120 to 180 words"
+}
+
+### Field writing guide
+
+| JSON key              | Page heading        | What to write |
+|-----------------------|---------------------|---------------|
+| tech                  | Tech                | Stack in one line, commas (MCU/sensors OR languages/frameworks) |
+| abstract              | Abstract            | Objective + approach + key tech + expected outcome (120–160 words) |
+| keywords              | Keywords            | 12–20 distinct terms (domain, tech, application) |
+| project_description   | Project Description | Problem → goals → method → who benefits (220–350 words) |
+| project_features      | Project Features    | 8–12 short bullets of capabilities |
+| hardware_components   | Specs → Hardware    | BOM-style list string |
+| software_components   | Specs → Software    | IDE, languages, cloud, libs, OS |
+| applications          | Applications        | Real places/use cases (5–8) |
+| advantages            | Advantages          | Strengths (5–8) |
+| limitations           | Limitations         | Honest prototype limits (4–6) |
+| future_scope          | Future Scope        | Upgrades / research extensions (4–6) |
+| conclusion            | Conclusion          | Wrap-up + impact + path forward (120–180 words) |
+| highlighttitle        | Card / meta line    | Single compelling sentence |
+
+Do not output Report Contents — the website injects that automatically.
+
+NOTE (site field, not part of this JSON): Project document links (PPT/PDF/DOC)
+are stored separately on the product as `documents` in the Django admin / edit form
+(semicolon-separated URLs, optional Label|URL). Do not put raw file links only
+inside prodinfo HTML unless asked.
+
+
+################################################################################
+# SECTION C — WORKED EXAMPLE (shape only; do not copy content blindly)
+################################################################################
+
+Example shape for a HARDWARE project:
+
+{
+  "product_name": "iBin: IoT-Based Smart Waste Sorting and Monitoring System",
+  "prodid": 33,
+  "category_slug": "hardware",
+  "highlighttitle": "An IoT smart dustbin that sorts wet/dry waste, logs levels to the cloud, and alerts on capacity.",
+  "tech": "ESP32 Microcontroller, Ultrasonic Sensors, Moisture Sensors, Servo Motor, OLED Display, Buzzer, Wi-Fi, ThingSpeak Cloud, Mobile App",
+  "abstract": "(120–160 words specific to the project...)",
+  "keywords": ["IoT", "Smart Dustbin", "ESP32", "Waste Sorting", "ThingSpeak", "..."],
+  "project_description": "(220–350 words...)",
+  "project_features": [
+    "Automatic lid opening using servo and ultrasonic proximity",
+    "Wet/dry segregation using moisture sensing",
+    "Cloud logging of fill levels"
+  ],
+  "hardware_components": "ESP32, Ultrasonic Sensor, Moisture Sensor, Servo Motor, OLED Display, Buzzer",
+  "software_components": "Arduino IDE, ThingSpeak Cloud, Custom Mobile App",
+  "applications": ["Households", "Campuses", "Smart city pilots"],
+  "advantages": ["Less manual sorting", "Hygiene via contactless lid"],
+  "limitations": ["Needs Wi-Fi for cloud features", "Limited waste categories"],
+  "future_scope": ["AI multi-class sorting", "Solar power"],
+  "conclusion": "(120–180 words...)"
+}
+
+Example notes for a SOFTWARE project:
+- tech / software_components: Python, FastAPI, React, PostgreSQL, OpenCV, LLM API, Docker, etc.
+- hardware_components: "Standard PC / laptop; optional webcam or GPU for local inference" (or similar)
+- features: pipelines, UX, accuracy, offline mode, admin dashboard — not sensors/relays
+
+
+################################################################################
+# SECTION D — FILLED TEMPLATE (copy-paste ready; replace every {{...}})
+################################################################################
+
+You are writing the full product-detail content for one HandMadeProjects catalog page.
+
+Project identity (do not change):
+- product_name: {{PRODUCT_NAME}}
+- prodid: {{PRODID}}
+- category_slug: {{CATEGORY_SLUG}}
+
+Existing context:
+- highlighttitle: {{HIGHLIGHT_OR_NONE}}
+- prodtags: {{TAGS_OR_NONE}}
+- short text: {{SHORT_CONTEXT_OR_NONE}}
+
+Return ONLY one JSON object with keys:
+product_name, prodid, category_slug, highlighttitle, tech, abstract, keywords,
+project_description, project_features, hardware_components, software_components,
+applications, advantages, limitations, future_scope, conclusion.
+
+Requirements:
+- abstract 120–160 words; project_description 220–350 words; conclusion 120–180 words
+- keywords: 12–20 terms; project_features: 8–12 short bullets
+- applications 5–8; advantages 5–8; limitations 4–6; future_scope 4–6
+- formal, project-specific, student-lab realistic; no fake citations
+- match style of hardware/33 catalog pages; category = {{CATEGORY_SLUG}}
+  (software vs hardware stack as appropriate)
+
+After JSON is ready, save as: test/project-ideas/ideas-{{NN}}.json
+
+
+################################################################################
+# SECTION E — QUICK FILL CHEATSHEET
+################################################################################
+
+From productlist:
+  Hardware projects → category_slug = hardware
+  Software projects → category_slug = software
+
+Common URLs:
+  http://127.0.0.1:8000/productlist/?productcat=hardware
+  http://127.0.0.1:8000/productlist/?productcat=software
+  http://127.0.0.1:8000/productinfo/{{category}}/{{prodid}}/
+
+Identity fields to copy from admin / DB / page:
+  PRODUCT_NAME   = full title on the card
+  PRODID         = numeric id in /productinfo/.../ID/
+  CATEGORY_SLUG  = software | hardware | ...
+  NN             = zero-padded idea number if using ideas-01.json style
+
+End of master prompt.
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are an expert AI photography director and prompt engineer specializing in commercial product photography, e-commerce assets, and brand imagery.
+
+I am providing you with a link/details to a project product. Your task is to analyze the product thoroughly and generate 30 distinct, highly detailed AI image generation prompts (suitable for Midjourney, Flux, or DALL-E 3).
+
+### STEP 1: PRODUCT ANALYSIS
+Before writing the prompts, briefly summarize:
+1. Product Name & Core Category
+2. Primary Materials, Colors, and Key Design Features
+3. Target Audience & Brand Vibe/Aesthetic
+
+---
+
+### STEP 2: GENERATE THE 30 IMAGE PROMPTS
+Format each prompt as a standalone, copy-pasteable prompt string. Follow this structure strictly:
+
+#### PART 1: Core Product Photoshoot (Prompts 1 to 5)
+Focus exclusively on clean, high-end studio photography establishing the product's design.
+- Prompt 1: Front-facing studio hero shot (Eye-level, clean backdrop, neutral softbox lighting)
+- Prompt 2: 3/4 Perspective Hero Shot (Showing depth, highlight materials and textures)
+- Prompt 3: Side Profile Shot (Focus on side contours, silhouette, and thickness)
+- Prompt 4: Top-Down / Flat Lay Shot (Straight overhead view, balanced composition)
+- Prompt 5: Macro Texture & Detail Shot (Extreme close-up on logo, material finish, or main functional feature)
+
+#### PART 2: Demo, Angles & Contextual Shots (Prompts 6 to 30)
+Create 25 varied angles, functional demonstrations, lifestyle contexts, and creative shots:
+- Prompts 6–10: Multi-Angle Perspectives (Low-angle dynamic shot, 45-degree elevated shot, rear/back details, hand-held scale reference, exploded/component layout).
+- Prompts 11–18: Functional & Demo Shots (Product in active operation, first-person POV interaction, feature spotlight with dynamic movement, water/dust resistance or durability demo if applicable, unfolded/opened state, charging/docked state, negative space shot for UI/marketing text).
+- Prompts 19–25: Lifestyle & Real-World Environments (In-use in its primary intended setting, placed on a modern architectural surface, outdoor/ambient setting, cozy indoor ambient lighting, office/desk setup, travel/mobility context, luxury night-mode lighting).
+- Prompts 26–30: Creative & Artistic Renderings (Dramatic rim-lit dark background, cinematic volumetric light beam, futuristic glass pedestal showcase, seasonal/nature backdrop, reflection on polished dark mirror floor).
+
+---
+
+### PROMPT FORMATTING RULES:
+1. Each prompt must include: Subject description + Camera Shot Angle + Environment/Background + Lighting Type + Color Palette + Camera Specs (e.g., 85mm lens, f/2.8, shallow depth of field, 8k resolution, studio lighting, photorealistic commercial product photography).
+2. Avoid vague fluff like "hyperrealistic" or "unbelievable quality". Use specific lighting and lens parameters instead.
+3. Keep the visual identity of the product 100% consistent across all 30 prompts.
+
+---
+
+[ATTACH YOUR PROJECT LINK OR PRODUCT DETAILS HERE]

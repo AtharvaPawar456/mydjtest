@@ -40,6 +40,8 @@ PRODUCT_FIELD_NAMES = (
     "prodinfo",
     "gallery",
     "ytlinks",
+    "components",
+    "documents",
     "timestamp",
 )
 
