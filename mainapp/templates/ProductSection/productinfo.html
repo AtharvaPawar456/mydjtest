@@ -232,6 +232,17 @@
           Contact for Access
         </a>
 
+        <button
+          type="button"
+          class="share-project-btn px-6 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-full hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition inline-flex items-center gap-2"
+          data-url="{{ projectAbsoluteUrl }}"
+          data-title="{{ product.productname|escapejs }}"
+          data-text="{{ product.highlighttitle|default:product.productname|escapejs }}"
+        >
+          <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+          Share
+        </button>
+
         {% if galleryItems %}
         <a href="#gallery" class="px-6 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-full hover:border-brand-400 transition">
           Gallery
@@ -383,20 +394,32 @@
   <div id="details" class="mt-10 bg-white dark:bg-slate-900 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm scroll-mt-24">
     <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
       <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">About This Project</h2>
-      <button
-        type="button"
-        id="downloadAboutTxt"
-        class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition"
-        data-url="{{ projectAbsoluteUrl }}"
-        data-title="{{ product.productname|escapejs }}"
-        data-phone-primary="{{ contact_phone_display|escapejs }}"
-        data-phone-alt="{{ contact_phone_alt_display|escapejs }}"
-        data-tel-primary="{{ contact_phone_tel|escapejs }}"
-        data-tel-alt="{{ contact_phone_alt_tel|escapejs }}"
-      >
-        <i class="fa-solid fa-file-lines"></i>
-        Download as .txt
-      </button>
+      <div class="flex flex-wrap gap-2">
+        <button
+          type="button"
+          class="share-project-btn inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition"
+          data-url="{{ projectAbsoluteUrl }}"
+          data-title="{{ product.productname|escapejs }}"
+          data-text="{{ product.highlighttitle|default:product.productname|escapejs }}"
+        >
+          <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+          Share this project
+        </button>
+        <button
+          type="button"
+          id="downloadAboutTxt"
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:border-brand-400 hover:text-brand-700 dark:hover:text-brand-300 transition"
+          data-url="{{ projectAbsoluteUrl }}"
+          data-title="{{ product.productname|escapejs }}"
+          data-phone-primary="{{ contact_phone_display|escapejs }}"
+          data-phone-alt="{{ contact_phone_alt_display|escapejs }}"
+          data-tel-primary="{{ contact_phone_tel|escapejs }}"
+          data-tel-alt="{{ contact_phone_alt_tel|escapejs }}"
+        >
+          <i class="fa-solid fa-file-lines"></i>
+          Download as .txt
+        </button>
+      </div>
     </div>
     <div id="aboutContent" class="text-gray-700 dark:text-slate-200 leading-relaxed prose-content">
       {{ product.prodinfo|safe }}
@@ -411,7 +434,19 @@
       Contact us for complete project, documentation, source code, customization or deployment help.
     </p>
     <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-      {% include "systemsetup/_call_whatsapp_buttons.html" with variant="on-dark" %}
+      {% include "systemsetup/_call_whatsapp_buttons.html" with variant="on-dark" contact_numbers=productCtaContactNumbers %}
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center">
+      <button
+        type="button"
+        class="share-project-btn inline-flex items-center gap-2 rounded-full border-2 border-white bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-2.5 text-sm transition"
+        data-url="{{ projectAbsoluteUrl }}"
+        data-title="{{ product.productname|escapejs }}"
+        data-text="{{ product.highlighttitle|default:product.productname|escapejs }}"
+      >
+        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+        Share this project
+      </button>
     </div>
   </div>
 
@@ -464,6 +499,71 @@
   function cleanName(s) {
     return String(s || 'file').replace(/[^\w\-]+/g, '_').replace(/_+/g, '_').slice(0, 80);
   }
+
+  function showShareToast(message, anchorEl) {
+    var existing = document.getElementById('shareProjectToast');
+    if (existing) existing.remove();
+    var toast = document.createElement('div');
+    toast.id = 'shareProjectToast';
+    toast.setAttribute('role', 'status');
+    toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] rounded-full bg-slate-900 text-white text-sm font-medium px-4 py-2 shadow-lg border border-white/10';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    }, 2200);
+  }
+
+  async function shareProject(btn) {
+    var url = btn.getAttribute('data-url') || window.location.href;
+    var title = btn.getAttribute('data-title') || productName || 'HandMadeProjects';
+    var text = btn.getAttribute('data-text') || title;
+    var sharePayload = {
+      title: title + ' | HandMadeProjects',
+      text: text,
+      url: url
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(sharePayload);
+        return;
+      } catch (err) {
+        // User cancelled or share failed — fall through to copy
+        if (err && err.name === 'AbortError') return;
+      }
+    }
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(url);
+        showShareToast('Project link copied');
+        return;
+      }
+    } catch (e) { /* fallback below */ }
+
+    // Legacy copy
+    var input = document.createElement('input');
+    input.value = url;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    try {
+      document.execCommand('copy');
+      showShareToast('Project link copied');
+    } catch (e2) {
+      window.prompt('Copy this project link:', url);
+    }
+    document.body.removeChild(input);
+  }
+
+  document.querySelectorAll('.share-project-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      shareProject(btn);
+    });
+  });
 
   async function downloadMedia(src, baseName) {
     if (!src) throw new Error('Missing file source');

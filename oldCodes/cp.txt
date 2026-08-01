@@ -165,29 +165,16 @@ Task 8: Analyze the assigned task, create a concise implementation plan with fin
 
 
 
+Task 10: `ai-space/tasks/task-<tasknumber>.md`
+
+I1 : we have a rewritten project concept in given particular file location. So we need to update our website project 77 according to this rewritten concept.
+http://127.0.0.1:8000/productinfo/hardware/77/
+re written concept: project-ideas\re-write-ideas\p77.txt
 
 
 
-
-
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_16_EBike_Speed_Controller_System/file_2.png
-
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_2.png
-
-
-
-
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_1.jpg;
-
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based%20Smart%20Greenhouse%20Monitoring%20And%20Climate%20Control%20System/file_1.jpg
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based%20Smart%20Greenhouse%20Monitoring%20And%20Climate%20Control%20System/file_1.jpg
-
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_2.jpg;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_3.jpg;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_4.jpg;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_5.jpg;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_6.jpg;
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_61_Iot-Based Smart Greenhouse Monitoring And Climate Control System/file_7.jpg;
+Task 10: I2:
+also add share this project (link) button in appropriate sections of the project page 
 
 
 
@@ -195,19 +182,169 @@ https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/ass
 
 
 
-fix this properly :
-Want this project or a custom version?
-Contact us for complete project, documentation, source code, customization or deployment help.
-
-{# Call + WhatsApp for primary and alternate numbers. Optional: variant="on-dark" for gradient/blue CTA bands (readable labels + white borders). #}
-
-
-
-also add our both contacts in it : Download as .txt
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ultra realistic industrial product visualization, premium engineering prototype, highly detailed, photorealistic, clean white background, soft studio lighting, sharp focus, modern wearable electronics, realistic PCB details, accurate Arduino Nano (blue), ESP32 development board(black), HC-SR04 ultrasonic sensors, vibration motors, LEDs, compact rechargeable battery, premium engineering aesthetics, no humans unless specified, no watermark, no logo, no text, no labels, no dimensions, no exploded captions, realistic materials, professional product photography, 8K, ultra detailed. cardboard case.
+Note : Arduino Nano (blue), ESP32 development board(black) are 2 seprate module board.
+
+
+
+
+Professional engineering blueprint of the smart wearable navigation belt showing front, side, top and isometric views, PCB placement, ultrasonic sensor locations, vibration motor positions, electronic enclosure, industrial product concept, blue technical drawing aesthetic without measurements or text.
+
+STYLE:
+Blueprint / Technical Drawing
 
 
 
@@ -216,6 +353,24 @@ also add our both contacts in it : Download as .txt
 
 =================
 
+give me ai image generation 25 prompts for this project
+
+Note: product case should be cardboard style only, pcb will be brown dotted pcb
+
+# Needed Image Styles
+Hero Product
+Rear Perspective
+45 Degree Isometric
+User
+Indoor
+Outdoor
+Visualization
+Feedback Illustration
+Mobile App Connection
+IoT Architecture
+PCB Prototype
+Complete Electronics Layout
+Prototype Presentation
 
 Component Macro View 
 Top-Down Structural Layout 

@@ -1,5 +1,7 @@
 import logging
+from urllib.parse import quote
 
+from django.conf import settings
 from django.db import Error as DjangoDbError
 from django.shortcuts import render, redirect
 from django.http import Http404
@@ -22,6 +24,42 @@ from ._shared import isAjaxRequest, paginate
 logger = logging.getLogger(__name__)
 
 PRODUCTS_PER_PAGE = 24
+
+# Option A — accepted WhatsApp prefill for project detail CTAs
+PRODUCT_WHATSAPP_MSG_TEMPLATE = (
+    "Hi HandMadeProjects,\n\n"
+    "I'm interested in this project:\n\n"
+    "{project_name}\n"
+    "{project_url}\n\n"
+    "Please share details on complete package, documentation, cost, and timeline."
+)
+
+
+def build_product_cta_contact_numbers(project_name: str, project_url: str) -> list[dict]:
+    """Primary + alternate contacts with product-specific WhatsApp prefill (Option A)."""
+    message = PRODUCT_WHATSAPP_MSG_TEMPLATE.format(
+        project_name=project_name or "your project",
+        project_url=project_url or "",
+    )
+    encoded = quote(message)
+    return [
+        {
+            "display": settings.CONTACT_PHONE_DISPLAY,
+            "tel": settings.CONTACT_PHONE_TEL,
+            "whatsapp_url": (
+                f"https://wa.me/{settings.CONTACT_WHATSAPP_NUMBER}?text={encoded}"
+            ),
+            "label": "Primary",
+        },
+        {
+            "display": settings.CONTACT_PHONE_ALT_DISPLAY,
+            "tel": settings.CONTACT_PHONE_ALT_TEL,
+            "whatsapp_url": (
+                f"https://wa.me/{settings.CONTACT_WHATSAPP_ALT_NUMBER}?text={encoded}"
+            ),
+            "label": "Alternate",
+        },
+    ]
 
 
 def resolve_category(value: str):
@@ -157,9 +195,13 @@ def productinfo(request, prod_id, category_slug=None):
         blockDiagramUrl = find_block_diagram_url(
             galleryItems, mainimg=product.mainimgbasetxt
         )
-        # Absolute URL for About .txt branding (and share)
+        # Absolute URL for About .txt branding, share, and WhatsApp CTA prefill
         projectAbsoluteUrl = request.build_absolute_uri(
             f"/productinfo/{product.category_slug}/{product.prodid}/"
+        )
+        productCtaContactNumbers = build_product_cta_contact_numbers(
+            product.productname or "this project",
+            projectAbsoluteUrl,
         )
 
         seoKeywords.update(extractKeywords(product.productname))
@@ -190,6 +232,7 @@ def productinfo(request, prod_id, category_slug=None):
             "productYTlinks": productYTlinks,
             "productDocuments": productDocuments,
             "projectAbsoluteUrl": projectAbsoluteUrl,
+            "productCtaContactNumbers": productCtaContactNumbers,
             "seoKeywords": ", ".join(sorted(seoKeywords)),
             "product_category_slug": product.category_slug,
         }

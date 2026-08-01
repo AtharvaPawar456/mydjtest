@@ -61,7 +61,15 @@ class ProductMediaHelpersTests(TestCase):
         self.assertIn("Download Block Diagram", html)
         self.assertIn('id="components"', html)
         self.assertIn("downloadAboutTxt", html)
-        self.assertIn("text-white/85", html)  # CTA on-dark phone labels
+        self.assertIn("text-white/90", html)  # CTA on-dark phone labels
         self.assertIn("border-2 border-white", html)  # Call/WA white border on CTA
         self.assertIn("Payment Policy", html)
         self.assertIn("Step 1", html)
+        # Option A WhatsApp prefill includes project interest + URL
+        self.assertIn("wa.me/", html)
+        self.assertIn("I%27m%20interested%20in%20this%20project", html)
+        self.assertIn("Carousel%20Demo%20Project", html)
+        self.assertIn(f"productinfo/{product.category_slug}/{product.prodid}", html)
+        # Share project buttons
+        self.assertIn("share-project-btn", html)
+        self.assertIn("Share this project", html)
