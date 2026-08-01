@@ -115,3 +115,23 @@ Share buttons on product detail pages:
 3. Contact CTA band (below Call/WhatsApp)
 
 Behavior: `navigator.share` when available; else copy project URL + toast “Project link copied”.
+
+---
+
+## I3 — Update product 15 from rewritten concept (done)
+
+| Item | Detail |
+|------|--------|
+| Target | `http://127.0.0.1:8000/productinfo/hardware/15/` |
+| Source | `project-ideas/re-write-ideas/p15.txt` |
+| Loader | `python project-ideas/apply_rewrite_txt.py --file project-ideas/re-write-ideas/p15.txt --id 15 --category hardware` |
+| Updated | `productname`, `highlighttitle`, `prodtags`, `prodinfo` (~11.8k HTML) |
+| Kept | main image / gallery / documents / components |
+
+### Rewrite highlights applied (p15)
+
+- **Title:** Smart Pill Reminder and Automatic Medicine Dispensing System  
+- 7-day circular organizer, multi-slot schedule via mobile app  
+- Dual servo: rotate compartment + open lid  
+- Arduino Nano + ESP32, IoT server, acknowledgement button  
+- LED + buzzer alerts, transparent cover, PCB prototype framing

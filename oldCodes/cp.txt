@@ -178,6 +178,10 @@ also add share this project (link) button in appropriate sections of the project
 
 
 
+Task 10: I3:
+we have a rewritten project concept in given particular file location. So we need to update our website project according to this rewritten concept.
+http://127.0.0.1:8000/productinfo/hardware/15/
+re written concept: project-ideas\re-write-ideas\p15.txt
 
 
 
@@ -313,8 +317,15 @@ also add share this project (link) button in appropriate sections of the project
 
 
 
+Ultra realistic engineering college prototype, handmade electronics project, cardboard enclosure made from brown corrugated cardboard, brown dotted perfboard PCB, Arduino Nano, ESP32 development board, jumper wires, hot glue assembly, transparent acrylic medicine cover, seven medicine compartments, two SG90 servo motors, LEDs, piezo buzzer, tactile push button, 12v adaptor, DIY engineering prototype, clean laboratory photography, realistic materials, soft studio lighting, highly detailed, photorealistic, 8K, no text, no watermark, no labels, no dimensions.
 
 
+
+
+Professional blueprint technical drawing of the smart pill reminder prototype showing front, side, top and isometric views of the cardboard enclosure, seven medicine compartments, transparent acrylic cover, rotating dispensing mechanism, servo placement, PCB location and internal assembly, clean blue engineering drawing without dimensions or text.
+
+STYLE:
+Blueprint / Technical Drawing
 
 
 
@@ -353,7 +364,7 @@ Blueprint / Technical Drawing
 
 =================
 
-give me ai image generation 25 prompts for this project
+give me ai image generation 20 prompts for this project
 
 Note: product case should be cardboard style only, pcb will be brown dotted pcb
 

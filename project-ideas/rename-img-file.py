@@ -155,7 +155,7 @@ http://127.0.0.1:8000/productinfo/hardware/77/
 
 
 main Img :
-https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_77_Smart%20Wearable%20Navigation%20Assistant%20For%20Blind%20People/file_9.jpg
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_77_Smart%20Wearable%20Navigation%20Assistant%20For%20Blind%20People/file_17.jpg
 
 
 
@@ -165,5 +165,43 @@ other imgs :
 
 
 
+update gallery imgs:
+http://127.0.0.1:8000/productinfo/hardware/15/
+
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_10.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_11.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_12.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_13.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_14.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_15.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_16.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_17.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_18.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_19.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_2.jpeg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_20.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_3.jpeg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_4.png;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_5.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_6.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_7.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_8.jpg;
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_15_Smart_Pill_Reminder/file_9.jpg;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://raw.githubusercontent.com/AtharvaPawar456/hmp_assets/refs/heads/main/assets/project_data/hardware/_77_Smart%20Wearable%20Navigation%20Assistant%20For%20Blind%20People/file_17.jpg
 
 """
