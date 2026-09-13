@@ -1,2 +1,0 @@
-# Optional dependency for Task 8 project-detail generation (not required to run the site).
-ollama>=0.4.0

@@ -134,4 +134,24 @@ Behavior: `navigator.share` when available; else copy project URL + toast “Pro
 - 7-day circular organizer, multi-slot schedule via mobile app  
 - Dual servo: rotate compartment + open lid  
 - Arduino Nano + ESP32, IoT server, acknowledgement button  
-- LED + buzzer alerts, transparent cover, PCB prototype framing
+- LED + buzzer alerts, transparent cover, PCB prototype framing  
+
+---
+
+## I3 — Update product 70 from rewritten concept (done)
+
+| Item | Detail |
+|------|--------|
+| Target | `http://127.0.0.1:8000/productinfo/hardware/70/` |
+| Source | `project-ideas/re-write-ideas/p70.txt` |
+| Loader | `python project-ideas/apply_rewrite_txt.py --file project-ideas/re-write-ideas/p70.txt --id 70 --category hardware` |
+| Updated | `productname`, `highlighttitle`, `prodtags`, `prodinfo` (~12.6k HTML) |
+| Kept | main image / gallery / documents / components |
+
+### Rewrite highlights applied (p70)
+
+- **Title:** IoT-Based Smart Street Lighting Monitoring and Adaptive Control System  
+- Vehicle-triggered sequential street lamps (IR + LDR health)  
+- Arduino Nano control + ESP32 Wi-Fi / IoT  
+- Flask + SQLite server, mobile admin monitoring, fault detection  
+- Smart city / energy-efficient lighting prototype framing

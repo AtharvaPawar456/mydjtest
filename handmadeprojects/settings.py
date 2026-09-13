@@ -13,10 +13,27 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 import dj_database_url
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
+
+
+def _patch_composite_primary_key_for_libsql():
+    """django-libsql-backend 0.1.x imports CompositePrimaryKey (Django 5.2+)."""
+    from django.db import models as django_models
+
+    if not hasattr(django_models, "CompositePrimaryKey"):
+        class CompositePrimaryKey:
+            pass
+
+        django_models.CompositePrimaryKey = CompositePrimaryKey
+
+
+_patch_composite_primary_key_for_libsql()
 
 
 # Quick-start development settings - unsuitable for production
@@ -94,17 +111,52 @@ WSGI_APPLICATION = 'handmadeprojects.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+#
+# Default: Turso (libSQL) when TURSO_DATABASE_URL + TURSO_AUTH_TOKEN are set.
+# Fallback: local db.sqlite3. Tests always use Django's sqlite3 backend so they
+# never create/destroy a database on the cloud.
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+def _to_http_database_url(database_url: str) -> str:
+    """AWS Turso does not support WebSockets; libsql:// must be https://."""
+    if database_url.startswith("libsql://"):
+        return "https://" + database_url[len("libsql://"):]
+    if database_url.startswith("wss://"):
+        return "https://" + database_url[len("wss://"):]
+    return database_url
+
+
+def _is_running_tests() -> bool:
+    settings_module = os.environ.get("DJANGO_SETTINGS_MODULE", "")
+    if settings_module.endswith("settings_test"):
+        return True
+    return len(sys.argv) >= 2 and sys.argv[1] == "test"
+
+
+def _use_turso() -> bool:
+    if _is_running_tests():
+        return False
+    flag = os.environ.get("USE_TURSO", "1").strip().lower()
+    if flag in {"0", "false", "no", "off"}:
+        return False
+    return bool(
+        os.environ.get("TURSO_DATABASE_URL", "").strip()
+        and os.environ.get("TURSO_AUTH_TOKEN", "").strip()
+    )
+
+
+def _build_default_database() -> dict:
+    if _use_turso():
+        return {
+            "ENGINE": "django_libsql",
+            "NAME": _to_http_database_url(os.environ["TURSO_DATABASE_URL"].strip()),
+            "AUTH_TOKEN": os.environ["TURSO_AUTH_TOKEN"].strip(),
+            "OPTIONS": {"timeout": 30},
+        }
+    return dj_database_url.config(default="sqlite:///db.sqlite3")
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    "default": _build_default_database(),
 }
 
 
