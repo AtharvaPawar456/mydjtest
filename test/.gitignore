@@ -1,0 +1,6 @@
+output/
+__pycache__/
+*.pyc
+.env
+# Keep prompts + placeholders; optional local only if needed
+# project-ideas/ideas-*.json is intentional source content when filled

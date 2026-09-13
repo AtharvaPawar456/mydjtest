@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: handmadeprojects
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn handmadeprojects.wsgi:application"
+    staticPublishPath: staticfiles

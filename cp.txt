@@ -1,0 +1,9 @@
+
+
+First get an idea how this NeoDB works and just review this guide file, guidebook file. And now we need to do a complete migration as we have currently the SQLite, which is a flat file. So now we need to move all the data to this database so we can use an online database for our project. So this would be a transformation from SQLite to cloud database, would be a migration process. So properly do this.
+
+First create a proper detailed plan how we would be doing this complete DB migration and then start execution properly. So for the to-do list, also create a proper to-do list with the check marks so you get a proper track on how the status and the progress has been done. So you would be on a proper track.
+
+test\db-con-guide.py
+
+

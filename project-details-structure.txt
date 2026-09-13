@@ -1,0 +1,54 @@
+
+
+Problem Statement (60–80 words):
+
+(Clearly describe the real-world problem being addressed. Focus on its practical impact current challenges and why solving this problem is important from an engineering and societal perspective.)
+
+Background & Literature Context (120–150 words):
+
+(Briefly review existing systems methods or technologies related to the problem. Highlight their working approach and identify key limitations or gaps that justify the need for your solution.)
+
+Abstract (120–150 words):
+
+(Provide a compact overview of the project including its objective approach key technologies used and expected outcome. Keep it informative and precise without going into deep technical explanation.)
+
+Objectives (120–150 words):
+
+(Clearly define the goals of the project. Separate primary objectives from supporting objectives. Ensure they are specific measurable and aligned with the problem statement.)
+
+Motivation & Need (120–150 words):
+
+(Explain the reasoning behind selecting this project. Include technical relevance real-world demand and any observed gaps that motivated the development of this system.)
+
+Introduction (300–400 words):
+
+(Introduce the project in a structured manner. Cover the domain background importance of the problem and overall approach taken. Maintain a formal tone and avoid implementation-specific details.)
+
+
+Execution Summary (4 lines max 12 words each):
+
+(Summarize the execution approach in short direct and meaningful statements.)
+
+
+Features & Specifications
+Features & Functional Specifications:
+
+(List major features. For each feature provide a short but clear explanation (60–100 words) describing its function and practical benefit.)
+
+Keywords (16–32 terms):
+
+(Include relevant technical keywords that represent the domain technologies and application of the project.)
+
+Advantages (8–10 points):
+
+(List key strengths of the system in clear short statements.)
+
+Limitations (5–7 points):
+
+(Mention realistic constraints or areas where the system may not perform optimally.)
+
+Applications (6–10 points):
+
+(List practical scenarios where the system can be applied effectively.)
+
+

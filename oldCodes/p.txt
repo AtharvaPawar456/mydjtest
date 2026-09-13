@@ -1,0 +1,128 @@
+
+
+
+Task 1 : Plan 1st and same the todo items in Task File : ai-space\ai-suggestion\task-<number>.md 
+    I1 - understand the project and update the file : README.md
+    I2 - Scan for bugs and list them : ai-space\ai-suggestion\task-<number>.md also suggest its fix. 
+
+    I3 - only fix this bug:
+        - Broken redirect target
+        - Password validators never invoked at registration
+        - Unrestricted file upload handling
+        - except Exception swallows Http404
+        - Unhandled MultipleObjectsReturned
+        - Inconsistent base64 photo encoding - handle it properly
+        - Dead template blocks referencing non-existent model field
+        - Inconsistent URL scheme for earn-task detail : remove this section
+        - SQL injection pattern in migration script
+        - Stray uncommented text in script
+        -  Unused imports 
+        - Dead commented-out duplicate function
+        - order_by('?') performance antipattern
+        - login_url missing trailing slash
+        - Stale version comments
+        - CSRF-able GET-triggered admin toggles
+
+    I4 - improvements:
+        - keep sql filters optimized 
+        - dont reload the page every time, optimize the pages such that it dont reload entire page again again , but also gives user smooth usage experience
+        - where every needed optimize the code, without changing its end goal meaning.
+        - Re organize the files where every needed - properly 
+
+        - DO a DRY logical run to check anything is breaking, and fix the breaking things
+
+    I5 - SEO optimization:
+        - analyze and list the SEO optimization changes points as a todo list format.
+
+    I6 - SEO optimization - fix
+
+    I7 - testing:
+        - list all the routes in our web-app
+        - then check each one properly
+
+
+
+    I8 - understand this ideas and list them on our website properly : /projectdetails.txt, also add more according to our this shortlisting and properly format them according to our old listed project ideas 
+
+    I9 - Img Gen Prompt 
+    and regarding the project images , for now put the default image and for each ideas give me 4 ai img generating detailed proper prompts. save this prompt in file : ai-img-gen.txt - (idea title + prompt)
+
+
+Task 6 : Plan 1st and same the todo items in Task File : ai-space\ai-suggestion\task-<number>.md 
+    I1 - Plan this properly and fix this small changes:
+        - http://127.0.0.1:8000/ : put the hmp logo - [] HandMadeProjects
+        - improve UI/UI of http://127.0.0.1:8000/engineering-projects/
+        - improve UI/UI of http://127.0.0.1:8000/ourteam/
+        - improve UI/UI of http://127.0.0.1:8000/ourteam/profile/?name=<membername>
+        - make it like printrest , so no space will be wasted : http://127.0.0.1:8000/gallery/
+        - Show properly how to contact us : +91 81692 39027 , contact us via Call/Whatsapp for any query or for mentoring : http://127.0.0.1:8000/
+
+    I2 - put this img for new uploaded projects ideas : https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/refs/heads/main/siteimages/promoimg.png
+
+    I3 - small changes:
+        - improve UI/UI of http://127.0.0.1:8000/productlist/?productcat=<...projects> , ig make this also like printres style, so image will be shown properly 
+        - remove login from website , only admin login when needed, but dont keep login on our website 
+        - http://127.0.0.1:8000/contactus/ : remove this form, Show properly how to contact us : +91 81692 39027 , contact us via Call/Whatsapp for any query or for mentoring 
+
+    I4 : list down what all improvements need to be done in this website from code and user point of view, list them in task file only
+
+    I5 : fix only this listed points:
+    - Hardcoded username != 'atharva'
+
+
+Task 7 : Plan 1st and same the todo items in Task File : ai-space\tasks\task-<number>.md 
+    I1 : fix this points only:
+    - Contact phone number hardcoded in 6 separate templates (welcome.html, contactus.html, base.html, productlist.html, productinfo.html, affiliateInfo.html **Contact phone number hardcoded in 6 separate templates** (`welcome.html`, `contactus.html`, `base.html`, `productlist.html`, `productinfo.html`, `affiliateInfo.html`) — no single source of truth; a future number change means editing 6 files. Move to a settings constant + context processor, or a template include.
+
+
+    I2 : contact :
+    here also add the whatsapp button where after click open the whatsapp of our contact and they can query
+
+    I3 : remove this unwanted feature:
+    userdashboard, profile, add-to-favorites (and the UserDetails/UserFavProjects models behind them) are now dead-end features **`userdashboard`, `profile`, `add-to-favorites` (and the `UserDetails`/`UserFavProjects` models behind them) are now dead-end features** — since public registration/login was removed in I3.2, no visitor can ever reach them, and the site owner has no real reason to use a "user dashboard"/"favorites" screen meant for regular accounts. Worth a decision: repurpose, or remove this subsystem to cut maintenance surface.
+
+    I4: implement this and make a test-guide.md
+    No automated tests anywhere in the project (mainapp/tests.py **No automated tests anywhere in the project** (`mainapp/tests.py` is the default empty stub) — every verification this session (and in Task 5) was manual dry-run testing against a live dev server. Any future change risks silent regressions with nothing to catch them automatically.
+
+    I5 : 
+    Sitemap silently truncates at 2000 products / 1000 shops/interns/videos/accessories/AI-content (seo_views.py **Sitemap silently truncates at 2000 products / 1000 shops/interns/videos/accessories/AI-content** (`seo_views.py`) — not a real problem yet at current volume, but no warning fires when a table crosses the cap (Task 5 I5 SEO item #23, deferred).
+
+    I6: add it
+    No image-sitemap (<image:image>) extension **No image-sitemap (``) extension** despite an image-heavy catalog (Task 5 I5 SEO item #24, deferred — low value until the base64-image issue above is fixed).
+
+    I7: fix it
+    Broad except Exception blocks remain in many views (viewShop, viewAllShop, accessoriesProjects/accessoriesView, aicontentList/aicontentView, productinfo, productlist) — they already correctly return status=500 **Broad `except Exception` blocks remain in many views** (`viewShop`, `viewAllShop`, `accessoriesProjects`/`accessoriesView`, `aicontentList`/`aicontentView`, `productinfo`, `productlist`) — they already correctly return `status=500` now (Task 5 I6), but still swallow the real exception type; narrowing these to expected exception classes would make failures easier to diagnose.
+
+    I8: add it 
+    No pagination anywhere — productlist (87+ products and growing), allshops, internship_listing, aicontentlist, accessprodlist **No pagination anywhere** — `productlist` (87+ products and growing), `allshops`, `internship_listing`, `aicontentlist`, `accessprodlist` all load and render the entire result set in one response. Will get slow and unwieldy as the catalog keeps growing; needs pagination or infinite-scroll.
+
+    I9: improve it 
+     Inconsistent visual polish across the site — engineering-projects/, ourteam/, ourteam/profile/, gallery/, productlist/ were modernized this session (breadcrumbs, gradient cards, masonry), but accessprodlist.html, aicontentlist.html, accessprodview.html, aicontentview.html, video_player.html and active_earn_tasks.html **Inconsistent visual polish across the site** — `engineering-projects/`, `ourteam/`, `ourteam/profile/`, `gallery/`, `productlist/` were modernized this session (breadcrumbs, gradient cards, masonry), but `accessprodlist.html`, `aicontentlist.html`, `accessprodview.html`, `aicontentview.html`, `video_player.html` and `active_earn_tasks.html` still use the older plain Bootstrap-ish design language — the site now reads as visually two different eras.
+
+    I10: implement this
+
+    No lightbox/zoom on product gallery images (productinfo.html **No lightbox/zoom on product gallery images** (`productinfo.html`) — team/intern photos got a fullscreen lightbox earlier, but product gallery images just sit in a static grid with no way to view them larger.
+ 
+    I11:  implement this
+    No site-wide "back to top" on the now-longer masonry pages (/gallery/, /productlist/ **No site-wide "back to top"** on the now-longer masonry pages (`/gallery/`, `/productlist/`) — scrolling back up a long single-column masonry feed has no shortcut.
+ Header search only covers products **Header search only covers products** — there's no way to search interns, shops, team members, or accessories/AI-content from the global search box; visitors have to know which section to browse into first.
+ 
+    I12:  implement this
+    No floating/persistent Call-WhatsApp CTA on deeper pages (productinfo, shop, intern_profile, etc.) — the new Call/WhatsApp contact block only lives on the homepage and /contactus/ **No floating/persistent Call-WhatsApp CTA** on deeper pages (`productinfo`, `shop`, `intern_profile`, etc.) — the new Call/WhatsApp contact block only lives on the homepage and `/contactus/`; a visitor deep in a product page has to navigate away to find contact info.
+ 
+    I13:  implement this
+    No custom 404/500 error pages **No custom 404/500 error pages** — likely still Django's bare default templates, which would look jarringly off-brand compared to the rest of the redesigned site.
+ 
+    I14:  implement this
+    No cookie-consent / privacy-policy / terms page **No cookie-consent / privacy-policy / terms page**, despite the Ahrefs analytics script already running on every page load — a trust/compliance gap for a public-facing site.
+ 
+    I15:  implement this
+    No active-page highlighting in the nav — the header nav (base.html **No active-page highlighting in the nav** — the header nav (`base.html`) doesn't indicate which section the visitor is currently in.
+ 
+    I16:  implement this
+    No dark mode **No dark mode** — the whole site is light-theme only.
+ 
+    I17:  implement this
+    Inconsistent price formatting — raw {{ prodcost }}/{{ apsale }}/{{ aisale }} values are rendered directly (e.g. "₹{{ product.prodcost }}") with no thousands-separator formatting, so a price like 15000 **Inconsistent price formatting** — raw `{{ prodcost }}`/`{{ apsale }}`/`{{ aisale }}` values are rendered directly (e.g. "₹{{ product.prodcost }}") with no thousands-separator formatting, so a price like `15000` shows as "₹15000" instead of "₹15,000".
+
+

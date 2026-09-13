@@ -1,0 +1,163 @@
+IoT-Based Smart Street Lighting Monitoring and Adaptive Control System
+About This Project
+
+An IoT-enabled smart street lighting system that automatically controls street lamps based on vehicle movement while continuously monitoring lamp health, traffic activity, and street status through a custom IoT platform and mobile application.
+
+Tech
+
+ESP32, Arduino Nano, Arduino IDE, IR Sensors, LDR Sensors, LED Street Lamps, Relay Module, Flask, SQLite, Tailwind CSS, Mobile Application, Custom IoT Server, Wi-Fi Communication
+
+Abstract
+
+The IoT-Based Smart Street Lighting Monitoring and Adaptive Control System is an intelligent urban infrastructure solution developed to optimize street lighting, reduce energy consumption, and simplify maintenance operations. The system consists of a street model containing four LED street lamps, each equipped with a dedicated IR sensor for vehicle tracking and an individual LDR sensor for lamp health monitoring. An additional IR motion sensor positioned at the entrance of the street detects approaching vehicles and initiates intelligent sequential lighting.
+
+The embedded hardware utilizes an Arduino Nano for real-time sensor acquisition and street light control, while an ESP32 manages wireless communication between the hardware node, custom IoT server, and mobile monitoring application. As vehicles travel along the street, individual lamps illuminate sequentially based on sensor feedback, ensuring energy-efficient operation without compromising road visibility.
+
+Every ESP32 node is configured with its geographical location during installation, allowing each street to be uniquely identified on the monitoring platform. The system continuously uploads traffic activity, lamp status, fault conditions, and operational data to a custom Flask-based IoT server with an SQLite database. A mobile administration application enables authorized users to remotely monitor street conditions, identify faulty lamps, and perform maintenance planning efficiently. Designed as a scalable smart city prototype, the project integrates embedded systems, IoT communication, cloud monitoring, and intelligent fault detection into a unified street lighting management solution.
+
+Keywords
+
+Smart Street Lighting, IoT, ESP32, Arduino Nano, Smart City, Adaptive Street Lighting, Traffic Monitoring, Lamp Fault Detection, LDR Sensor, IR Sensor, Flask, SQLite, Mobile Monitoring, Embedded Systems, Energy Management, Infrastructure Automation, Smart Utilities
+
+Project Description
+
+Traditional street lighting systems operate continuously throughout the night regardless of traffic conditions, resulting in unnecessary energy consumption and increased operational costs. In addition, identifying faulty street lamps often requires manual inspection, making maintenance inefficient and time-consuming.
+
+This project introduces an IoT-Based Smart Street Lighting Monitoring and Adaptive Control System that intelligently controls street lights according to real-time vehicle movement while continuously monitoring lamp health and traffic activity.
+
+The demonstration model consists of four street lamps installed along a road segment. Each lamp contains an LED representing the street light, an individual IR sensor positioned near the lamp for vehicle tracking, and an LDR sensor placed to verify whether the lamp is actually producing light. Another IR motion sensor is installed at the entrance of the street to detect approaching vehicles.
+
+When a vehicle enters the street, the entrance IR sensor detects the movement and activates the lighting sequence. As the vehicle moves forward, the Arduino Nano continuously processes input from each IR sensor and turns ON the corresponding street lamp while turning OFF lamps that are no longer required. This sequential lighting mechanism minimizes unnecessary power consumption while maintaining safe visibility along the road.
+
+To ensure reliable maintenance, every street lamp includes an LDR sensor that continuously monitors the actual illumination produced by the LED. If the controller commands a lamp to turn ON but the LDR detects insufficient light, the system identifies the lamp as faulty and immediately reports the fault to the IoT platform. This enables maintenance personnel to identify defective lamps without performing manual inspections.
+
+The complete hardware communicates with a custom-developed IoT platform through an ESP32 module. The Arduino Nano manages all sensor inputs and output devices, while the ESP32 is dedicated to wireless communication, cloud synchronization, and data transmission.
+
+During installation, every ESP32 node is assigned its geographical location coordinates, allowing each street lighting controller to be uniquely identified on the monitoring dashboard. This enables administrators to easily locate the physical installation of each street and quickly identify the exact location of faulty lamps.
+
+A custom IoT server developed using Flask, SQLite, and Tailwind CSS stores all operational data, including traffic activity, lamp status, fault reports, and historical events. A dedicated mobile application provides administrators with real-time monitoring, allowing them to view street status, identify malfunctioning lamps, monitor traffic patterns, and plan maintenance activities efficiently.
+
+The complete system is designed as a modular PCB-based prototype combining embedded electronics, IoT communication, cloud infrastructure, and intelligent monitoring into a scalable smart city solution.
+
+Project Features
+Intelligent sequential street lighting based on vehicle movement
+Four independently controlled LED street lamps
+Individual IR sensor for each street lamp
+Entrance IR motion sensor for vehicle detection
+Automatic lamp ON/OFF sequence to reduce energy consumption
+Dedicated LDR sensor for each lamp to verify actual illumination
+Automatic faulty lamp detection using light feedback
+Arduino Nano for real-time hardware control
+ESP32 dedicated for IoT communication
+Wireless synchronization with custom IoT server
+Mobile application for remote street monitoring
+Real-time traffic activity monitoring
+Lamp fault notifications for maintenance personnel
+Geographical location assignment for every ESP32 node
+Street identification through location coordinates
+Historical traffic and lamp status logging
+Modular PCB-based architecture
+Scalable multi-street deployment
+Specifications
+Hardware Components
+ESP32 Development Board
+Arduino Nano
+Four IR Sensors
+One Entrance IR Motion Sensor
+Four LDR Sensors
+Four LED Street Lamps
+Relay Module / Driver Circuit
+Custom PCB
+Rechargeable Power Supply
+Power Management Circuit
+Connecting Wires and Mounting Hardware
+Software Components
+Arduino IDE
+Embedded C++
+ESP32 Communication Libraries
+Flask Framework
+SQLite Database
+Tailwind CSS
+Custom IoT Dashboard
+Mobile Monitoring Application
+REST API Services
+Report Contents
+Components List (BOM)
+Block Diagram
+Flow Chart
+System Architecture
+Hardware Design
+PCB Design
+Circuit Diagram
+Mobile Application Design
+IoT Server Architecture
+Database Design
+API Communication Flow
+Problem Statement
+Abstract
+Introduction
+Methodology
+Challenges and Solutions
+Performance Analysis
+Advantages
+Limitations
+Applications
+Future Scope
+Conclusion
+Output Images
+Project Deliverables
+Complete Hardware Prototype
+Custom PCB
+Embedded Source Code
+Mobile Application
+Flask-Based IoT Server
+Database
+API Documentation
+Circuit Diagram
+Project Report
+User Manual
+Installation Guide
+Demonstration Video
+Applications
+Smart city street lighting
+Municipal road infrastructure
+Residential society roads
+University and corporate campuses
+Industrial parks
+Highway service roads
+Smart township projects
+Traffic monitoring research
+Infrastructure maintenance systems
+Educational IoT and embedded engineering projects
+Advantages
+Reduces unnecessary electricity consumption
+Sequential lighting improves energy efficiency
+Automatic lamp fault detection without manual inspection
+Remote monitoring through mobile application
+Real-time traffic activity analysis
+GPS/location-aware street identification
+Faster maintenance planning through fault localization
+Modular hardware architecture for easy expansion
+Custom IoT platform for centralized management
+Product-oriented smart city prototype
+Limitations
+IR sensors may occasionally detect non-vehicle movement in certain environments.
+Wireless communication depends on available network connectivity.
+LDR calibration may require adjustment under varying environmental lighting conditions.
+Prototype demonstrates a four-lamp street model and requires additional hardware for larger deployments.
+Future Scope
+AI-based traffic flow prediction
+Adaptive brightness control based on traffic density
+Solar-powered street lighting integration
+Automatic maintenance scheduling
+SMS and push notifications for maintenance teams
+Multi-street centralized monitoring platform
+GIS map integration for live street visualization
+Environmental monitoring using additional sensors
+Energy consumption analytics dashboard
+Smart city infrastructure integration
+Conclusion
+
+The IoT-Based Smart Street Lighting Monitoring and Adaptive Control System demonstrates how embedded systems and IoT technologies can modernize urban lighting infrastructure through intelligent automation, real-time monitoring, and predictive maintenance. By combining sequential vehicle-responsive lighting with individual lamp health verification, the system not only reduces energy consumption but also minimizes maintenance effort by automatically identifying faulty street lamps.
+
+The separation of responsibilities between the Arduino Nano for real-time hardware control and the ESP32 for IoT communication improves system reliability and scalability. The integration of a custom Flask-based IoT server, SQLite database, Tailwind CSS dashboard, and mobile administration application provides centralized monitoring of traffic activity, lamp status, fault conditions, and street locations. With each street controller uniquely identified through predefined geographical coordinates, maintenance personnel can quickly locate and service faulty infrastructure. Developed as a modular PCB-based prototype, the project provides a strong foundation for future smart city deployments and demonstrates an efficient approach to intelligent street lighting management.

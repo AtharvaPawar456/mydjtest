@@ -1,0 +1,310 @@
+[
+  {
+    "n": 1,
+    "file": "ideas-01.json",
+    "prodid": 44,
+    "category_slug": "hardware",
+    "productname": "Smart Gas Leakage Detector with Safety Alert System"
+  },
+  {
+    "n": 2,
+    "file": "ideas-02.json",
+    "prodid": 45,
+    "category_slug": "hardware",
+    "productname": "Smart Plant Irrigation and Humidity Control System"
+  },
+  {
+    "n": 3,
+    "file": "ideas-03.json",
+    "prodid": 46,
+    "category_slug": "hardware",
+    "productname": "Smart Automatic Street Light System"
+  },
+  {
+    "n": 4,
+    "file": "ideas-04.json",
+    "prodid": 47,
+    "category_slug": "hardware",
+    "productname": "Smart 1-Axis Solar Tracker System"
+  },
+  {
+    "n": 5,
+    "file": "ideas-05.json",
+    "prodid": 48,
+    "category_slug": "hardware",
+    "productname": "Smart Dual-Axis Solar Tracker System"
+  },
+  {
+    "n": 6,
+    "file": "ideas-06.json",
+    "prodid": 49,
+    "category_slug": "hardware",
+    "productname": "Smart Touchless Water Dispenser"
+  },
+  {
+    "n": 7,
+    "file": "ideas-07.json",
+    "prodid": 50,
+    "category_slug": "hardware",
+    "productname": "Smart Water Level Indicator Using Arduino"
+  },
+  {
+    "n": 8,
+    "file": "ideas-08.json",
+    "prodid": 51,
+    "category_slug": "hardware",
+    "productname": "Smart Rain-Activated Car Wiper"
+  },
+  {
+    "n": 9,
+    "file": "ideas-09.json",
+    "prodid": 52,
+    "category_slug": "hardware",
+    "productname": "Smart Staircase Lighting System"
+  },
+  {
+    "n": 10,
+    "file": "ideas-10.json",
+    "prodid": 53,
+    "category_slug": "hardware",
+    "productname": "Mini Wireless Power Transfer Module"
+  },
+  {
+    "n": 11,
+    "file": "ideas-11.json",
+    "prodid": 54,
+    "category_slug": "hardware",
+    "productname": "LiFi Audio Transmission Mini System"
+  },
+  {
+    "n": 12,
+    "file": "ideas-12.json",
+    "prodid": 55,
+    "category_slug": "hardware",
+    "productname": "BLE-Controlled Smart Car Using ESP32"
+  },
+  {
+    "n": 13,
+    "file": "ideas-13.json",
+    "prodid": 57,
+    "category_slug": "hardware",
+    "productname": "AI-Based Smart Medicine Reminder and Dispensing System"
+  },
+  {
+    "n": 14,
+    "file": "ideas-14.json",
+    "prodid": 58,
+    "category_slug": "hardware",
+    "productname": "AI-Based Fall Detection and Alert System for Senior Citizens"
+  },
+  {
+    "n": 15,
+    "file": "ideas-15.json",
+    "prodid": 59,
+    "category_slug": "hardware",
+    "productname": "Smart Respiratory Monitoring System using IoT Sensors"
+  },
+  {
+    "n": 16,
+    "file": "ideas-16.json",
+    "prodid": 60,
+    "category_slug": "hardware",
+    "productname": "Smart Soil Quality Analysis and Automated Fertilizer Recommendation System"
+  },
+  {
+    "n": 17,
+    "file": "ideas-17.json",
+    "prodid": 61,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Smart Greenhouse Monitoring and Climate Control System"
+  },
+  {
+    "n": 18,
+    "file": "ideas-18.json",
+    "prodid": 62,
+    "category_slug": "hardware",
+    "productname": "Automated Seed Sowing Robot for Precision Farming"
+  },
+  {
+    "n": 19,
+    "file": "ideas-19.json",
+    "prodid": 63,
+    "category_slug": "hardware",
+    "productname": "Smart Agricultural Weather Prediction and Decision Support System"
+  },
+  {
+    "n": 20,
+    "file": "ideas-20.json",
+    "prodid": 64,
+    "category_slug": "hardware",
+    "productname": "Smart Kitchen Safety Monitoring and Automation System"
+  },
+  {
+    "n": 21,
+    "file": "ideas-21.json",
+    "prodid": 65,
+    "category_slug": "hardware",
+    "productname": "Smart Waste Segregation System for Residential Applications"
+  },
+  {
+    "n": 22,
+    "file": "ideas-22.json",
+    "prodid": 66,
+    "category_slug": "hardware",
+    "productname": "Smart Water Consumption Monitoring System for Homes"
+  },
+  {
+    "n": 23,
+    "file": "ideas-23.json",
+    "prodid": 67,
+    "category_slug": "hardware",
+    "productname": "Autonomous Fire Detection and Rescue Robot"
+  },
+  {
+    "n": 24,
+    "file": "ideas-24.json",
+    "prodid": 68,
+    "category_slug": "hardware",
+    "productname": "Hybrid Renewable Energy Monitoring and Control System"
+  },
+  {
+    "n": 25,
+    "file": "ideas-25.json",
+    "prodid": 69,
+    "category_slug": "hardware",
+    "productname": "Smart Parking Slot Detection and Reservation System"
+  },
+  {
+    "n": 26,
+    "file": "ideas-26.json",
+    "prodid": 70,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Smart Street Lighting with Adaptive Control"
+  },
+  {
+    "n": 27,
+    "file": "ideas-27.json",
+    "prodid": 71,
+    "category_slug": "hardware",
+    "productname": "Smart Pollution Monitoring and Prediction System"
+  },
+  {
+    "n": 28,
+    "file": "ideas-28.json",
+    "prodid": 72,
+    "category_slug": "hardware",
+    "productname": "Automated Inventory Management System using RFID and IoT"
+  },
+  {
+    "n": 29,
+    "file": "ideas-29.json",
+    "prodid": 73,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Noise Pollution Monitoring System"
+  },
+  {
+    "n": 30,
+    "file": "ideas-30.json",
+    "prodid": 74,
+    "category_slug": "hardware",
+    "productname": "Smart Forest Fire Detection and Alert System"
+  },
+  {
+    "n": 31,
+    "file": "ideas-31.json",
+    "prodid": 75,
+    "category_slug": "hardware",
+    "productname": "Smart RFID-Based Attendance and Access Management System"
+  },
+  {
+    "n": 32,
+    "file": "ideas-32.json",
+    "prodid": 76,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Smart Locker System with Remote Access"
+  },
+  {
+    "n": 33,
+    "file": "ideas-33.json",
+    "prodid": 77,
+    "category_slug": "hardware",
+    "productname": "Smart Wearable Navigation Assistant for Blind People"
+  },
+  {
+    "n": 34,
+    "file": "ideas-34.json",
+    "prodid": 78,
+    "category_slug": "hardware",
+    "productname": "Smart IV Drip Rate Monitoring and Alert System"
+  },
+  {
+    "n": 35,
+    "file": "ideas-35.json",
+    "prodid": 79,
+    "category_slug": "hardware",
+    "productname": "Wearable Health Vitals Monitoring Band with Emergency SOS"
+  },
+  {
+    "n": 36,
+    "file": "ideas-36.json",
+    "prodid": 80,
+    "category_slug": "hardware",
+    "productname": "Automated Poultry Farm Climate and Feed Monitoring System"
+  },
+  {
+    "n": 37,
+    "file": "ideas-37.json",
+    "prodid": 81,
+    "category_slug": "hardware",
+    "productname": "Smart Drip Irrigation Control System based on Soil Moisture and Weather Forecast"
+  },
+  {
+    "n": 38,
+    "file": "ideas-38.json",
+    "prodid": 82,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Smart Fire Extinguisher Cabinet with Auto Alert"
+  },
+  {
+    "n": 39,
+    "file": "ideas-39.json",
+    "prodid": 83,
+    "category_slug": "hardware",
+    "productname": "Smart Home Intrusion Detection and Automated Response System"
+  },
+  {
+    "n": 40,
+    "file": "ideas-40.json",
+    "prodid": 84,
+    "category_slug": "hardware",
+    "productname": "Solar-Powered Smart Dustbin with Fill-Level Monitoring"
+  },
+  {
+    "n": 41,
+    "file": "ideas-41.json",
+    "prodid": 85,
+    "category_slug": "hardware",
+    "productname": "IoT-Based Smart Helmet for Rider Safety and Accident Alert"
+  },
+  {
+    "n": 42,
+    "file": "ideas-42.json",
+    "prodid": 86,
+    "category_slug": "hardware",
+    "productname": "Smart Library Book Tracking and Automated Return System using RFID"
+  },
+  {
+    "n": 43,
+    "file": "ideas-43.json",
+    "prodid": 87,
+    "category_slug": "hardware",
+    "productname": "AI-Based Smart Traffic Signal Control System for Congestion Management"
+  },
+  {
+    "n": 44,
+    "file": "ideas-44.json",
+    "prodid": 56,
+    "category_slug": "simulation",
+    "productname": "Automated Parking Gate Controller"
+  }
+]

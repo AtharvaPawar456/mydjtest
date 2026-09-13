@@ -1,0 +1,62 @@
+{% extends "systemsetup/base.html" %}
+
+{% block title %}Privacy Policy | HandMadeProjects{% endblock %}
+{% block metaDescription %}How HandMadeProjects collects, uses and protects your information.{% endblock %}
+
+{% block content %}
+<nav class="flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+  <a href="{% url 'welcome' %}" class="hover:text-brand-600">Home</a>
+  <span>/</span>
+  <span class="text-slate-900 dark:text-white dark:text-slate-100 font-medium">Privacy Policy</span>
+</nav>
+
+<div class="max-w-3xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-700 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-10 space-y-6 text-slate-700 dark:text-slate-200 dark:text-slate-300 leading-relaxed">
+  <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">Privacy Policy</h1>
+  <p class="text-sm text-slate-500 dark:text-slate-400">Last updated: 2026</p>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">What we collect</h2>
+    <p>
+      HandMadeProjects does not require visitor accounts, logins, or registration to browse the site.
+      We use privacy-respecting analytics (Ahrefs Web Analytics) to understand aggregate traffic patterns
+      such as page views and referral sources. This analytics script may set cookies in your browser.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">How we use it</h2>
+    <p>
+      Aggregate analytics data helps us understand which pages and projects are most useful to visitors,
+      so we can improve the catalog and site experience. We do not sell or share personal data with third
+      parties for advertising purposes.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Contact information you share with us</h2>
+    <p>
+      If you reach out via Call or WhatsApp using the contact details on this site, any information you
+      choose to share (your name, project requirements, etc.) is used solely to respond to your query and
+      is not shared with third parties.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Cookies</h2>
+    <p>
+      We use a small "cookie consent" preference stored in your browser's local storage to remember that
+      you've acknowledged this policy, plus your dark/light theme preference. Neither is shared with us or
+      any third party — they stay in your browser.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Questions</h2>
+    <p>
+      For any privacy questions, contact us at
+      {% include "systemsetup/_contact_phone_links.html" %}
+      or <a href="mailto:handmadeprojects2022@gmail.com" class="text-brand-600 dark:text-brand-400 font-semibold">handmadeprojects2022@gmail.com</a>.
+    </p>
+  </section>
+</div>
+{% endblock %}
